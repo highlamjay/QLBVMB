@@ -1,0 +1,15 @@
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe.config
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.pdb
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.AssemblyReference.cache
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\MainWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\App.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.cache
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.lref
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\MainWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.g.resources
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.Properties.Resources.resources
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.GenerateResource.cache
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInputs.cache
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
