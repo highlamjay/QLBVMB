@@ -9,6 +9,5 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="400,217,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="182,187,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
