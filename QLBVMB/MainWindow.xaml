@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:QLBVMB"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        
-        Title="MainWindow" Height="450" Width="800">
+        DataContext="{StaticResource MainVM}"
+        Title="Phần mềm quản lý bán vé máy bay" Height="450" Width="800">
     <Grid>
         
     </Grid>
 </Window>
+s

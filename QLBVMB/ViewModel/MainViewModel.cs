@@ -9,9 +9,12 @@ namespace QLBVMB.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        public bool IsLoaded = false;
         public MainViewModel()
         {
-            MessageBox.Show("Đã vào trong MainViewModel");
+            IsLoaded = true;
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.ShowDialog();
         }
 
     }

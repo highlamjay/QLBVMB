@@ -23,3 +23,7 @@ D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.xml
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\App.baml
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\LoginWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\LoginWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\ResourceXAML\MainResource.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\GeneratedInternalTypeHelper.g.cs
