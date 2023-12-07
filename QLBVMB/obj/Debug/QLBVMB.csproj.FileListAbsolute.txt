@@ -13,3 +13,13 @@ D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.GenerateResource.cache
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInputs.cache
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.dll
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.dll
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.pdb
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.xml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\App.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
