@@ -9,7 +9,6 @@
         DataContext="{StaticResource MainVM}"
         Title="Phần mềm quản lý bán vé máy bay" Height="450" Width="800">
     <Grid>
-        
+
     </Grid>
 </Window>
-s
