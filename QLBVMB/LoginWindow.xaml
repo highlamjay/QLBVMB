@@ -56,7 +56,8 @@
                             Style="{StaticResource MaterialDesignRaisedButton}"    
                             Width="110"    
                             Background="OrangeRed"
-                            ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát"></Button>
+                            ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát"
+                            Click="Button_Click"></Button>
                 </Grid>
             </Grid>
         </materialDesign:Card>
