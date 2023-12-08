@@ -15,7 +15,11 @@ namespace QLBVMB.ViewModel
             IsLoaded = true;
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
+           
+            
+          
         }
+        
 
     }
 }

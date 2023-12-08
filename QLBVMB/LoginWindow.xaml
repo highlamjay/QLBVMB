@@ -20,6 +20,11 @@
         Name="loginWindow"
         Title="Đăng nhập" Height="330" Width="400">
     <Grid>
+        <Canvas>
+            <Button x:Name="btnClose" Click="btnClose_Click" Height="30" Width="60" FontSize="15" Canvas.Top="0" Canvas.Right="0">X</Button>
+            <Button x:Name="btnMaximize" Click="btnMaximize_Click" Height="30" Width="60" FontSize="15" Canvas.Top="0" Canvas.Right="60" FontFamily="Webdings">1</Button>
+            <Button x:Name="btnMinimize" Click="btnMinimize_Click" Height="30" Width="60" FontSize="15" Canvas.Top="0" Canvas.Right="120">_</Button>
+        </Canvas>
         <Image Source="D:\QLBVMB\QLBVMB\QLBVMB\Image\logo_login.jpg" Stretch="Uniform"/>
         <Grid Width="330" Height="200">
             <Border BorderBrush="#FFE1F4FA" BorderThickness="0.5" CornerRadius="10" >

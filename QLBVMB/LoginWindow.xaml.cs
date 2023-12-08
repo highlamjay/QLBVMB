@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLBVMB.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,27 @@ namespace QLBVMB
     /// </summary>
     public partial class LoginWindow : Window
     {
+        TheControl_Login login = new TheControl_Login();
         public LoginWindow()
         {
             InitializeComponent();
+            TheControl_Login.SetIntials(this);
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            login.Minimize(this);
+        }
+
+        private void btnMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            login.DoMaximize(this,btn);
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            login.Exit(this);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
