@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        public bool IsLoaded = false;
+        public bool Isloaded = false;
+        public ICommand LoadedWindowCommand { get; set; }
         public MainViewModel()
         {
-            IsLoaded = true;
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.ShowDialog();
-           
-            
-          
+            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+                Isloaded = true;
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+            }
+              );
         }
-        
-
     }
 }

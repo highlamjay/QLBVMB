@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLBVMB"
+        xmlns:uc="clr-namespace:QLBVMB.User_control"
         mc:Ignorable="d"
+        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -20,66 +22,51 @@
         Name="loginWindow"
         Title="Đăng nhập" Height="330" Width="400">
     <Grid>
-        <Canvas>
-            <Button x:Name="btnClose" Click="btnClose_Click" Height="30" Width="60" FontSize="15" Canvas.Top="0" Canvas.Right="0">X</Button>
-            <Button x:Name="btnMaximize" Click="btnMaximize_Click" Height="30" Width="60" FontSize="15" Canvas.Top="0" Canvas.Right="60" FontFamily="Webdings">1</Button>
-            <Button x:Name="btnMinimize" Click="btnMinimize_Click" Height="30" Width="60" FontSize="15" Canvas.Top="0" Canvas.Right="120">_</Button>
-        </Canvas>
-        <Image Source="D:\QLBVMB\QLBVMB\QLBVMB\Image\logo_login.jpg" Stretch="Uniform"/>
-        <Grid Width="330" Height="200">
-            <Border BorderBrush="#FFE1F4FA" BorderThickness="0.5" CornerRadius="10" >
-                
-                <materialDesign:Card Grid.Row="1"
-                      
-                     HorizontalAlignment="Center" VerticalAlignment="Center" 
-                     Background="Transparent"
-                     >
-                    <Grid>
-                        <Grid.Resources>
-                            <Style TargetType="Grid">
-                                <Setter Property="Margin" Value="15 0 15 0"></Setter>
-                            </Style>
-                        </Grid.Resources>
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập" 
-                                    
-                                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                        </Grid>
-                        <Grid Grid.Row="1">
-                            <PasswordBox x:Name="FloatingPasswordBox"
-                                         
-                                    materialDesign:HintAssist.Hint="Mật khẩu"
-                                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                        </Grid>
-                        <Grid Grid.Row="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-
-                            <Button Grid.Column="0"    
-                    Style="{StaticResource MaterialDesignRaisedButton}"    
-                    Width="110"    
-                    Margin="0 15 5 0"             
-                    Background="DodgerBlue"                
-                    ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đăng nhập"></Button>
-                            <Button Grid.Column="1"    
-                    Style="{StaticResource MaterialDesignRaisedButton}"    
-                    Width="110"    
-                    Background="OrangeRed"
-                    Margin="5 15 0 0"  
-                    ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát"
-                    Click="Button_Click"></Button>
-                        </Grid>
-                    </Grid>
-                </materialDesign:Card>
-            </Border>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC ></uc:ControlBarUC>
         </Grid>
+        <materialDesign:Card Grid.Row="1" Width="330" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin" Value="15 0 15 0"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </Grid>
+                <Grid Grid.Row="1">
+                    <PasswordBox x:Name="FloatingPasswordBox"
+                                 materialDesign:HintAssist.Hint="Mật khẩu"
+                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
 
+                    <Button Grid.Column="0"    
+                            Style="{StaticResource MaterialDesignRaisedButton}"    
+                            Width="110"    
+                            ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đăng nhập"></Button>
+                    <Button Grid.Column="1"    
+                            Style="{StaticResource MaterialDesignRaisedButton}"    
+                            Width="110"    
+                            Background="OrangeRed"
+                            ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát"></Button>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
     </Grid>
 </Window>

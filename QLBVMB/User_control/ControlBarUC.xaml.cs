@@ -11,18 +11,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QLBVMB
+namespace QLBVMB.User_control
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for ControlBarUC.xaml
     /// </summary>
-    public partial class LoginWindow : Window
-    {      
-        public LoginWindow()
+    public partial class ControlBarUC : UserControl
+    {
+        public ControlBarUC()
         {
             InitializeComponent();
+            this.DataContext = Viewmodel = new ControlBarViewModel();
         }
     }
 }
