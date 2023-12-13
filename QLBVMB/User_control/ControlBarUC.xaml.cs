@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace QLBVMB.User_control
 {
-    /// <summary>
-    /// Interaction logic for ControlBarUC.xaml
-    /// </summary>
+
     public partial class ControlBarUC : UserControl
     {
         public ControlBarUC()
