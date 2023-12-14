@@ -36,7 +36,7 @@ namespace QLBVMB.ViewModel
                 {
                     if (w.WindowState != WindowState.Maximized)
                     {
-                        w.WindowState = WindowState.Maximized;
+                        w.WindowState = WindowState.Maximized;                   
                     }
                     else
                         w.WindowState = WindowState.Normal;
