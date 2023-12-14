@@ -56,5 +56,21 @@ C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInp
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\UserControl\ControlBarUC.g.cs
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\AirportWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\AirportWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\BillWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\FlightWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\UserWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\BillWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\FlightWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\UserWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\TicketWindow.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\TicketWindow.baml

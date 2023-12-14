@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\QLBVMB\QLBVMB\QLBVMB\App.xaml
-42039513550
+12-360527636
 
-112021128679
+18-1858584577
 16-1500582294
-LoginWindow.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;User_control\ControlBarUC.xaml;
+AirportWindow.xaml;BillWindow.xaml;CustomerWindow.xaml;FlightWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PlaneWindow.xaml;ResourceXAML\MainResource.xaml;StatisticalWindow.xaml;TicketWindow.xaml;UserWindow.xaml;User_control\ControlBarUC.xaml;
 
-True
+False
 

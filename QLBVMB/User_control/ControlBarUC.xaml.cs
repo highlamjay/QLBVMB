@@ -24,5 +24,7 @@ namespace QLBVMB.User_control
             InitializeComponent();
             this.DataContext = Viewmodel = new ControlBarViewModel();
         }
+
+        public ControlBarViewModel Viewmodel { get; set; }
     }
 }

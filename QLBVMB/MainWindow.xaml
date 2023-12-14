@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLBVMB"
-        mc:Ignorable="d"
-        
+        mc:Ignorable="d"    
+             
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:uc ="clr-namespace:QLBVMB.User_control"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -22,7 +22,7 @@
         
         Name="mainWindow"
         DataContext="{StaticResource MainVM}"
-        Title="Phần mềm quản lý bán vé máy bay" Height="500" Width="525">
+        Title="Phần mềm quản lý bán vé máy bay" Height="500" Width="700">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
@@ -35,6 +35,146 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!--menu-->
+            <Grid Grid.Column="0">
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="Transparent">
+                    <Grid.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="2 4 2 4"></Setter>
+                            <Setter Property="Background" Value="LightCyan"></Setter>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Command="{Binding TicketCommand}" Grid.Row="0" ToolTip="Đặt vé">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Đặt vé" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="24" Height="24"  Kind="Ticket" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding CustomerCommand}" Grid.Row="1" ToolTip="Khách hàng">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Khách hàng" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="24" Height="24"  Kind="HumanHandsup" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding AirportCommand}" Grid.Row="2" ToolTip="Sân bay">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Sân bay" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Airport" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding PlaneCommand}" Grid.Row="3" ToolTip="Máy bay">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Máy bay" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Airplane" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding FlightCommand}" Grid.Row="4" ToolTip="Chuyến bay">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Chuyến bay" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="AirplaneMarker" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding BillCommand}" Grid.Row="5" ToolTip="Hóa đơn">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Hóa đơn" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="BadgeAccountHorizontal" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding StatisticalCommand}" Grid.Row="6" ToolTip="Thống kê">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Thống kê" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="ChartLine" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Command="{Binding UserCommand}" Grid.Row="7" ToolTip="Người dùng">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Người dùng" HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Account" />
+                            </Grid>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

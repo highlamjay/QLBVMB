@@ -12,6 +12,14 @@ namespace QLBVMB.ViewModel
     {
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
+        public ICommand CustomerCommand { get; set; }
+        public ICommand AirportCommand { get; set; }
+        public ICommand PlaneCommand { get; set; }
+        public ICommand FlightCommand { get; set; }
+        public ICommand UserCommand { get; set; }
+        public ICommand BillCommand { get; set; }
+        public ICommand StatisticalCommand { get; set; }
+        public ICommand TicketCommand { get; set; }
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
@@ -20,6 +28,15 @@ namespace QLBVMB.ViewModel
                 loginWindow.ShowDialog();
             }
               );
+
+            CustomerCommand = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerWindow wd = new CustomerWindow(); wd.ShowDialog(); });
+            AirportCommand = new RelayCommand<object>((p) => { return true; }, (p) => { AirportWindow wd = new AirportWindow(); wd.ShowDialog(); });
+            PlaneCommand = new RelayCommand<object>((p) => { return true; }, (p) => { PlaneWindow wd = new PlaneWindow(); wd.ShowDialog(); });
+            FlightCommand = new RelayCommand<object>((p) => { return true; }, (p) => { FlightWindow wd = new FlightWindow(); wd.ShowDialog(); });
+            BillCommand = new RelayCommand<object>((p) => { return true; }, (p) => { BillWindow wd = new BillWindow(); wd.ShowDialog(); });
+            UserCommand = new RelayCommand<object>((p) => { return true; }, (p) => { UserWindow wd = new UserWindow(); wd.ShowDialog(); });
+            StatisticalCommand = new RelayCommand<object>((p) => { return true; }, (p) => { StatisticalWindow wd = new StatisticalWindow(); wd.ShowDialog(); });
+            TicketCommand = new RelayCommand<object>((p) => { return true; }, (p) => { TicketWindow wd = new TicketWindow(); wd.ShowDialog(); });
         }
     }
 }
