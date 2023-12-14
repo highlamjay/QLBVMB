@@ -24,7 +24,7 @@
         
         Name="mainWindow"
         DataContext="{StaticResource MainVM}"
-        Title="Phần mềm quản lý bán vé máy bay" Height="500" Width="700">
+        Title="Phần mềm quản lý bán vé máy bay" Height="500" Width="1000">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}"/>
@@ -50,19 +50,19 @@
                         </Style>
                     </TabControl.Resources>
                     <TabItem>
-                        <TabItem.Header >
+                        <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"
                                                             Height="24"
                                                             HorizontalAlignment="Center"
-                                                            Kind="Folder" />
-                                <TextBlock HorizontalAlignment="Center" Text="All Files" />
+                                                            Kind="HumanHandsup" />
+                                <TextBlock HorizontalAlignment="Center" Text="Khách hàng" />
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <materialDesign:Card Grid.Row="0" Margin="5">
@@ -77,7 +77,7 @@
                                 </WrapPanel>
                             </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Row="1" Margin="5">
+                            <materialDesign:Card Grid.Row="1"  Margin="5">
                                 <WrapPanel>
                                     <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
                                     <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
@@ -106,161 +106,348 @@
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-          Width="auto"
-          Height="auto">
-                                <materialDesign:PackIcon
-            Width="24"
-            Height="24"
-            HorizontalAlignment="Center"
-            Kind="ClockOutline" />
-                                <TextBlock
-            HorizontalAlignment="Center"
-            Text="Recent" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Airport" />
+                                <TextBlock HorizontalAlignment="Center" Text="Sân bay" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-        <Run
-          Text="tab 2 content. Default look and behaviors." />
-        <LineBreak />
-        <LineBreak />
-        <Run
-          FontStyle="Italic">
-        Praesent sed dui arcu. Vivamus porta auctor sagittis
-      </Run>
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                
+                            </Grid.RowDefinitions>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Locate.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã địa điểm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên sân bay" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã địa điểm" DisplayMemberBinding="{Binding Locate.Id}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
+                        </Grid>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-          Width="auto"
-          Height="auto">
-                                <materialDesign:PackIcon
-            Width="24"
-            Height="24"
-            HorizontalAlignment="Center"
-            Kind="Images" />
-                                <TextBlock
-            HorizontalAlignment="Center"
-            Text="Photos" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Airplane" />
+                                <TextBlock HorizontalAlignment="Center" Text="Máy bay" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-        <Run
-          Text="tab 3 content. Default look and behaviors." />
-        <LineBreak />
-        <LineBreak />
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBox Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Type_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Hãng máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Plane}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên máy bay" DisplayMemberBinding="{Binding Type_Plane}"></GridViewColumn>
+                                                <GridViewColumn Header="Hãng máy bay" DisplayMemberBinding="{Binding Brand}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
+                        </Grid>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-  Width="auto"
-  Height="auto">
-                                <materialDesign:PackIcon
-    Width="24"
-    Height="24"
-    HorizontalAlignment="Center"
-    Kind="Images" />
-                                <TextBlock
-    HorizontalAlignment="Center"
-    Text="Photos" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24"
+                                    Height="24"
+                                    HorizontalAlignment="Center"
+                                    Kind="AirplaneMarker" />
+                                <TextBlock HorizontalAlignment="Center" Text="Chuyến bay" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-<Run
-  Text="tab 3 content. Default look and behaviors." />
-<LineBreak />
-<LineBreak />
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBox Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Plane.Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Airport.Id_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã khởi hành" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Airport.Id_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã đến" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
+                                                <GridViewColumn Header="Id-Plane" DisplayMemberBinding="{Binding Plane.Id_Plane}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã sân bay cất cánh" DisplayMemberBinding="{Binding Airport.Id_Airport}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã sân bay hạ cánh" DisplayMemberBinding="{Binding Airport.Id_Airport}"></GridViewColumn>
+                                                <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding Time_Star}"></GridViewColumn>
+                                                <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding Time_End}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
+                        </Grid>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-  Width="auto"
-  Height="auto">
-                                <materialDesign:PackIcon
-    Width="24"
-    Height="24"
-    HorizontalAlignment="Center"
-    Kind="Images" />
-                                <TextBlock
-    HorizontalAlignment="Center"
-    Text="Photos" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24"
+                                    Height="24"
+                                    HorizontalAlignment="Center"
+                                    Kind="Ticket" />
+                                <TextBlock HorizontalAlignment="Center" Text="Vé" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-<Run
-  Text="tab 3 content. Default look and behaviors." />
-<LineBreak />
-<LineBreak />
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Flight.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Seat.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Trạng thái" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Flight.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã ghế" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Loại vé" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                                                <GridViewColumn Header="Giá tiền" DisplayMemberBinding="{Binding Price}"></GridViewColumn>
+                                                <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
+                        </Grid>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-  Width="auto"
-  Height="auto">
-                                <materialDesign:PackIcon
-    Width="24"
-    Height="24"
-    HorizontalAlignment="Center"
-    Kind="Images" />
-                                <TextBlock
-    HorizontalAlignment="Center"
-    Text="Photos" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24"
+                                    Height="24"
+                                    HorizontalAlignment="Center"
+                                    Kind="CurrencyUsd" />
+                                <TextBlock HorizontalAlignment="Center" Text="Hóa đơn" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-<Run
-  Text="tab 3 content. Default look and behaviors." />
-<LineBreak />
-<LineBreak />
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding FindCommand}" Content="Tìm kiếm" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Id-Plane" DisplayMemberBinding="{Binding Plane.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã sân bay cất cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã sân bay hạ cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
+                                                <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding TimeEnd}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
+                        </Grid>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-  Width="auto"
-  Height="auto">
-                                <materialDesign:PackIcon
-    Width="24"
-    Height="24"
-    HorizontalAlignment="Center"
-    Kind="Images" />
-                                <TextBlock
-    HorizontalAlignment="Center"
-    Text="Photos" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24"
+                                    Height="24"
+                                    HorizontalAlignment="Center"
+                                    Kind="ChartLine" />
+                                <TextBlock HorizontalAlignment="Center" Text="Thống kê" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-<Run
-  Text="tab 3 content. Default look and behaviors." />
-<LineBreak />
-<LineBreak />
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Plane.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Airport.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã khởi hành" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Airport.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã đến" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding TimeStart}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding TimeEnd}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Id-Plane" DisplayMemberBinding="{Binding Plane.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã sân bay cất cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã sân bay hạ cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
+                                                <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding TimeEnd}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
+                        </Grid>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-          Width="auto"
-          Height="auto">
-                                <materialDesign:PackIcon
-            Width="24"
-            Height="24"
-            HorizontalAlignment="Center"
-            Kind="MusicBoxMultiple" />
-                                <TextBlock
-            HorizontalAlignment="Center"
-            Text="Sounds" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24"
+                                    Height="24"
+                                    HorizontalAlignment="Center"
+                                    Kind="User" />
+                                <TextBlock HorizontalAlignment="Center" Text="Người dùng" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-        <Run
-          Text="tab 4 content. Default look and behaviors." />
-        <LineBreak />
-        <LineBreak />
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBox Text="{Binding Id_Account, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <ComboBox Margin="5 5 15 5" ItemsSource="{Binding Position}" SelectedItem="{Binding SelectedRole, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Quyền" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên hiển thị" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding ChangePasswordCommand}" Content="Đổi pass" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Account}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên đăng nhập" DisplayMemberBinding="{Binding Username}"></GridViewColumn>
+                                                <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding Password}"></GridViewColumn>
+                                                <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding Position}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên hiển thị" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
+                        </Grid>
                     </TabItem>
                 </TabControl>
             </materialDesign:Card>
