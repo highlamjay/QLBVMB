@@ -39,144 +39,232 @@
             <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}"></uc:ControlBarUC>
         </Grid>
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
 
-            <!--menu-->
-            <Grid Grid.Column="0">
-                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="Transparent">
-                    <Grid.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Margin" Value="2 4 2 4"></Setter>
-                            <Setter Property="Background" Value="LightCyan"></Setter>
+            <materialDesign:Card>
+                <TabControl VerticalContentAlignment="Bottom"
+                            materialDesign:ColorZoneAssist.Mode="PrimaryMid"
+                            Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                    <TabControl.Resources>
+                        <Style TargetType="TabItem">
+                       
                         </Style>
-                    </Grid.Resources>
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Button Command="{Binding TicketCommand}" Grid.Row="0" ToolTip="Đặt vé">
+                    </TabControl.Resources>
+                    <TabItem>
+                        <TabItem.Header >
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24"
+                                                            Height="24"
+                                                            HorizontalAlignment="Center"
+                                                            Kind="Folder" />
+                                <TextBlock HorizontalAlignment="Center" Text="All Files" />
+                            </StackPanel>
+                        </TabItem.Header>
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Đặt vé" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="24" Height="24"  Kind="Ticket" />
-                            </Grid>
-                        </Grid>
-                    </Button>
-                    <Button Command="{Binding CustomerCommand}" Grid.Row="1" ToolTip="Khách hàng">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Khách hàng" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon HorizontalAlignment="Center" Width="24" Height="24"  Kind="HumanHandsup" />
-                            </Grid>
+                            <materialDesign:Card Grid.Row="0" Margin="5">
+                                <WrapPanel Margin="0 0 0 10">
+                                    <TextBox Text="{Binding Id_Customer, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Tel, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Locate.Id_Locate, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã địa điểm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="1" Margin="5">
+                                <WrapPanel>
+                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                </WrapPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Width="auto" Header="Id" DisplayMemberBinding="{Binding Id_Customer}"></GridViewColumn>
+                                                <GridViewColumn Width="auto" Header="Tên khách hàng" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                                                <GridViewColumn Width="auto" Header="Tuổi" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
+                                                <GridViewColumn Width="auto" Header="Giới tính" DisplayMemberBinding="{Binding Sex}"></GridViewColumn>
+                                                <GridViewColumn Width="auto" Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
+                                                <GridViewColumn Width="auto" Header="Số điện thoại" DisplayMemberBinding="{Binding Tel}"></GridViewColumn>
+                                                <GridViewColumn Width="auto" Header="Mã địa điểm" DisplayMemberBinding="{Binding Locate.Id_Locate}"></GridViewColumn>
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </ScrollViewer>
+                            </materialDesign:Card>
                         </Grid>
-                    </Button>
-                    <Button Command="{Binding AirportCommand}" Grid.Row="2" ToolTip="Sân bay">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Sân bay" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Airport" />
-                            </Grid>
-                        </Grid>
-                    </Button>
-                    <Button Command="{Binding PlaneCommand}" Grid.Row="3" ToolTip="Máy bay">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Máy bay" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Airplane" />
-                            </Grid>
-                        </Grid>
-                    </Button>
-                    <Button Command="{Binding FlightCommand}" Grid.Row="4" ToolTip="Chuyến bay">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Chuyến bay" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="AirplaneMarker" />
-                            </Grid>
-                        </Grid>
-                    </Button>
-                    <Button Command="{Binding BillCommand}" Grid.Row="5" ToolTip="Hóa đơn">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Hóa đơn" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="BadgeAccountHorizontal" />
-                            </Grid>
-                        </Grid>
-                    </Button>
-                    <Button Command="{Binding StatisticalCommand}" Grid.Row="6" ToolTip="Thống kê">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Thống kê" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="ChartLine" />
-                            </Grid>
-                        </Grid>
-                    </Button>
-                    <Button Command="{Binding UserCommand}" Grid.Row="7" ToolTip="Người dùng">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock Text="Người dùng" HorizontalAlignment="Center"></TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <materialDesign:PackIcon Width="24" Height="24"  HorizontalAlignment="Center"  Kind="Account" />
-                            </Grid>
-                        </Grid>
-                    </Button>
-                </Grid>
-            </Grid>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+          Width="auto"
+          Height="auto">
+                                <materialDesign:PackIcon
+            Width="24"
+            Height="24"
+            HorizontalAlignment="Center"
+            Kind="ClockOutline" />
+                                <TextBlock
+            HorizontalAlignment="Center"
+            Text="Recent" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <TextBlock>
+        <Run
+          Text="tab 2 content. Default look and behaviors." />
+        <LineBreak />
+        <LineBreak />
+        <Run
+          FontStyle="Italic">
+        Praesent sed dui arcu. Vivamus porta auctor sagittis
+      </Run>
+                        </TextBlock>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+          Width="auto"
+          Height="auto">
+                                <materialDesign:PackIcon
+            Width="24"
+            Height="24"
+            HorizontalAlignment="Center"
+            Kind="Images" />
+                                <TextBlock
+            HorizontalAlignment="Center"
+            Text="Photos" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <TextBlock>
+        <Run
+          Text="tab 3 content. Default look and behaviors." />
+        <LineBreak />
+        <LineBreak />
+                        </TextBlock>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+  Width="auto"
+  Height="auto">
+                                <materialDesign:PackIcon
+    Width="24"
+    Height="24"
+    HorizontalAlignment="Center"
+    Kind="Images" />
+                                <TextBlock
+    HorizontalAlignment="Center"
+    Text="Photos" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <TextBlock>
+<Run
+  Text="tab 3 content. Default look and behaviors." />
+<LineBreak />
+<LineBreak />
+                        </TextBlock>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+  Width="auto"
+  Height="auto">
+                                <materialDesign:PackIcon
+    Width="24"
+    Height="24"
+    HorizontalAlignment="Center"
+    Kind="Images" />
+                                <TextBlock
+    HorizontalAlignment="Center"
+    Text="Photos" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <TextBlock>
+<Run
+  Text="tab 3 content. Default look and behaviors." />
+<LineBreak />
+<LineBreak />
+                        </TextBlock>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+  Width="auto"
+  Height="auto">
+                                <materialDesign:PackIcon
+    Width="24"
+    Height="24"
+    HorizontalAlignment="Center"
+    Kind="Images" />
+                                <TextBlock
+    HorizontalAlignment="Center"
+    Text="Photos" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <TextBlock>
+<Run
+  Text="tab 3 content. Default look and behaviors." />
+<LineBreak />
+<LineBreak />
+                        </TextBlock>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+  Width="auto"
+  Height="auto">
+                                <materialDesign:PackIcon
+    Width="24"
+    Height="24"
+    HorizontalAlignment="Center"
+    Kind="Images" />
+                                <TextBlock
+    HorizontalAlignment="Center"
+    Text="Photos" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <TextBlock>
+<Run
+  Text="tab 3 content. Default look and behaviors." />
+<LineBreak />
+<LineBreak />
+                        </TextBlock>
+                    </TabItem>
+                    <TabItem>
+                        <TabItem.Header>
+                            <StackPanel
+          Width="auto"
+          Height="auto">
+                                <materialDesign:PackIcon
+            Width="24"
+            Height="24"
+            HorizontalAlignment="Center"
+            Kind="MusicBoxMultiple" />
+                                <TextBlock
+            HorizontalAlignment="Center"
+            Text="Sounds" />
+                            </StackPanel>
+                        </TabItem.Header>
+                        <TextBlock>
+        <Run
+          Text="tab 4 content. Default look and behaviors." />
+        <LineBreak />
+        <LineBreak />
+                        </TextBlock>
+                    </TabItem>
+                </TabControl>
+            </materialDesign:Card>
+
         </Grid>
     </Grid>
 </Window>

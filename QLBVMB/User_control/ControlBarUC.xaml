@@ -38,7 +38,7 @@
                     </Button>
                     <Button Command="{Binding CloseWindowCommand}" 
                             CommandParameter="{Binding ElementName=ucControlBar}"
-                            ToolTip="Close" ToolBar.OverflowMode="AsNeeded" Background="OrangeRed">
+                            ToolTip="Close" ToolBar.OverflowMode="AsNeeded" Background="OrangeRed" >
                         <materialDesign:PackIcon Kind="WindowClose" />
                     </Button>
                 </StackPanel>
