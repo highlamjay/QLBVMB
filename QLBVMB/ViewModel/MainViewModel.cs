@@ -27,7 +27,7 @@ namespace QLBVMB.ViewModel
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
             }
-              );
+            );
 
             CustomerCommand = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerWindow wd = new CustomerWindow(); wd.ShowDialog(); });
             AirportCommand = new RelayCommand<object>((p) => { return true; }, (p) => { AirportWindow wd = new AirportWindow(); wd.ShowDialog(); });
