@@ -21,24 +21,66 @@
             <DockPanel>
                 <StackPanel DockPanel.Dock="Right"  Background="Transparent" Orientation="Horizontal">
                     <StackPanel.Resources>
-                        <Style TargetType="Button">
-                            <Setter Property="Margin" Value="2 4 2 4"></Setter>
+                        <Style TargetType="Button" x:Key="button1">
+                            <Setter Property="Margin" Value="0"></Setter>
                             <Setter Property="Width" Value="40"></Setter>
+                            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="LightSkyBlue" TargetName="Border" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <Style TargetType="Button" x:Key="button2">
+                            <Setter Property="Margin" Value="0"></Setter>
+                            <Setter Property="Width" Value="40"></Setter>
+                            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+                            <Setter Property="Background" Value="Transparent"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="Red" TargetName="Border"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </StackPanel.Resources>
-                    <Button Command="{Binding MinimizeWindowCommand}" 
-                            CommandParameter="{Binding ElementName=ucControlBar}"
-                        ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded" Background="Transparent">
+                    <Button x:Name="btControlBarMin"
+                        Style="{StaticResource button1}"
+                        Command="{Binding MinimizeWindowCommand}" 
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                        ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded">
                         <materialDesign:PackIcon Kind="WindowMinimize" />
                     </Button>
-                    <Button x:Name="btControlBarMax" Command="{Binding MaximizeWindowCommand}" 
-                            CommandParameter="{Binding ElementName=ucControlBar}"
-                        ToolTip="Maximize" ToolBar.OverflowMode="AsNeeded" Background="Transparent">
+                    <Button x:Name="btControlBarMax"
+                        Style="{StaticResource button1}"
+                        Command="{Binding MaximizeWindowCommand}" 
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                        ToolTip="Maximize" ToolBar.OverflowMode="AsNeeded">
                         <materialDesign:PackIcon Kind="WindowMaximize" />
                     </Button>
-                    <Button Command="{Binding CloseWindowCommand}" 
-                            CommandParameter="{Binding ElementName=ucControlBar}"
-                            ToolTip="Close" ToolBar.OverflowMode="AsNeeded" Background="OrangeRed">
+                    <Button x:Name="btControlBarClose"
+                        Style="{StaticResource button2}"
+                        Command="{Binding CloseWindowCommand}" 
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                        ToolTip="Close" ToolBar.OverflowMode="AsNeeded">
                         <materialDesign:PackIcon Kind="WindowClose" />
                     </Button>
                 </StackPanel>

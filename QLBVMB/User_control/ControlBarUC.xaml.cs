@@ -25,11 +25,6 @@ namespace QLBVMB.User_control
             this.DataContext = Viewmodel = new ControlBarViewModel();
         }
 
-        public void ChangeToolTipbtMax()
-        {
-            btControlBarMax.ToolTip = "Restore Down";
-        }
-
         public ControlBarViewModel Viewmodel { get; set; }
     }
 }

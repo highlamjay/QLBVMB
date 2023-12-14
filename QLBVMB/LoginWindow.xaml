@@ -34,20 +34,25 @@
                 <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
             </Grid>
             <Grid Grid.Row="1">
-                <Image Stretch="UniformToFill" Source="/Image/login_logo.jpg"></Image>
+                <Image Stretch="UniformToFill" Source="/Image/login_logo.jpg">
+                    <Image.Effect>
+                        <BlurEffect Radius="0"/>
+                    </Image.Effect>
+                </Image>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
+                    <Grid Grid.Column="0">
+                        
+                    </Grid>
+
                     <Grid Grid.Column="1">
-                        <Grid.Background>
-                            <SolidColorBrush Color="White" Opacity="0.8"/>
-                        </Grid.Background>
-                        <materialDesign:Card Width="300" Height="150"      
+                            <materialDesign:Card Width="300" Height="150"      
                                          HorizontalAlignment="Center" VerticalAlignment="Center"     
-                                         Background="White" >
+                                         Background="White" UniformCornerRadius="30">
                             <Grid>
                                 <Grid.Resources>
                                     <Style TargetType="Grid">
