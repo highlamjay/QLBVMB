@@ -28,17 +28,17 @@
                     </StackPanel.Resources>
                     <Button Command="{Binding MinimizeWindowCommand}" 
                             CommandParameter="{Binding ElementName=ucControlBar}"
-                        ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="Transparent">
+                        ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded" Background="Transparent">
                         <materialDesign:PackIcon Kind="WindowMinimize" />
                     </Button>
-                    <Button Command="{Binding MaximizeWindowCommand}" 
+                    <Button x:Name="btControlBarMax" Command="{Binding MaximizeWindowCommand}" 
                             CommandParameter="{Binding ElementName=ucControlBar}"
-                        ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="Transparent">
+                        ToolTip="Maximize" ToolBar.OverflowMode="AsNeeded" Background="Transparent">
                         <materialDesign:PackIcon Kind="WindowMaximize" />
                     </Button>
                     <Button Command="{Binding CloseWindowCommand}" 
                             CommandParameter="{Binding ElementName=ucControlBar}"
-                            ToolTip="Đóng" ToolBar.OverflowMode="AsNeeded" Background="OrangeRed">
+                            ToolTip="Close" ToolBar.OverflowMode="AsNeeded" Background="OrangeRed">
                         <materialDesign:PackIcon Kind="WindowClose" />
                     </Button>
                 </StackPanel>

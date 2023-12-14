@@ -185,8 +185,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Image\" />
     <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\login_logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo_login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\logo_login_yellow.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
