@@ -46,64 +46,9 @@
                             Style="{StaticResource MaterialDesignNavigationRailTabControl}">
                     <TabControl.Resources>
                         <Style TargetType="TabItem">
-                       
+
                         </Style>
                     </TabControl.Resources>
-                    <TabItem>
-                        <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
-                                <materialDesign:PackIcon Width="24"
-                                                            Height="24"
-                                                            HorizontalAlignment="Center"
-                                                            Kind="HumanHandsup" />
-                                <TextBlock HorizontalAlignment="Center" Text="Khách hàng" />
-                            </StackPanel>
-                        </TabItem.Header>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <materialDesign:Card Grid.Row="0" Margin="5">
-                                <WrapPanel Margin="0 0 0 10">
-                                    <TextBox Text="{Binding Id_Customer, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Tel, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Locate.Id_Locate, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã địa điểm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                </WrapPanel>
-                            </materialDesign:Card>
-
-                            <materialDesign:Card Grid.Row="1"  Margin="5">
-                                <WrapPanel>
-                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
-                                </WrapPanel>
-                            </materialDesign:Card>
-
-                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                                        <ListView.View>
-                                            <GridView>
-                                                <GridViewColumn Width="auto" Header="Id" DisplayMemberBinding="{Binding Id_Customer}"></GridViewColumn>
-                                                <GridViewColumn Width="auto" Header="Tên khách hàng" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
-                                                <GridViewColumn Width="auto" Header="Tuổi" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
-                                                <GridViewColumn Width="auto" Header="Giới tính" DisplayMemberBinding="{Binding Sex}"></GridViewColumn>
-                                                <GridViewColumn Width="auto" Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
-                                                <GridViewColumn Width="auto" Header="Số điện thoại" DisplayMemberBinding="{Binding Tel}"></GridViewColumn>
-                                                <GridViewColumn Width="auto" Header="Mã địa điểm" DisplayMemberBinding="{Binding Locate.Id_Locate}"></GridViewColumn>
-                                            </GridView>
-                                        </ListView.View>
-                                    </ListView>
-                                </ScrollViewer>
-                            </materialDesign:Card>
-                        </Grid>
-                    </TabItem>
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
@@ -262,23 +207,71 @@
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <materialDesign:Card Grid.Row="0" Margin="5">
-                                <WrapPanel Margin="0 0 0 10">
-                                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Flight.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Seat.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Status, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Trạng thái" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-                                </WrapPanel>
-                            </materialDesign:Card>
-
+                            <Grid Grid.Row="0" Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Width="auto">
+                                <StackPanel Margin="0 0 0 10">
+                                        <TextBlock Margin="10" Text="Lập thông vé" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="1">
+                                                <StackPanel>
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    
+                                                </StackPanel>
+                                            </Grid>
+                                            <Grid Grid.Column="0">
+                                                <StackPanel>
+                                                    <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Flight.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Seat.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+      
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                            <TextBlock Text="Thành Tiền" FontWeight="DemiBold" FontSize="25" Margin="0 10 0 0" HorizontalAlignment="Right" />
+                                            <TextBox x:Name="sumMoney" Margin="20 0 0 0" Width="220" IsReadOnly="True" VerticalAlignment="Bottom" FontSize="20" Text="0.00" />
+                                            <TextBlock Text="VNĐ" FontSize="17" Margin="10 10 0 0" HorizontalAlignment="Right" />
+                                        </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                                <Grid Grid.Column="1">
+                                    <StackPanel Margin="0 0 0 10">
+                                        <TextBlock Margin="10" Text="Thông tin khách hàng" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="1">
+                                                <StackPanel>
+                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Email, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Tel, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tel" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Locate, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                </StackPanel>
+                                            </Grid>
+                                            <Grid Grid.Column="0">
+                                                <StackPanel>
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
                             <materialDesign:Card Grid.Row="1" Margin="5">
                                 <WrapPanel>
-                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding AddCommand}" Content="Tạo vé" Margin="5" Width="100"></Button>
                                 </WrapPanel>
                             </materialDesign:Card>
 
@@ -288,11 +281,14 @@
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Flight.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã ghế" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Loại vé" DisplayMemberBinding="{Binding Type}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Customer.Id_Customer}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding Customer.Name}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Flight.Id_Flight}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã ghế" DisplayMemberBinding="{Binding Id_Seat}"></GridViewColumn>
+                                                <GridViewColumn Header="Loại vé" DisplayMemberBinding="{Binding Type_Ticket}"></GridViewColumn>
                                                 <GridViewColumn Header="Giá tiền" DisplayMemberBinding="{Binding Price}"></GridViewColumn>
                                                 <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding Status}"></GridViewColumn>
+                                                <GridViewColumn Header="Tổng tiền"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -332,9 +328,9 @@
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Id-Plane" DisplayMemberBinding="{Binding Plane.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã sân bay cất cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã sân bay hạ cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Customer.Id_Customer}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding Customer.Name}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã địa điểm" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
                                                 <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
                                                 <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding TimeEnd}"></GridViewColumn>
                                             </GridView>
