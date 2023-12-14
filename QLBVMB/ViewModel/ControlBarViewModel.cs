@@ -19,24 +19,29 @@ namespace QLBVMB.ViewModel
         #endregion
         public ControlBarViewModel()
         {
-            CloseWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) => {
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
+            CloseWindowCommand = new RelayCommand<UserControl>
+            (
+                (p) => { return p == null ? false : true; }, 
+                (p) => 
                 {
-                    w.Close();
+                    FrameworkElement window = GetWindowParent(p);
+                    var w = window as Window;
+                    if (w != null)
+                    {
+                        w.Close();
+                    }
                 }
-            }
             );
             MaximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
+                
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
                 if (w != null)
                 {
                     if (w.WindowState != WindowState.Maximized)
                     {
-                        w.WindowState = WindowState.Maximized;                   
+                        w.WindowState = WindowState.Maximized;
                     }
                     else
                         w.WindowState = WindowState.Normal;

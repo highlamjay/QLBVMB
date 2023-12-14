@@ -38,7 +38,7 @@
                 </Image>
                 <Grid>
                     <Grid>
-                        <materialDesign:Card Width="330" Height="200"      
+                        <materialDesign:Card Width="330" Height="230"      
                                          HorizontalAlignment="Center" VerticalAlignment="Center" UniformCornerRadius="30">
                             <materialDesign:Card.Background>
                                 <SolidColorBrush Color="White" Opacity="0.8"/>
@@ -46,7 +46,7 @@
                             <Grid>
                                 <Grid.Resources>
                                     <Style TargetType="Grid">
-                                        <Setter Property="Margin" Value="15 5 15 5"></Setter>
+                                        <Setter Property="Margin" Value="15 10 15 10"></Setter>
                                     </Style>
                                 </Grid.Resources>
                                 <Grid.RowDefinitions>
@@ -55,16 +55,18 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid Grid.Row="0">
-                                    <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"     
-                                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15"/>
+                                    <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                         Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15"/>
                                 </Grid>
                                 <Grid Grid.Row="1">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <PasswordBox x:Name="FloatingPasswordBox"         
-                                             materialDesign:HintAssist.Hint="Mật khẩu"         
-                                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="15"/>
+                                             materialDesign:HintAssist.Hint="Mật khẩu"      
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                        Style="{StaticResource MaterialDesignOutlinedPasswordBox}" FontSize="15"/>
                                 </Grid>
                                 <Grid Grid.Row="2">
                                     <Grid.ColumnDefinitions>
@@ -75,13 +77,15 @@
                                     <Button Grid.Column="0"    
                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                 Width="120"
+                                Height="40"
                                 Background="#FF22DC22"
-                                ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đăng nhập" FontSize="16"></Button>
+                                ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đăng nhập" FontSize="18"></Button>
                                     <Button Grid.Column="1"    
                                 Style="{StaticResource MaterialDesignRaisedButton}"    
-                                Width="120"    
+                                Width="120"
+                                Height="40"
                                 Background="#FFFF0C00"
-                                ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát" FontSize="16"></Button>
+                                ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát" FontSize="18"></Button>
                                 </Grid>
                             </Grid>
                         </materialDesign:Card>

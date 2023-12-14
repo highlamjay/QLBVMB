@@ -26,5 +26,19 @@ namespace QLBVMB.User_control
         }
 
         public ControlBarViewModel Viewmodel { get; set; }
+
+        private void btControlBarMax_Click(object sender, RoutedEventArgs e)
+        {
+            if (btControlBarMax.Visibility == Visibility.Visible)
+            {
+                btControlBarMax.Visibility = Visibility.Collapsed;
+                btControlBarRestoreDown.Visibility = Visibility.Visible;
+            }
+            else if (btControlBarRestoreDown.Visibility == Visibility.Visible)
+            {
+                btControlBarMax.Visibility = Visibility.Visible;
+                btControlBarRestoreDown.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

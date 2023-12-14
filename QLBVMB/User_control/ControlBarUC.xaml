@@ -16,7 +16,7 @@
             <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=ucControlBar}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
+    <Grid x:Name="gMain">
         <materialDesign:ColorZone Mode="PrimaryLight" >
             <DockPanel>
                 <StackPanel DockPanel.Dock="Right"  Background="Transparent" Orientation="Horizontal">
@@ -68,13 +68,24 @@
                         CommandParameter="{Binding ElementName=ucControlBar}"
                         ToolTip="Minimize" ToolBar.OverflowMode="AsNeeded">
                         <materialDesign:PackIcon Kind="WindowMinimize" />
+                        
                     </Button>
                     <Button x:Name="btControlBarMax"
                         Style="{StaticResource button1}"
                         Command="{Binding MaximizeWindowCommand}" 
                         CommandParameter="{Binding ElementName=ucControlBar}"
-                        ToolTip="Maximize" ToolBar.OverflowMode="AsNeeded">
+                        ToolTip="Maximize" ToolBar.OverflowMode="AsNeeded" 
+                        Click="btControlBarMax_Click">
                         <materialDesign:PackIcon Kind="WindowMaximize" />
+                    </Button>
+                    <Button x:Name="btControlBarRestoreDown"
+                        Style="{StaticResource button1}"
+                        Command="{Binding MaximizeWindowCommand}" 
+                        CommandParameter="{Binding ElementName=ucControlBar}"
+                        ToolTip="Restore Down" ToolBar.OverflowMode="AsNeeded" 
+                        Click="btControlBarMax_Click"
+                        Visibility="Collapsed">
+                        <materialDesign:PackIcon Kind="WindowRestore" />
                     </Button>
                     <Button x:Name="btControlBarClose"
                         Style="{StaticResource button2}"
