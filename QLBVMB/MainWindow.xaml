@@ -50,13 +50,13 @@
                         </Style>
                     </TabControl.Resources>
                     <TabItem>
-                        <TabItem.Header >
+                        <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"
                                                             Height="24"
                                                             HorizontalAlignment="Center"
-                                                            Kind="Folder" />
-                                <TextBlock HorizontalAlignment="Center" Text="All Files" />
+                                                            Kind="HumanHandsup" />
+                                <TextBlock HorizontalAlignment="Center" Text="Khách hàng" />
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -106,29 +106,19 @@
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
-                            <StackPanel
-          Width="auto"
-          Height="auto">
-                                <materialDesign:PackIcon
-            Width="24"
-            Height="24"
-            HorizontalAlignment="Center"
-            Kind="ClockOutline" />
-                                <TextBlock
-            HorizontalAlignment="Center"
-            Text="Recent" />
+                            <StackPanel Width="auto" Height="auto">
+                                <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Airport" />
+                                <TextBlock HorizontalAlignment="Center" Text="Sân bay" />
                             </StackPanel>
                         </TabItem.Header>
-                        <TextBlock>
-        <Run
-          Text="tab 2 content. Default look and behaviors." />
-        <LineBreak />
-        <LineBreak />
-        <Run
-          FontStyle="Italic">
-        Praesent sed dui arcu. Vivamus porta auctor sagittis
-      </Run>
-                        </TextBlock>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            
+                        </Grid>
                     </TabItem>
                     <TabItem>
                         <TabItem.Header>
