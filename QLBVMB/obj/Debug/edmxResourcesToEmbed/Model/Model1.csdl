@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBVMBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLBVMBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="QLBVMBModel.Account" />
+    <EntitySet Name="Airports" EntityType="QLBVMBModel.Airport" />
+    <EntitySet Name="Bookeds" EntityType="QLBVMBModel.Booked" />
+    <EntitySet Name="Checked_Baggage" EntityType="QLBVMBModel.Checked_Baggage" />
+    <EntitySet Name="Customers" EntityType="QLBVMBModel.Customer" />
+    <EntitySet Name="Flights" EntityType="QLBVMBModel.Flight" />
+    <EntitySet Name="Locates" EntityType="QLBVMBModel.Locate" />
+    <EntitySet Name="Planes" EntityType="QLBVMBModel.Plane" />
+    <EntitySet Name="sysdiagrams" EntityType="QLBVMBModel.sysdiagram" />
+    <EntitySet Name="Tickets" EntityType="QLBVMBModel.Ticket" />
+    <AssociationSet Name="fk_airport" Association="QLBVMBModel.fk_airport">
+      <End Role="Locate" EntitySet="Locates" />
+      <End Role="Airport" EntitySet="Airports" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_flight" Association="QLBVMBModel.fk02_flight">
+      <End Role="Airport" EntitySet="Airports" />
+      <End Role="Flight" EntitySet="Flights" />
+    </AssociationSet>
+    <AssociationSet Name="fk03_flight" Association="QLBVMBModel.fk03_flight">
+      <End Role="Airport" EntitySet="Airports" />
+      <End Role="Flight" EntitySet="Flights" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_booked" Association="QLBVMBModel.fk01_booked">
+      <End Role="Flight" EntitySet="Flights" />
+      <End Role="Booked" EntitySet="Bookeds" />
+    </AssociationSet>
+    <AssociationSet Name="fk02_booked" Association="QLBVMBModel.fk02_booked">
+      <End Role="Ticket" EntitySet="Tickets" />
+      <End Role="Booked" EntitySet="Bookeds" />
+    </AssociationSet>
+    <AssociationSet Name="fk03_booked" Association="QLBVMBModel.fk03_booked">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Booked" EntitySet="Bookeds" />
+    </AssociationSet>
+    <AssociationSet Name="fk04_booked" Association="QLBVMBModel.fk04_booked">
+      <End Role="Checked_Baggage" EntitySet="Checked_Baggage" />
+      <End Role="Booked" EntitySet="Bookeds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_customer" Association="QLBVMBModel.fk_customer">
+      <End Role="Locate" EntitySet="Locates" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ticket" Association="QLBVMBModel.fk_ticket">
+      <End Role="Flight" EntitySet="Flights" />
+      <End Role="Ticket" EntitySet="Tickets" />
+    </AssociationSet>
+    <AssociationSet Name="fk01_flight" Association="QLBVMBModel.fk01_flight">
+      <End Role="Plane" EntitySet="Planes" />
+      <End Role="Flight" EntitySet="Flights" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id_Account" />
+    </Key>
+    <Property Name="Id_Account" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Airport">
+    <Key>
+      <PropertyRef Name="Id_Airport" />
+    </Key>
+    <Property Name="Id_Airport" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Name_Airport" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Id_Locate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Locate" Relationship="QLBVMBModel.fk_airport" FromRole="Airport" ToRole="Locate" />
+    <NavigationProperty Name="Flights" Relationship="QLBVMBModel.fk02_flight" FromRole="Airport" ToRole="Flight" />
+    <NavigationProperty Name="Flights1" Relationship="QLBVMBModel.fk03_flight" FromRole="Airport" ToRole="Flight" />
+  </EntityType>
+  <EntityType Name="Booked">
+    <Key>
+      <PropertyRef Name="Id_Booked" />
+    </Key>
+    <Property Name="Id_Booked" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Id_Flight" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Ticket" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Customer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Id_CB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Flight" Relationship="QLBVMBModel.fk01_booked" FromRole="Booked" ToRole="Flight" />
+    <NavigationProperty Name="Ticket" Relationship="QLBVMBModel.fk02_booked" FromRole="Booked" ToRole="Ticket" />
+    <NavigationProperty Name="Customer" Relationship="QLBVMBModel.fk03_booked" FromRole="Booked" ToRole="Customer" />
+    <NavigationProperty Name="Checked_Baggage" Relationship="QLBVMBModel.fk04_booked" FromRole="Booked" ToRole="Checked_Baggage" />
+  </EntityType>
+  <EntityType Name="Checked_Baggage">
+    <Key>
+      <PropertyRef Name="Id_CB" />
+    </Key>
+    <Property Name="Id_CB" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Type_CB" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Extra_Price" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Bookeds" Relationship="QLBVMBModel.fk04_booked" FromRole="Checked_Baggage" ToRole="Booked" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+    </Key>
+    <Property Name="Id_Customer" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="Byte" />
+    <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Locate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bookeds" Relationship="QLBVMBModel.fk03_booked" FromRole="Customer" ToRole="Booked" />
+    <NavigationProperty Name="Locate1" Relationship="QLBVMBModel.fk_customer" FromRole="Customer" ToRole="Locate" />
+  </EntityType>
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="Id_Flight" />
+    </Key>
+    <Property Name="Id_Flight" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Time_Start" Type="DateTime" Precision="3" />
+    <Property Name="Time_End" Type="DateTime" Precision="3" />
+    <Property Name="Id_Plane" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Airport_Take_Off" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Airport_Landing" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Airport" Relationship="QLBVMBModel.fk02_flight" FromRole="Flight" ToRole="Airport" />
+    <NavigationProperty Name="Airport1" Relationship="QLBVMBModel.fk03_flight" FromRole="Flight" ToRole="Airport" />
+    <NavigationProperty Name="Bookeds" Relationship="QLBVMBModel.fk01_booked" FromRole="Flight" ToRole="Booked" />
+    <NavigationProperty Name="Tickets" Relationship="QLBVMBModel.fk_ticket" FromRole="Flight" ToRole="Ticket" />
+    <NavigationProperty Name="Plane" Relationship="QLBVMBModel.fk01_flight" FromRole="Flight" ToRole="Plane" />
+  </EntityType>
+  <EntityType Name="Locate">
+    <Key>
+      <PropertyRef Name="Id_Locate" />
+    </Key>
+    <Property Name="Id_Locate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Name_Locate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Airports" Relationship="QLBVMBModel.fk_airport" FromRole="Locate" ToRole="Airport" />
+    <NavigationProperty Name="Customers" Relationship="QLBVMBModel.fk_customer" FromRole="Locate" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Plane">
+    <Key>
+      <PropertyRef Name="Id_Plane" />
+    </Key>
+    <Property Name="Id_Plane" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Type_Plane" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Flights" Relationship="QLBVMBModel.fk01_flight" FromRole="Plane" ToRole="Flight" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="Id_Ticket" />
+    </Key>
+    <Property Name="Id_Ticket" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Type_Ticket" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Seat" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Flight" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bookeds" Relationship="QLBVMBModel.fk02_booked" FromRole="Ticket" ToRole="Booked" />
+    <NavigationProperty Name="Flight" Relationship="QLBVMBModel.fk_ticket" FromRole="Ticket" ToRole="Flight" />
+  </EntityType>
+  <Association Name="fk_airport">
+    <End Type="QLBVMBModel.Locate" Role="Locate" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Airport" Role="Airport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locate">
+        <PropertyRef Name="Id_Locate" />
+      </Principal>
+      <Dependent Role="Airport">
+        <PropertyRef Name="Id_Locate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_flight">
+    <End Type="QLBVMBModel.Airport" Role="Airport" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Flight" Role="Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airport">
+        <PropertyRef Name="Id_Airport" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Airport_Take_Off" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk03_flight">
+    <End Type="QLBVMBModel.Airport" Role="Airport" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Flight" Role="Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airport">
+        <PropertyRef Name="Id_Airport" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Airport_Landing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_booked">
+    <End Type="QLBVMBModel.Flight" Role="Flight" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Booked" Role="Booked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="Id_Flight" />
+      </Principal>
+      <Dependent Role="Booked">
+        <PropertyRef Name="Id_Flight" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk02_booked">
+    <End Type="QLBVMBModel.Ticket" Role="Ticket" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Booked" Role="Booked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="Id_Ticket" />
+      </Principal>
+      <Dependent Role="Booked">
+        <PropertyRef Name="Id_Ticket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk03_booked">
+    <End Type="QLBVMBModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Booked" Role="Booked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id_Customer" />
+      </Principal>
+      <Dependent Role="Booked">
+        <PropertyRef Name="Id_Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk04_booked">
+    <End Type="QLBVMBModel.Checked_Baggage" Role="Checked_Baggage" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Booked" Role="Booked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Checked_Baggage">
+        <PropertyRef Name="Id_CB" />
+      </Principal>
+      <Dependent Role="Booked">
+        <PropertyRef Name="Id_CB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_customer">
+    <End Type="QLBVMBModel.Locate" Role="Locate" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locate">
+        <PropertyRef Name="Id_Locate" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="Locate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ticket">
+    <End Type="QLBVMBModel.Flight" Role="Flight" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Ticket" Role="Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="Id_Flight" />
+      </Principal>
+      <Dependent Role="Ticket">
+        <PropertyRef Name="Id_Flight" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk01_flight">
+    <End Type="QLBVMBModel.Plane" Role="Plane" Multiplicity="0..1" />
+    <End Type="QLBVMBModel.Flight" Role="Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plane">
+        <PropertyRef Name="Id_Plane" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="Id_Plane" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

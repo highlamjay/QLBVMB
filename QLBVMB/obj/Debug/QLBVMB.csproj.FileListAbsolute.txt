@@ -92,3 +92,8 @@ C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\TicketWindow.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\UserWindow.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.baml
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.dll
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
+D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs

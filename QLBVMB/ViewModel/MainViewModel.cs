@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLBVMB.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,8 @@ namespace QLBVMB.ViewModel
             UserCommand = new RelayCommand<object>((p) => { return true; }, (p) => { UserWindow wd = new UserWindow(); wd.ShowDialog(); });
             StatisticalCommand = new RelayCommand<object>((p) => { return true; }, (p) => { StatisticalWindow wd = new StatisticalWindow(); wd.ShowDialog(); });
             TicketCommand = new RelayCommand<object>((p) => { return true; }, (p) => { TicketWindow wd = new TicketWindow(); wd.ShowDialog(); });
+
+        
         }
     }
 }

@@ -42,18 +42,15 @@
 
             <materialDesign:Card>
                 <TabControl VerticalContentAlignment="Bottom"
+                            
                             materialDesign:ColorZoneAssist.Mode="PrimaryMid"
                             Style="{StaticResource MaterialDesignNavigationRailTabControl}">
-                    <TabControl.Resources>
-                        <Style TargetType="TabItem">
 
-                        </Style>
-                    </TabControl.Resources>
                     <TabItem>
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Airport" />
-                                <TextBlock HorizontalAlignment="Center" Text="Sân bay" />
+                                <TextBlock HorizontalAlignment="Center" Text="Sân bay" FontSize="12"/>
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -98,7 +95,7 @@
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Airplane" />
-                                <TextBlock HorizontalAlignment="Center" Text="Máy bay" />
+                                <TextBlock HorizontalAlignment="Center" Text="Máy bay" FontSize="12"/>
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -145,7 +142,7 @@
                                     Height="24"
                                     HorizontalAlignment="Center"
                                     Kind="AirplaneMarker" />
-                                <TextBlock HorizontalAlignment="Center" Text="Chuyến bay" />
+                                <TextBlock HorizontalAlignment="Center" Text="Chuyến bay" FontSize="12" />
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -198,7 +195,7 @@
                                     Height="24"
                                     HorizontalAlignment="Center"
                                     Kind="Ticket" />
-                                <TextBlock HorizontalAlignment="Center" Text="Vé" />
+                                <TextBlock HorizontalAlignment="Center" Text="Vé" FontSize="12"/>
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -222,16 +219,16 @@
                                             </Grid.ColumnDefinitions>
                                             <Grid Grid.Column="1">
                                                 <StackPanel>
-                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                     
                                                 </StackPanel>
                                             </Grid>
                                             <Grid Grid.Column="0">
                                                 <StackPanel>
-                                                    <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Flight.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Seat.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Flight.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Seat.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 </StackPanel>
                                             </Grid>
                                         </Grid>
@@ -253,16 +250,16 @@
                                             </Grid.ColumnDefinitions>
                                             <Grid Grid.Column="1">
                                                 <StackPanel>
-                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Email, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Tel, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tel" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Locate, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Email, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Tel, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tel" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Stretch" Text="{Binding Customer.Locate, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 </StackPanel>
                                             </Grid>
                                             <Grid Grid.Column="0">
                                                 <StackPanel>
-                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Text="{Binding Customer.Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 </StackPanel>
                                             </Grid>
                                         </Grid>
@@ -303,7 +300,7 @@
                                     Height="24"
                                     HorizontalAlignment="Center"
                                     Kind="CurrencyUsd" />
-                                <TextBlock HorizontalAlignment="Center" Text="Hóa đơn" />
+                                <TextBlock HorizontalAlignment="Center" Text="Hóa đơn" FontSize="12"/>
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -347,7 +344,7 @@
                                     Height="24"
                                     HorizontalAlignment="Center"
                                     Kind="ChartLine" />
-                                <TextBlock HorizontalAlignment="Center" Text="Thống kê" />
+                                <TextBlock HorizontalAlignment="Center" Text="Thống kê" FontSize="12"/>
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -400,7 +397,7 @@
                                     Height="24"
                                     HorizontalAlignment="Center"
                                     Kind="User" />
-                                <TextBlock HorizontalAlignment="Center" Text="Người dùng" />
+                                <TextBlock HorizontalAlignment="Center" Text="Người dùng"  FontSize="12" />
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
