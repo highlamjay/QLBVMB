@@ -1,4 +1,5 @@
-﻿using QLBVMB.Model;
+﻿using Microsoft.Xaml.Behaviors.Core;
+using QLBVMB.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +24,33 @@ namespace QLBVMB.ViewModel
         public ICommand TicketCommand { get; set; }
         public MainViewModel()
         {
-            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
                 Isloaded = true;
+                if (p == null)
+                {
+                    return;
+                }
+                p.Hide();
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
+
+                if (loginWindow.DataContext == null)
+                {
+                    return;
+                }
+
+                var loginVM = loginWindow.DataContext as LoginViewModel;
+
+                if (loginVM.IsLogin)
+                {
+                    p.Show();
+                }
+                else
+                {
+                    p.Close();
+                }
+
             }
             );
 
@@ -40,6 +64,25 @@ namespace QLBVMB.ViewModel
             TicketCommand = new RelayCommand<object>((p) => { return true; }, (p) => { TicketWindow wd = new TicketWindow(); wd.ShowDialog(); });
 
         
+        }
+
+        private ActionCommand loginCommand;
+
+        public ICommand LoginCommand
+        {
+            get
+            {
+                if (loginCommand == null)
+                {
+                    loginCommand = new ActionCommand(Login);
+                }
+
+                return loginCommand;
+            }
+        }
+
+        private void Login()
+        {
         }
     }
 }
