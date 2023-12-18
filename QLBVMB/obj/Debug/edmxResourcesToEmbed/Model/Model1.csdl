@@ -9,7 +9,6 @@
     <EntitySet Name="Flights" EntityType="QLBVMBModel.Flight" />
     <EntitySet Name="Locates" EntityType="QLBVMBModel.Locate" />
     <EntitySet Name="Planes" EntityType="QLBVMBModel.Plane" />
-    <EntitySet Name="sysdiagrams" EntityType="QLBVMBModel.sysdiagram" />
     <EntitySet Name="Tickets" EntityType="QLBVMBModel.Ticket" />
     <AssociationSet Name="fk_airport" Association="QLBVMBModel.fk_airport">
       <End Role="Locate" EntitySet="Locates" />
@@ -57,9 +56,9 @@
       <PropertyRef Name="Id_Account" />
     </Key>
     <Property Name="Id_Account" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Airport">
@@ -144,16 +143,6 @@
     <Property Name="Type_Plane" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Brand" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Flights" Relationship="QLBVMBModel.fk01_flight" FromRole="Plane" ToRole="Flight" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Ticket">
     <Key>

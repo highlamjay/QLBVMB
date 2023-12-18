@@ -42,7 +42,7 @@ namespace QLBVMB.ViewModel
 
                 var loginVM = loginWindow.DataContext as LoginViewModel;
 
-                if (loginVM.IsLogin)
+                if (loginVM.IsLogin == true)
                 {
                     p.Show();
                 }

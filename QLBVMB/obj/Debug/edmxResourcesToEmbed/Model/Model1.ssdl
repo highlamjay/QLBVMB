@@ -5,9 +5,9 @@
       <PropertyRef Name="Id_Account" />
     </Key>
     <Property Name="Id_Account" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Username" Type="text" />
-    <Property Name="Password" Type="text" />
-    <Property Name="Position" Type="ntext" />
+    <Property Name="Username" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="Position" Type="nvarchar" MaxLength="100" />
     <Property Name="DisplayName" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Airport">
@@ -74,16 +74,6 @@
     <Property Name="Id_Plane" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="Type_Plane" Type="text" />
     <Property Name="Brand" Type="text" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Ticket">
     <Key>
@@ -225,7 +215,6 @@
     <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Locate" EntityType="Self.Locate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Plane" EntityType="Self.Plane" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_airport" Association="Self.fk_airport">
       <End Role="Locate" EntitySet="Locate" />

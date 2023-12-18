@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="QLBVMBModel.Flight" Width="1.5" PointX="5.25" PointY="6.375" />
         <EntityTypeShape EntityType="QLBVMBModel.Locate" Width="1.5" PointX="0.75" PointY="5.25" />
         <EntityTypeShape EntityType="QLBVMBModel.Plane" Width="1.5" PointX="3" PointY="10" />
-        <EntityTypeShape EntityType="QLBVMBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="QLBVMBModel.Ticket" Width="1.5" PointX="7.5" PointY="10.375" />
         <AssociationConnector Association="QLBVMBModel.fk_airport" />
         <AssociationConnector Association="QLBVMBModel.fk02_flight" />

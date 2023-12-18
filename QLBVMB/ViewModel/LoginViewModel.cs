@@ -30,19 +30,17 @@ namespace QLBVMB.ViewModel
         {
             if (p == null)
                 return;
-
-            var accCount = DataProvider.Ins.DB.Accounts.Where(x=> x.Username == Username && x.Password == Password).Count();
-
+            var accCount = DataProvider.Ins.DB.Accounts.Where(a => a.Username == Username && a.Password == Password).Count();
             if (accCount > 0)
             {
                 IsLogin = true;
                 p.Close();
             }
-            else 
-            { 
+            else
+            {
                 IsLogin = false;
-                MessageBox.Show("Đăng nhập sai tài khoản hoặc mật khẩu!");
-            }      
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+            }
         }
     }
 
