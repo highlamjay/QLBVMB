@@ -17,8 +17,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     
-    <Grid x:Name="gMain">
-        <materialDesign:ColorZone Mode="PrimaryLight" >
+    <Grid x:Name="gMain" Background="White">
             <DockPanel>
                 <StackPanel DockPanel.Dock="Right"  Background="Transparent" Orientation="Horizontal">
                     <StackPanel.Resources>
@@ -102,6 +101,5 @@
                     <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" Text="{Binding Tag, ElementName=ucControlBar}"></TextBlock>
                 </StackPanel>
             </DockPanel>
-        </materialDesign:ColorZone>
     </Grid>
 </UserControl>
