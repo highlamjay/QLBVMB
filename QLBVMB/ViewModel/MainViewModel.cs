@@ -2,6 +2,7 @@
 using QLBVMB.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ namespace QLBVMB.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private ObservableCollection<Account> _AccountList;
+        public ObservableCollection<Account> AccountList {  get { return _AccountList; } set { _AccountList = value; OnPropertyChanged(); } }
+
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand CustomerCommand { get; set; }
@@ -31,7 +35,10 @@ namespace QLBVMB.ViewModel
                 {
                     return;
                 }
+
                 p.Hide();
+                LoadMainWindow();
+
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
 
@@ -65,24 +72,10 @@ namespace QLBVMB.ViewModel
 
         
         }
-
-        private ActionCommand loginCommand;
-
-        public ICommand LoginCommand
+             
+        void LoadMainWindow()
         {
-            get
-            {
-                if (loginCommand == null)
-                {
-                    loginCommand = new ActionCommand(Login);
-                }
-
-                return loginCommand;
-            }
-        }
-
-        private void Login()
-        {
+            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
         }
     }
 }

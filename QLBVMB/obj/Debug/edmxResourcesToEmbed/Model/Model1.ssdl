@@ -15,7 +15,7 @@
       <PropertyRef Name="Id_Airport" />
     </Key>
     <Property Name="Id_Airport" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Name_Airport" Type="ntext" />
+    <Property Name="Name_Airport" Type="nvarchar" MaxLength="100" />
     <Property Name="Id_Locate" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Booked">
@@ -28,13 +28,14 @@
     <Property Name="Id_Ticket" Type="varchar" MaxLength="10" />
     <Property Name="Id_Customer" Type="varchar" MaxLength="10" />
     <Property Name="Id_CB" Type="varchar" MaxLength="10" />
+    <Property Name="Id_AccountSeller" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Checked_Baggage">
     <Key>
       <PropertyRef Name="Id_CB" />
     </Key>
     <Property Name="Id_CB" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Type_CB" Type="text" />
+    <Property Name="Type_CB" Type="varchar" MaxLength="100" />
     <Property Name="Extra_Price" Type="money" />
   </EntityType>
   <EntityType Name="Customer">
@@ -42,11 +43,11 @@
       <PropertyRef Name="Id_Customer" />
     </Key>
     <Property Name="Id_Customer" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Name" Type="ntext" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
     <Property Name="Age" Type="tinyint" />
-    <Property Name="Sex" Type="ntext" />
-    <Property Name="Email" Type="text" />
-    <Property Name="Tel" Type="text" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Tel" Type="varchar" MaxLength="100" />
     <Property Name="Locate" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Flight">
@@ -65,25 +66,25 @@
       <PropertyRef Name="Id_Locate" />
     </Key>
     <Property Name="Id_Locate" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Name_Locate" Type="ntext" />
+    <Property Name="Name_Locate" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Plane">
     <Key>
       <PropertyRef Name="Id_Plane" />
     </Key>
     <Property Name="Id_Plane" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Type_Plane" Type="text" />
-    <Property Name="Brand" Type="text" />
+    <Property Name="Type_Plane" Type="varchar" MaxLength="100" />
+    <Property Name="Brand" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Ticket">
     <Key>
       <PropertyRef Name="Id_Ticket" />
     </Key>
     <Property Name="Id_Ticket" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="Type_Ticket" Type="text" />
+    <Property Name="Type_Ticket" Type="varchar" MaxLength="100" />
     <Property Name="Id_Seat" Type="varchar" MaxLength="10" />
     <Property Name="Price" Type="money" />
-    <Property Name="Status" Type="text" />
+    <Property Name="Status" Type="varchar" MaxLength="100" />
     <Property Name="Id_Flight" Type="varchar" MaxLength="10" />
   </EntityType>
   <Association Name="fk_airport">
@@ -206,6 +207,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk05_booked">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Booked" Type="Self.Booked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id_Account" />
+      </Principal>
+      <Dependent Role="Booked">
+        <PropertyRef Name="Id_AccountSeller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="QLBVMBModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Airport" EntityType="Self.Airport" Schema="dbo" store:Type="Tables" />
@@ -254,6 +267,10 @@
     </AssociationSet>
     <AssociationSet Name="fk04_booked" Association="Self.fk04_booked">
       <End Role="Checked_Baggage" EntitySet="Checked_Baggage" />
+      <End Role="Booked" EntitySet="Booked" />
+    </AssociationSet>
+    <AssociationSet Name="fk05_booked" Association="Self.fk05_booked">
+      <End Role="Account" EntitySet="Account" />
       <End Role="Booked" EntitySet="Booked" />
     </AssociationSet>
   </EntityContainer>

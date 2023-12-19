@@ -14,10 +14,19 @@ namespace QLBVMB.Model
     
     public partial class Account
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Account()
+        {
+            this.Bookeds = new HashSet<Booked>();
+        }
+    
         public string Id_Account { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Position { get; set; }
         public string DisplayName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booked> Bookeds { get; set; }
     }
 }

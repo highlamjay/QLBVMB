@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QLBVMBModelStoreContainer" CdmEntityContainer="QLBVMBEntities1">
+  <EntityContainerMapping StorageEntityContainer="QLBVMBModelStoreContainer" CdmEntityContainer="QLBVMBEntities">
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="QLBVMBModel.Account">
         <MappingFragment StoreEntitySet="Account">
@@ -30,6 +30,7 @@
           <ScalarProperty Name="Id_Ticket" ColumnName="Id_Ticket" />
           <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
           <ScalarProperty Name="Id_CB" ColumnName="Id_CB" />
+          <ScalarProperty Name="Id_AccountSeller" ColumnName="Id_AccountSeller" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
