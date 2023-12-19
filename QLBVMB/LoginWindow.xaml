@@ -57,10 +57,18 @@
                                     <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid Grid.Row="0">
-                                    <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"
+                                    <TextBox x:Name="UsernameBox"
+                                             materialDesign:HintAssist.Hint="Tên đăng nhập"
                                              Text="{Binding UserName}"
                                              materialDesign:TextFieldAssist.HasClearButton="True"
-                                         Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15"/>
+                                         Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="TextChanged">
+                                                <i:InvokeCommandAction Command="{Binding UsernameChangedCommand}" 
+                                                                        CommandParameter="{Binding ElementName=UsernameBox}"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBox>
                                 </Grid>
                                 <Grid Grid.Row="1">
                                     <Grid.ColumnDefinitions>
