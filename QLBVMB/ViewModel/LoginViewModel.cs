@@ -31,7 +31,7 @@ namespace QLBVMB.ViewModel
 
         void Login(Window p)
         {
-            //int accCount = 0;
+            int accCount = 0;
             if (p == null)
                 return;
             if (Username == "admin" && Password == "admin")
@@ -45,7 +45,7 @@ namespace QLBVMB.ViewModel
             else
             {
                 IsLogin = false;
-                
+                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
             }
         }
     }

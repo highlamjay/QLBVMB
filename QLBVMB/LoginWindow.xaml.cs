@@ -27,6 +27,5 @@ namespace QLBVMB
         }
 
         public LoginViewModel LGViewmodel { get; set; }
-
     }
 }

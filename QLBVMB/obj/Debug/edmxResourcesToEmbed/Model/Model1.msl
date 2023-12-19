@@ -4,95 +4,95 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="QLBVMBModel.Account">
         <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Position" ColumnName="Position" />
           <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Airports">
       <EntityTypeMapping TypeName="QLBVMBModel.Airport">
         <MappingFragment StoreEntitySet="Airport">
-          <ScalarProperty Name="Id_Airport" ColumnName="Id_Airport" />
-          <ScalarProperty Name="Name_Airport" ColumnName="Name_Airport" />
           <ScalarProperty Name="Id_Locate" ColumnName="Id_Locate" />
+          <ScalarProperty Name="Name_Airport" ColumnName="Name_Airport" />
+          <ScalarProperty Name="Id_Airport" ColumnName="Id_Airport" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Bookeds">
       <EntityTypeMapping TypeName="QLBVMBModel.Booked">
         <MappingFragment StoreEntitySet="Booked">
-          <ScalarProperty Name="Id_Booked" ColumnName="Id_Booked" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Id_Flight" ColumnName="Id_Flight" />
-          <ScalarProperty Name="Id_Ticket" ColumnName="Id_Ticket" />
-          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
           <ScalarProperty Name="Id_CB" ColumnName="Id_CB" />
+          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+          <ScalarProperty Name="Id_Ticket" ColumnName="Id_Ticket" />
+          <ScalarProperty Name="Id_Flight" ColumnName="Id_Flight" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id_Booked" ColumnName="Id_Booked" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Checked_Baggage">
       <EntityTypeMapping TypeName="QLBVMBModel.Checked_Baggage">
         <MappingFragment StoreEntitySet="Checked_Baggage">
-          <ScalarProperty Name="Id_CB" ColumnName="Id_CB" />
-          <ScalarProperty Name="Type_CB" ColumnName="Type_CB" />
           <ScalarProperty Name="Extra_Price" ColumnName="Extra_Price" />
+          <ScalarProperty Name="Type_CB" ColumnName="Type_CB" />
+          <ScalarProperty Name="Id_CB" ColumnName="Id_CB" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="QLBVMBModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
-          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
-          <ScalarProperty Name="Sex" ColumnName="Sex" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Tel" ColumnName="Tel" />
           <ScalarProperty Name="Locate" ColumnName="Locate" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Flights">
       <EntityTypeMapping TypeName="QLBVMBModel.Flight">
         <MappingFragment StoreEntitySet="Flight">
-          <ScalarProperty Name="Id_Flight" ColumnName="Id_Flight" />
-          <ScalarProperty Name="Time_Start" ColumnName="Time_Start" />
-          <ScalarProperty Name="Time_End" ColumnName="Time_End" />
-          <ScalarProperty Name="Id_Plane" ColumnName="Id_Plane" />
-          <ScalarProperty Name="Airport_Take_Off" ColumnName="Airport_Take_Off" />
           <ScalarProperty Name="Airport_Landing" ColumnName="Airport_Landing" />
+          <ScalarProperty Name="Airport_Take_Off" ColumnName="Airport_Take_Off" />
+          <ScalarProperty Name="Id_Plane" ColumnName="Id_Plane" />
+          <ScalarProperty Name="Time_End" ColumnName="Time_End" />
+          <ScalarProperty Name="Time_Start" ColumnName="Time_Start" />
+          <ScalarProperty Name="Id_Flight" ColumnName="Id_Flight" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Locates">
       <EntityTypeMapping TypeName="QLBVMBModel.Locate">
         <MappingFragment StoreEntitySet="Locate">
-          <ScalarProperty Name="Id_Locate" ColumnName="Id_Locate" />
           <ScalarProperty Name="Name_Locate" ColumnName="Name_Locate" />
+          <ScalarProperty Name="Id_Locate" ColumnName="Id_Locate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Planes">
       <EntityTypeMapping TypeName="QLBVMBModel.Plane">
         <MappingFragment StoreEntitySet="Plane">
-          <ScalarProperty Name="Id_Plane" ColumnName="Id_Plane" />
-          <ScalarProperty Name="Type_Plane" ColumnName="Type_Plane" />
           <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Type_Plane" ColumnName="Type_Plane" />
+          <ScalarProperty Name="Id_Plane" ColumnName="Id_Plane" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tickets">
       <EntityTypeMapping TypeName="QLBVMBModel.Ticket">
         <MappingFragment StoreEntitySet="Ticket">
-          <ScalarProperty Name="Id_Ticket" ColumnName="Id_Ticket" />
-          <ScalarProperty Name="Type_Ticket" ColumnName="Type_Ticket" />
-          <ScalarProperty Name="Id_Seat" ColumnName="Id_Seat" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Id_Flight" ColumnName="Id_Flight" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Id_Seat" ColumnName="Id_Seat" />
+          <ScalarProperty Name="Type_Ticket" ColumnName="Type_Ticket" />
+          <ScalarProperty Name="Id_Ticket" ColumnName="Id_Ticket" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
