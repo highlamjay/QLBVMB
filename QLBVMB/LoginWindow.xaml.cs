@@ -23,8 +23,9 @@ namespace QLBVMB
         public LoginWindow()
         {
             InitializeComponent();
-            
+            this.DataContext = LGViewmodel = new LoginViewModel();
         }
-       
+
+        public LoginViewModel LGViewmodel { get; set; }
     }
 }

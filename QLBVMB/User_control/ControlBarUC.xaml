@@ -16,6 +16,7 @@
             <i:InvokeCommandAction Command="{Binding MouseMoveWindowCommand}" CommandParameter="{Binding ElementName=ucControlBar}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <Grid x:Name="gMain">
         <materialDesign:ColorZone Mode="PrimaryLight" >
             <DockPanel>

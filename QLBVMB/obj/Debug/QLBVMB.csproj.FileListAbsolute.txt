@@ -97,3 +97,8 @@ D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
 D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
 D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
