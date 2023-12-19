@@ -13,10 +13,10 @@ namespace QLBVMB.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLBVMBEntities : DbContext
+    public partial class QLBVMBEntities1 : DbContext
     {
-        public QLBVMBEntities()
-            : base("name=QLBVMBEntities")
+        public QLBVMBEntities1()
+            : base("name=QLBVMBEntities1")
         {
         }
     
