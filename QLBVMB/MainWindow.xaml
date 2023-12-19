@@ -59,7 +59,7 @@
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition></RowDefinition>
-                                
+
                             </Grid.RowDefinitions>
                             <materialDesign:Card Grid.Row="0" Margin="5">
                                 <WrapPanel Margin="0 0 0 10">
@@ -100,40 +100,96 @@
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <materialDesign:Card Grid.Row="0" Margin="5">
-                                <WrapPanel Margin="0 0 0 10">
-                                    <TextBox Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Type_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Hãng máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                </WrapPanel>
-                            </materialDesign:Card>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="47*" ></ColumnDefinition>
+                                <ColumnDefinition Width="69*" ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="auto" MinHeight="149"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Margin="10" Text="Lập lịch máy bay" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <WrapPanel Orientation="Vertical">
+                                                    <TextBox HorizontalAlignment="Left"  Width="100" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Width="150" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã địa điểm khởi hành" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox HorizontalAlignment="Left" Width="150" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã địa điểm kết thúc" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                </WrapPanel>
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <WrapPanel Orientation="Vertical">
+                                                    <TextBox HorizontalAlignment="Left" Width="100" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding Time_Start}" Width="150" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                    <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding End_Start}" Width="150" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                </WrapPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <materialDesign:Card Margin="5,10,5,0" Height="48" VerticalAlignment="Top">
+                                        <WrapPanel>
+                                            <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                            <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                            <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                        </WrapPanel>
+                                    </materialDesign:Card>
+                                </Grid>
+                            </Grid>
 
-                            <materialDesign:Card Grid.Row="1" Margin="5">
-                                <WrapPanel>
-                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
-                                </WrapPanel>
-                            </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
-                                        <ListView.View>
-                                            <GridView>
-                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Plane}"></GridViewColumn>
-                                                <GridViewColumn Header="Tên máy bay" DisplayMemberBinding="{Binding Type_Plane}"></GridViewColumn>
-                                                <GridViewColumn Header="Hãng máy bay" DisplayMemberBinding="{Binding Brand}"></GridViewColumn>
-                                            </GridView>
-                                        </ListView.View>
-                                    </ListView>
-                                </ScrollViewer>
-                            </materialDesign:Card>
+                            <DataGrid Grid.Column="1"
+                 
+                  CanUserAddRows="False"
+                  SelectionUnit="FullRow"
+                  AutoGenerateColumns="False"
+                  SelectionMode="Extended"
+                  IsReadOnly="True"
+                  HorizontalScrollBarVisibility="Hidden"
+                  >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Mã máy bay"
+                                    Binding="{Binding OriginCity}"
+                                    Width="150" />
+                                    <DataGridTextColumn Header="Mã chuyến bay"
+                                    Binding="{Binding OriginAP}"
+                                    Width="150" />
+                                    <DataGridTextColumn Header="Mã địa điểm khởi hành"
+                                    Binding="{Binding DestCity}"
+                                    Width="150" />
+                                    <DataGridTextColumn Header="Mã địa điểm kết thúc"
+                                    Binding="{Binding DestAP}"
+                                    Width="150" />
+                                    <DataGridTextColumn Header="Thời gian cất cánh"
+                                    Binding="{Binding Time, StringFormat=DD\\:MM\\:YY}"
+                                    Width="120" />
+                                    <DataGridTextColumn Header="Thời gian hạ cánh"
+                                    Binding="{Binding Time, StringFormat=DD\\:MM\\:YY}"
+                                    Width="120" />
+
+                                    <DataGridTemplateColumn Width="*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate xmlns:cal="http://www.caliburnproject.org">
+                                                <StackPanel Orientation="Horizontal">
+
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+
+
+
                         </Grid>
                     </TabItem>
                     <TabItem>
@@ -210,8 +266,8 @@
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0" Width="auto">
-                                <StackPanel Margin="0 0 0 10">
+                                <Grid Grid.Column="0" Width="auto">
+                                    <StackPanel Margin="0 0 0 10">
                                         <TextBlock Margin="10" Text="Lập thông vé" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -219,28 +275,28 @@
                                                 <ColumnDefinition></ColumnDefinition>
                                             </Grid.ColumnDefinitions>
                                             <Grid Grid.Column="1">
-                                                <StackPanel>
+                                                <WrapPanel Orientation="Vertical">
                                                     <TextBox HorizontalAlignment="Left" Text="{Binding Type, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                     <TextBox HorizontalAlignment="Left" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    
-                                                </StackPanel>
+
+                                                </WrapPanel>
                                             </Grid>
                                             <Grid Grid.Column="0">
-                                                <StackPanel>
+                                                <WrapPanel Orientation="Vertical">
                                                     <DatePicker HorizontalAlignment="Left" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                                     <TextBox HorizontalAlignment="Left" Text="{Binding Flight.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                     <TextBox HorizontalAlignment="Left" Text="{Binding Seat.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                </StackPanel>
+                                                </WrapPanel>
                                             </Grid>
                                         </Grid>
-      
+
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                             <TextBlock Text="Thành Tiền" FontWeight="DemiBold" FontSize="25" Margin="0 10 0 0" HorizontalAlignment="Right" />
                                             <TextBox x:Name="sumMoney" Margin="20 0 0 0" Width="220" IsReadOnly="True" VerticalAlignment="Bottom" FontSize="20" Text="0.00" />
                                             <TextBlock Text="VNĐ" FontSize="17" Margin="10 10 0 0" HorizontalAlignment="Right" />
                                         </StackPanel>
-                                </StackPanel>
-                            </Grid>
+                                    </StackPanel>
+                                </Grid>
                                 <Grid Grid.Column="1">
                                     <StackPanel Margin="0 0 0 10">
                                         <TextBlock Margin="10" Text="Thông tin khách hàng" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
