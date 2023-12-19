@@ -9,6 +9,7 @@
         
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:uc="clr-namespace:QLBVMB.User_control"
+        
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -24,9 +25,13 @@
         
         DataContext="{StaticResource LoginVM}"
         Name="loginWindow"
-        Title="Đăng nhập" Height="500" Width="600">
-    <Grid >
-        <Grid>
+        Title="Đăng nhập" Height="600" Width="460">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.RowSpan="2">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -36,7 +41,7 @@
                 <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
             </Grid>
             <Grid Grid.Row="1">
-                <Image Stretch="UniformToFill" Source="/Image/login_logo.jpg" HorizontalAlignment="Center">                    
+                <Image Stretch="UniformToFill" Source="/Image/logo_login.jpg" HorizontalAlignment="Center">
                 </Image>
                 <Grid>
                     <Grid>
