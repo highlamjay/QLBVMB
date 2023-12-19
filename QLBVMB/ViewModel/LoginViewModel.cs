@@ -10,8 +10,8 @@ using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
 {
-    class LoginViewModel : BaseViewModel
-    {
+    public class LoginViewModel : BaseViewModel
+    { 
         public bool IsLogin { get; set; }
         private string _Username;
         public string Username { get => _Username; set { _Username = value; OnPropertyChanged(); } }

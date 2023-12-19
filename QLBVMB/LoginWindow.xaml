@@ -59,6 +59,7 @@
                                 <Grid Grid.Row="0">
                                     <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập"
                                              Text="{Binding UserName}"
+                                            
                                              materialDesign:TextFieldAssist.HasClearButton="True"
                                          Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15"/>
                                 </Grid>

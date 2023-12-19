@@ -23,6 +23,8 @@ namespace QLBVMB
         public LoginWindow()
         {
             InitializeComponent();
+            
         }
+       
     }
 }
