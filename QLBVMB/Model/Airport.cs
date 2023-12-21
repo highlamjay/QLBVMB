@@ -9,11 +9,10 @@
 
 namespace QLBVMB.Model
 {
-    using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class Airport : BaseViewModel
+    public partial class Airport
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Airport()
@@ -21,17 +20,12 @@ namespace QLBVMB.Model
             this.Flights = new HashSet<Flight>();
             this.Flights1 = new HashSet<Flight>();
         }
-
-        private string _Id_Airport;
-        public string Id_Airport { get => _Id_Airport; set { _Id_Airport = value; OnPropertyChanged(); } }
-
-        private string _Name_Airport;
-        public string Name_Airport { get => _Name_Airport; set { _Name_Airport = value; OnPropertyChanged(); } }
-
-        private string _Id_Locate;
-        public string Id_Locate { get => _Id_Locate; set { _Id_Locate = value; OnPropertyChanged(); } }
-        private Locate _Locate { get; set; }
-        public virtual Locate Locate { get => _Locate; set { _Locate = value; OnPropertyChanged(); } }
+    
+        public string Id_Airport { get; set; }
+        public string Name_Airport { get; set; }
+        public string Id_Locate { get; set; }
+    
+        public virtual Locate Locate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Flight> Flights { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
