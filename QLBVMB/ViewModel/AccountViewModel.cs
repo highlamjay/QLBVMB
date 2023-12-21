@@ -13,22 +13,21 @@ namespace QLBVMB.ViewModel
 {
     public class AccountViewModel : BaseViewModel
     {
-        private ObservableCollection<Account> _ListAccount;
-        public ObservableCollection<Account> ListAccount { get => _ListAccount; set { _ListAccount = value; OnPropertyChanged();} }
-
-        private Account _SelectedItemAccount;
-        public Account SelectedItemAccount { get => _SelectedItemAccount; 
+       
+        private Account _AccountSelectedItem;
+        public Account AccountSelectedItem
+        { get => _AccountSelectedItem; 
             set 
             {
-                _SelectedItemAccount = value; 
+                _AccountSelectedItem = value; 
                 OnPropertyChanged(); 
-                if (SelectedItemAccount != null)
+                if (AccountSelectedItem != null)
                 {
-                    Id_Account = SelectedItemAccount.Id_Account;
-                    Username = SelectedItemAccount.Username;
-                    Password = SelectedItemAccount.Password;
-                    Position = SelectedItemAccount.Position;
-                    DisplayName = SelectedItemAccount.DisplayName;
+                    Id_Account = AccountSelectedItem.Id_Account;
+                    Username = AccountSelectedItem.Username;
+                    Password = AccountSelectedItem.Password;
+                    Position = AccountSelectedItem.Position;
+                    DisplayName = AccountSelectedItem.DisplayName;
                 }
             } 
         }
