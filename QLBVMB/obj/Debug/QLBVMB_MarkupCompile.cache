@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\
 QLBVMB
 none
 false
 DEBUG;TRACE
-D:\QLBVMB\QLBVMB\QLBVMB\App.xaml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\App.xaml
 12-360527636
 2739969757
 35-421595178
-21-1365921988
+21-733565168
 AirportWindow.xaml;BillWindow.xaml;CustomerWindow.xaml;FlightWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PlaneWindow.xaml;ResourceXAML\MainResource.xaml;StatisticalWindow.xaml;TicketWindow.xaml;UserWindow.xaml;User_control\ControlBarUC.xaml;
 
 False
