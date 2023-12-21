@@ -447,7 +447,7 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem>
+                    <TabItem DataContext="{StaticResource AccountVM}">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"
@@ -461,9 +461,9 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition></RowDefinition>
+                                <RowDefinition ></RowDefinition>
                             </Grid.RowDefinitions>
-                            <materialDesign:Card Grid.Row="0" Margin="5">
+                            <materialDesign:Card Grid.Row="0" Margin="0">
                                 <WrapPanel Margin="0 0 0 10">
                                     <TextBox Text="{Binding Id_Account, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                     <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -473,18 +473,18 @@
                                 </WrapPanel>
                             </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Row="1" Margin="5">
+                            <materialDesign:Card Grid.Row="1" Margin="0">
                                 <WrapPanel>
-                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding AddAccountCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditAccountCommand}" Content="Sửa" Margin="5" Width="100"></Button>
                                     <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
                                     <Button Command="{Binding ChangePasswordCommand}" Content="Đổi pass" Margin="5" Width="100"></Button>
                                 </WrapPanel>
                             </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                            <materialDesign:Card Grid.Row="2" Margin="0" Grid.RowSpan="2" VerticalAlignment="Stretch">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding AccountList}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                    <ListView ItemsSource="{Binding AccountList}" SelectedItem="{Binding AccountSelectedItem, Mode=OneWayToSource}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Account}"></GridViewColumn>
