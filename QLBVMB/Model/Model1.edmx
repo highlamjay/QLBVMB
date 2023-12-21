@@ -81,6 +81,13 @@
           <Property Name="Type_Plane" Type="varchar" MaxLength="100" />
           <Property Name="Brand" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id_Position" />
+          </Key>
+          <Property Name="Id_Position" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Ticket">
           <Key>
             <PropertyRef Name="Id_Ticket" />
@@ -233,6 +240,7 @@
           <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locate" EntityType="Self.Locate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Plane" EntityType="Self.Plane" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_airport" Association="Self.fk_airport">
             <End Role="Locate" EntitySet="Locate" />
@@ -311,7 +319,7 @@
             <PropertyRef Name="Id_Booked" />
           </Key>
           <Property Name="Id_Booked" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Date" Type="DateTime" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="Id_Flight" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Id_Ticket" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Id_Customer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -351,8 +359,8 @@
             <PropertyRef Name="Id_Flight" />
           </Key>
           <Property Name="Id_Flight" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Time_Start" Type="DateTime" />
-          <Property Name="Time_End" Type="DateTime" />
+          <Property Name="Time_Start" Type="DateTime" Precision="3" />
+          <Property Name="Time_End" Type="DateTime" Precision="3" />
           <Property Name="Id_Plane" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Airport_Take_Off" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Airport_Landing" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -379,6 +387,13 @@
           <Property Name="Type_Plane" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Flights" Relationship="Self.fk01_flight" FromRole="Plane" ToRole="Flight" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id_Position" />
+          </Key>
+          <Property Name="Id_Position" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Ticket">
           <Key>
@@ -534,6 +549,7 @@
           <EntitySet Name="Flights" EntityType="Self.Flight" />
           <EntitySet Name="Locates" EntityType="Self.Locate" />
           <EntitySet Name="Planes" EntityType="Self.Plane" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
           <EntitySet Name="Tickets" EntityType="Self.Ticket" />
           <AssociationSet Name="fk05_booked" Association="Self.fk05_booked">
             <End Role="Account" EntitySet="Accounts" />
@@ -667,6 +683,14 @@
                 <ScalarProperty Name="Id_Plane" ColumnName="Id_Plane" />
                 <ScalarProperty Name="Type_Plane" ColumnName="Type_Plane" />
                 <ScalarProperty Name="Brand" ColumnName="Brand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="QLBVMBModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Id_Position" ColumnName="Id_Position" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

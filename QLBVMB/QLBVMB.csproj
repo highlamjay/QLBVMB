@@ -131,6 +131,9 @@
     <Compile Include="Model\Plane.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Position.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -33,6 +33,7 @@ namespace QLBVMB.Model
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<Locate> Locates { get; set; }
         public virtual DbSet<Plane> Planes { get; set; }
+        public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
     }
 }

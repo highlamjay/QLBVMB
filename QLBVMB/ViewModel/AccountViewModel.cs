@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
@@ -13,9 +14,12 @@ namespace QLBVMB.ViewModel
     {
         private ObservableCollection<Account> _AccountList;
         public ObservableCollection<Account> AccountList { get { return _AccountList; } set { _AccountList = value; OnPropertyChanged(); } }
+        private ObservableCollection<Position> _PositionList;
+        public ObservableCollection<Position> PositionList { get { return _PositionList; } set { _PositionList = value; OnPropertyChanged(); } }
         public AccountViewModel()
         {
             AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+            PositionList = new ObservableCollection<Position>(DataProvider.Ins.DB.Positions);
             var displayListAccount = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == Id_Account);
 
             AddAccountCommand = new RelayCommand<object>((p) =>
@@ -54,6 +58,8 @@ namespace QLBVMB.ViewModel
                 Account.DisplayName = DisplayName;
                 Account.Position = Position;
                 DataProvider.Ins.DB.SaveChanges();
+
+                AccountSelectedItem.DisplayName = DisplayName;
             });
 
             DeleteAccountCommand = new RelayCommand<object>((p) =>
@@ -106,7 +112,6 @@ namespace QLBVMB.ViewModel
 
         private string _DisplayName;
         public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
-
         public ICommand AddAccountCommand { get; set; }
         public ICommand EditAccountCommand { get; set; }
         public ICommand DeleteAccountCommand { get; set; }

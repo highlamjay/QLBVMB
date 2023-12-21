@@ -85,6 +85,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="QLBVMBModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="Id_Position" ColumnName="Id_Position" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Tickets">
       <EntityTypeMapping TypeName="QLBVMBModel.Ticket">
         <MappingFragment StoreEntitySet="Ticket">
