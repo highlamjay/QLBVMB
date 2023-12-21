@@ -20,7 +20,9 @@ namespace QLBVMB.Model
         public string Id_Ticket { get; set; }
         public string Id_Customer { get; set; }
         public string Id_CB { get; set; }
+        public string Id_AccountSeller { get; set; }
     
+        public virtual Account Account { get; set; }
         public virtual Flight Flight { get; set; }
         public virtual Ticket Ticket { get; set; }
         public virtual Customer Customer { get; set; }

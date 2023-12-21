@@ -2,6 +2,7 @@
 using QLBVMB.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,25 @@ namespace QLBVMB.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private ObservableCollection<Account> _AccountList;
+        private ObservableCollection<Airport> _AirportList;
+        private ObservableCollection<Booked> _BookedList;
+        private ObservableCollection<Checked_Baggage> _Checked_BaggageList;
+        private ObservableCollection<Customer> _CustomerList;
+        private ObservableCollection<Flight> _FlightList;
+        private ObservableCollection<Locate> _LocateList;
+        private ObservableCollection<Plane> _PlaneList;
+        private ObservableCollection<Ticket> _TicketList;
+        public ObservableCollection<Account> AccountList { get { return _AccountList; } set { _AccountList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Airport> AirportList { get { return _AirportList; } set { _AirportList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Booked> BookedList { get { return _BookedList; } set { _BookedList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Checked_Baggage> Checked_BaggageList { get { return _Checked_BaggageList; } set { _Checked_BaggageList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Customer> CustomerList { get { return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Flight> FlightList { get { return _FlightList; } set { _FlightList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Locate> LocateList { get { return _LocateList; } set { _LocateList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Plane> PlaneList { get { return _PlaneList; } set { _PlaneList = value; OnPropertyChanged(); } }
+        public ObservableCollection<Ticket> TicketList { get { return _TicketList; } set { _TicketList = value; OnPropertyChanged(); } }
+
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand CustomerCommand { get; set; }
@@ -31,9 +51,12 @@ namespace QLBVMB.ViewModel
                 {
                     return;
                 }
+
                 p.Hide();
+
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
+                LoadMainWindow();
 
                 if (loginWindow.DataContext == null)
                 {
@@ -65,24 +88,10 @@ namespace QLBVMB.ViewModel
 
         
         }
-
-        private ActionCommand loginCommand;
-
-        public ICommand LoginCommand
+             
+        void LoadMainWindow()
         {
-            get
-            {
-                if (loginCommand == null)
-                {
-                    loginCommand = new ActionCommand(Login);
-                }
-
-                return loginCommand;
-            }
-        }
-
-        private void Login()
-        {
+            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
         }
     }
 }
