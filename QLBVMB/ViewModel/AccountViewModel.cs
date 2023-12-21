@@ -5,61 +5,95 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
 {
     public class AccountViewModel : BaseViewModel
     {
-        //public AccountViewModel()
-        //{
-        //    ListAccount = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+        private ObservableCollection<Account> _AccountList;
+        public ObservableCollection<Account> AccountList { get { return _AccountList; } set { _AccountList = value; OnPropertyChanged(); } }
+        public AccountViewModel()
+        {
+            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+            var displayListAccount = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == Id_Account);
 
-        //    AddAccountCommand = new RelayCommand<object>((p) => 
-        //    { 
-        //        if (string.IsNullOrEmpty(Id_Account))
-        //           return false;
+            AddAccountCommand = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(Id_Account))
+                    return false;
 
-        //        var displayList = DataProvider.Ins.DB.Accounts.Where(x=> x.Id_Account = Id_Account);
-        //        if (displayList == null || displayList.Count() != 0 )
-        //        { return false; }
-        //        return true;
-        //    }, (p) => 
-        //    {
-        //        var account = new Account() { Id_Account = Id_Account};
+                if (displayListAccount == null || displayListAccount.Count() != 0)
+                { return false; }
+                return true;
+            }, (p) =>
+            {
+                var account = new Account() { Id_Account = Id_Account,Username = Username,Password = Password,Position = Position, DisplayName = DisplayName };
 
-        //        DataProvider.Ins.DB.Accounts.Add(account);
-        //        DataProvider.Ins.DB.SaveChanges();
+                DataProvider.Ins.DB.Accounts.Add(account);
+                DataProvider.Ins.DB.SaveChanges();
 
-        //        ListAccount.Add(account);
-        //    });
+                AccountList.Add(account);
+            });
 
-        //    EditAccountCommand = new RelayCommand<object>((p) =>
-        //    {
-        //        if (SelectedItemAccount == null)
-        //            return false;
+            EditAccountCommand = new RelayCommand<object>((p) =>
+            {
+                if (AccountSelectedItem == null)
+                    return false;
+                return true;
+                //var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
+                //if (displayListAccount1 != null && displayListAccount.Count() != 0)
+                //    return true;
 
-        //        var displayListAccount = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == SelectedItemAccount.Id_Account);
-        //        if (displayListAccount != null && displayListAccount.Count() != 0)
-        //            return true;
+                //return false;
+            }, (p) =>
+            {
+                var Account = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account).SingleOrDefault();
+                Account.Id_Account = Id_Account;
+                Account.Username = Username;
+                Account.Password = Password;
+                Account.DisplayName = DisplayName;
+                Account.Position = Position;
+                DataProvider.Ins.DB.SaveChanges();
+                //AccountSelectedItem.DisplayName = DisplayName;
+            });
+        }
+        private Account _AccountSelectedItem;
+        public Account AccountSelectedItem
+        {
+            get => _AccountSelectedItem;
+            set
+            {
+                _AccountSelectedItem = value;
+                OnPropertyChanged();
+                if (AccountSelectedItem != null)
+                {
+                    Id_Account = AccountSelectedItem.Id_Account;
+                    Username = AccountSelectedItem.Username;
+                    Password = AccountSelectedItem.Password;
+                    Position = AccountSelectedItem.Position;
+                    DisplayName = AccountSelectedItem.DisplayName;
+                }
+            }
+        }
+        private string _Id_Account;
+        public string Id_Account { get => _Id_Account; set { _Id_Account = value; OnPropertyChanged(); } }
 
-        //        return false;
-        //    }, (p) =>
-        //    {
-        //        var Account = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account = SelectedItemAccount.Id_Account).SingleOrDefault();
-        //        Account.Id_Account = Id_Account;
-        //        Account.Username = Username;
-        //        Account.Password = Password;
-        //        Account.DisplayName = DisplayName;
-        //        //Account.Position = Positon;
-        //        DataProvider.Ins.DB.SaveChanges();
-        //        SelectedItemAccount.DisplayName = DisplayName;
-        //    });
+        private string _Username;
+        public string Username { get => _Username; set { _Username = value; OnPropertyChanged(); } }
 
-        //}
+        private string _Password;
+        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+
+        private string _Position;
+        public string Position { get => _Position; set { _Position = value; OnPropertyChanged(); } }
+
+        private string _DisplayName;
+        public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
+
+        public ICommand AddAccountCommand { get; set; }
+        public ICommand EditAccountCommand { get; set; }
     }
 
-    
+
 }
