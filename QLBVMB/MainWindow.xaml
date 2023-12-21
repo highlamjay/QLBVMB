@@ -477,7 +477,7 @@
                                 <WrapPanel>
                                     <Button Command="{Binding AddAccountCommand}" Content="Thêm" Margin="5" Width="100"></Button>
                                     <Button Command="{Binding EditAccountCommand}" Content="Sửa" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteAccountCommand}" Content="Xóa" Margin="5" Width="100"></Button>
                                     <Button Command="{Binding ChangePasswordCommand}" Content="Đổi pass" Margin="5" Width="100"></Button>
                                 </WrapPanel>
                             </materialDesign:Card>

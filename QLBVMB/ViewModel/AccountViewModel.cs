@@ -40,12 +40,11 @@ namespace QLBVMB.ViewModel
             {
                 if (AccountSelectedItem == null)
                     return false;
-                return true;
-                //var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
-                //if (displayListAccount1 != null && displayListAccount.Count() != 0)
-                //    return true;
+                var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
+                if (displayListAccount1 != null && displayListAccount.Count() != 0)
+                    return true;
 
-                //return false;
+                return false;
             }, (p) =>
             {
                 var Account = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account).SingleOrDefault();
@@ -55,7 +54,24 @@ namespace QLBVMB.ViewModel
                 Account.DisplayName = DisplayName;
                 Account.Position = Position;
                 DataProvider.Ins.DB.SaveChanges();
-                //AccountSelectedItem.DisplayName = DisplayName;
+            });
+
+            DeleteAccountCommand = new RelayCommand<object>((p) =>
+            {
+                if (AccountSelectedItem == null)
+                    return false;
+
+                var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
+                if (displayListAccount1 != null && displayListAccount.Count() != 0)
+                    return true;
+
+                return false;
+            }, (p) =>
+            {
+                DataProvider.Ins.DB.Accounts.Remove(AccountSelectedItem);
+                DataProvider.Ins.DB.SaveChanges();
+
+                AccountList.Remove(AccountSelectedItem);
             });
         }
         private Account _AccountSelectedItem;
@@ -93,6 +109,7 @@ namespace QLBVMB.ViewModel
 
         public ICommand AddAccountCommand { get; set; }
         public ICommand EditAccountCommand { get; set; }
+        public ICommand DeleteAccountCommand { get; set; }
     }
 
 
