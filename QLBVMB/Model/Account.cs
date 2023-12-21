@@ -9,23 +9,33 @@
 
 namespace QLBVMB.Model
 {
+    using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Account : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Account()
         {
             this.Bookeds = new HashSet<Booked>();
         }
-    
-        public string Id_Account { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Position { get; set; }
-        public string DisplayName { get; set; }
-    
+
+        private string _Id_Account;
+        public string Id_Account { get => _Id_Account; set { _Id_Account = value; OnPropertyChanged(); } }
+
+        private string _Username;
+        public string Username { get => _Username; set { _Username = value; OnPropertyChanged(); } }
+
+        private string _Password;
+        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+
+        private string _Position;
+        public string Position { get => _Position; set { _Position = value; OnPropertyChanged(); } }
+
+        private string _DisplayName;
+        public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booked> Bookeds { get; set; }
     }

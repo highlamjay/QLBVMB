@@ -14,6 +14,7 @@ namespace QLBVMB.ViewModel
     public class MainViewModel : BaseViewModel
     {
         private ObservableCollection<Account> _AccountList;
+        public ObservableCollection<Account> AccountList { get { return _AccountList; }  set { _AccountList = value;OnPropertyChanged(); } }
         private ObservableCollection<Airport> _AirportList;
         private ObservableCollection<Booked> _BookedList;
         private ObservableCollection<Checked_Baggage> _Checked_BaggageList;
@@ -22,7 +23,6 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Locate> _LocateList;
         private ObservableCollection<Plane> _PlaneList;
         private ObservableCollection<Ticket> _TicketList;
-        public ObservableCollection<Account> AccountList { get { return _AccountList; } set { _AccountList = value; OnPropertyChanged(); } }
         private Account _AccountSelectedItem;
         public Account AccountSelectedItem
         {
@@ -56,30 +56,9 @@ namespace QLBVMB.ViewModel
         private string _DisplayName;
         public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
 
-        public IComparable AddAccountCommand { get; set; }
-        public IComparable EditAccountCommand { get; set; }
+        public ICommand AddAccountCommand { get; set; }
+        public ICommand EditAccountCommand { get; set; }
 
-        public void AccountViewModel()
-        {
-            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
-
-            AddAccountCommand = new RelayCommand<object>((p) =>
-            {
-                if (string.IsNullOrEmpty(Id_Account))
-                    return false;
-                var displayListAccount = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account = Id_Account);
-                if (displayListAccount == null || displayListAccount.Count() != 0)
-                { return false; }
-                return true;
-            }, (p) =>
-            {
-                var account = new Account() { Id_Account = Id_Account };
-
-                DataProvider.Ins.DB.Accounts.Add(account);
-                DataProvider.Ins.DB.SaveChanges();
-
-                AccountList.Add(account);
-            });
 
             //EditAccountCommand = new RelayCommand<object>((p) =>
             //{
@@ -103,7 +82,7 @@ namespace QLBVMB.ViewModel
             //    AccountSelectedItem.DisplayName = DisplayName;
             //});
 
-        }
+       
         public ObservableCollection<Airport> AirportList { get { return _AirportList; } set { _AirportList = value; OnPropertyChanged(); } }
         public ObservableCollection<Booked> BookedList { get { return _BookedList; } set { _BookedList = value; OnPropertyChanged(); } }
         public ObservableCollection<Checked_Baggage> Checked_BaggageList { get { return _Checked_BaggageList; } set { _Checked_BaggageList = value; OnPropertyChanged(); } }
@@ -115,6 +94,7 @@ namespace QLBVMB.ViewModel
 
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
+        public ICommand LoadedAccountCommand { get; set; }
         public ICommand CustomerCommand { get; set; }
         public ICommand AirportCommand { get; set; }
         public ICommand PlaneCommand { get; set; }
@@ -123,6 +103,7 @@ namespace QLBVMB.ViewModel
         public ICommand BillCommand { get; set; }
         public ICommand StatisticalCommand { get; set; }
         public ICommand TicketCommand { get; set; }
+        
         public MainViewModel()
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
@@ -137,7 +118,6 @@ namespace QLBVMB.ViewModel
 
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
-                LoadMainWindow();
 
                 if (loginWindow.DataContext == null)
                 {
@@ -154,15 +134,38 @@ namespace QLBVMB.ViewModel
                 {
                     p.Close();
                 }
-
             }
             );
-           
-        }
-             
-        void LoadMainWindow()
-        {
             AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+            AddAccountCommand = new RelayCommand<object>((p) =>
+            {
+                if (string.IsNullOrEmpty(Id_Account))
+                    return false;
+                var displayListAccount = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == Id_Account);
+                if (displayListAccount == null || displayListAccount.Count() != 0)
+                {
+                    return false;
+                }
+                return true;
+            }, (p) =>
+            {
+                var account = new Account() { Id_Account = Id_Account, Username = Username, Password = Password, Position = Position, DisplayName = DisplayName };
+
+                DataProvider.Ins.DB.Accounts.Add(account);
+                DataProvider.Ins.DB.SaveChanges();
+
+                AccountList.Add(account);
+            });
+
         }
+
+        //public void AccountViewModel()
+        //{
+        //    LoadedAccountCommand = new RelayCommand<Window>((w) => { return true; }, (w) =>
+        //    {
+                
+        //    });
+        //}
+
     }
 }
