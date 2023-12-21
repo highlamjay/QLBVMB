@@ -13,43 +13,6 @@ namespace QLBVMB.ViewModel
 {
     public class AccountViewModel : BaseViewModel
     {
-       
-        private Account _AccountSelectedItem;
-        public Account AccountSelectedItem
-        { get => _AccountSelectedItem; 
-            set 
-            {
-                _AccountSelectedItem = value; 
-                OnPropertyChanged(); 
-                if (AccountSelectedItem != null)
-                {
-                    Id_Account = AccountSelectedItem.Id_Account;
-                    Username = AccountSelectedItem.Username;
-                    Password = AccountSelectedItem.Password;
-                    Position = AccountSelectedItem.Position;
-                    DisplayName = AccountSelectedItem.DisplayName;
-                }
-            } 
-        }
-
-        private string _Id_Account;
-        public string Id_Account { get => _Id_Account; set { _Id_Account = value; OnPropertyChanged(); } }
-
-        private string _Username;
-        public string Username { get => _Username; set { _Username = value; OnPropertyChanged(); } }
-
-        private string _Password;
-        public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
-
-        private string _Position;
-        public string Position { get => _Position; set { _Position = value; OnPropertyChanged(); } }
-
-        private string _DisplayName;
-        public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
-
-        public IComparable AddAccountCommand { get; set; }
-        public IComparable EditAccountCommand { get; set; }
-
         //public AccountViewModel()
         //{
         //    ListAccount = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
