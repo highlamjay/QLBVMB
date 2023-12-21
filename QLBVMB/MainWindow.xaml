@@ -47,7 +47,7 @@
                             materialDesign:ColorZoneAssist.Mode="PrimaryMid"
                             Style="{StaticResource MaterialDesignNavigationRailTabControl}">
 
-                    <TabItem>
+                    <TabItem DataContext="{StaticResource AirportVM}">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Airport" />
@@ -63,28 +63,28 @@
                             </Grid.RowDefinitions>
                             <materialDesign:Card Grid.Row="0" Margin="5">
                                 <WrapPanel Margin="0 0 0 10">
-                                    <TextBox Text="{Binding Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Locate.Id, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã địa điểm" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Id_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Name_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="Id_Locate" ItemsSource="{Binding LocateList}" SelectedItem="{Binding SelectedLocate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã địa điểm" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
                                 </WrapPanel>
                             </materialDesign:Card>
 
                             <materialDesign:Card Grid.Row="1" Margin="5">
                                 <WrapPanel>
-                                    <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding AddAirportCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding EditAirportCommand}" Content="Sửa" Margin="5" Width="100"></Button>
+                                    <Button Command="{Binding DeleteAirportCommand}" Content="Xóa" Margin="5" Width="100"></Button>
                                 </WrapPanel>
                             </materialDesign:Card>
 
                             <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                    <ListView ItemsSource="{Binding AirportList}" SelectedItem="{Binding AirportSelectedItem, Mode=OneWayToSource}">
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Tên sân bay" DisplayMemberBinding="{Binding DisplayName}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã địa điểm" DisplayMemberBinding="{Binding Locate.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Airport}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên sân bay" DisplayMemberBinding="{Binding Name_Airport}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã địa điểm" DisplayMemberBinding="{Binding Locate.Id_Locate}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -468,7 +468,7 @@
                                     <TextBox Text="{Binding Id_Account, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                     <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                     <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="DisplayName" ItemsSource="{Binding PositionList}" SelectedItem="{Binding SelectedRole, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Quyền" Style="{StaticResource MaterialDesignFloatingHintComboBox}" IsEditable="False"/>
+                                    <ComboBox Margin="5 5 15 5" ItemsSource="{Binding Position}" SelectedItem="{Binding Positon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Quyền" IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
                                     <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên hiển thị" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                 </WrapPanel>
                             </materialDesign:Card>
