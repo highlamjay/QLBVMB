@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace QLBVMB.ViewModel
 {
@@ -15,6 +17,13 @@ namespace QLBVMB.ViewModel
         public virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public void SetPrimaryColor(Color color)
+        {
+            PaletteHelper paletteHelper = new PaletteHelper();
+            var theme = paletteHelper.GetTheme();
+            theme.SetPrimaryColor(color);
+            paletteHelper.SetTheme(theme);
         }
     }
     class RelayCommand<T> : ICommand

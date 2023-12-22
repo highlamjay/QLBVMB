@@ -5,7 +5,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace QLBVMB.ViewModel
 {
@@ -17,7 +19,7 @@ namespace QLBVMB.ViewModel
         public PlaneViewModel()
         {
             PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
-           
+
             var displayListPlane = DataProvider.Ins.DB.Planes.Where(x => x.Id_Plane == Id_Plane);
 
             AddPlaneCommand = new RelayCommand<object>((p) =>

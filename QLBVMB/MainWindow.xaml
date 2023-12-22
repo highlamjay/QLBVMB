@@ -42,10 +42,10 @@
         <Grid Grid.Row="1">
 
             <materialDesign:Card>
-                <TabControl VerticalContentAlignment="Bottom"
+                <TabControl x:Name="tcontrol" VerticalContentAlignment="Bottom"
                             
                             materialDesign:ColorZoneAssist.Mode="PrimaryMid"
-                            Style="{StaticResource MaterialDesignNavigationRailTabControl}">
+                            Style="{StaticResource MaterialDesignNavigationRailTabControl}" SelectionChanged="TabControl_SelectionChanged">
 
                     <TabItem DataContext="{StaticResource AirportVM}">
                         <TabItem.Header>
@@ -97,8 +97,8 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem DataContext="{StaticResource PlaneVM}">
-                        <TabItem.Header >
+                    <TabItem x:Name="tPlane" DataContext="{StaticResource PlaneVM}">
+                        <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="Airplane" />
                                 <TextBlock HorizontalAlignment="Center" Text="Máy bay" FontSize="12"/>

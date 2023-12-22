@@ -1,4 +1,5 @@
-﻿using Microsoft.Xaml.Behaviors.Core;
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Xaml.Behaviors.Core;
 using QLBVMB.Model;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace QLBVMB.ViewModel
 {
@@ -44,6 +46,7 @@ namespace QLBVMB.ViewModel
         public ICommand TicketCommand { get; set; }
         public MainViewModel()
         {
+            SetPrimaryColor(Colors.Cyan);
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Isloaded = true;
