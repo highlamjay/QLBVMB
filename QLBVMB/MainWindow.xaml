@@ -123,13 +123,13 @@
                             </Grid.RowDefinitions>
                             
                             <materialDesign:Card Grid.Row="0" Margin="5">
-                                <TextBlock Margin="10" Text="Thiêt lập sân bay" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <TextBlock Margin="10" Text="Thiêt lập máy bay" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </materialDesign:Card>
 
                             <materialDesign:Card Grid.Row="1" Margin="5">
                                 <WrapPanel Margin="0 0 0 10">
-                                    <TextBox Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Type_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Type_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                     <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Hãng máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" /> 
                                 </WrapPanel>
                             </materialDesign:Card>
@@ -148,8 +148,8 @@
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Plane}"></GridViewColumn>
-                                                <GridViewColumn Header="Tên sân bay" DisplayMemberBinding="{Binding Type_Airport}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã địa điểm" DisplayMemberBinding="{Binding Brand}"></GridViewColumn>
+                                                <GridViewColumn Header="Tên máy bay" DisplayMemberBinding="{Binding Type_Plane}"></GridViewColumn>
+                                                <GridViewColumn Header="Hãng máy bay" DisplayMemberBinding="{Binding Brand}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -180,12 +180,12 @@
                             <materialDesign:Card Grid.Row="1" Margin="5">
                                 <WrapPanel Margin="0 0 0 10">
                                     <TextBox Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="Id_Plane" ItemsSource="{Binding PlaneList}" SelectedItem="{Binding Positon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã máy bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                    <TextBox Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                     <ComboBox Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi khởi hành" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                    <TextBox Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList1}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                    <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                 </WrapPanel>
                             </materialDesign:Card>
 
@@ -203,13 +203,13 @@
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
-                                                <GridViewColumn Header="Id-Plane" DisplayMemberBinding="{Binding Plane.Id_Plane}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã sân bay cất cánh" DisplayMemberBinding="{Binding Airport.Name_Airport}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã sân bay hạ cánh" DisplayMemberBinding="{Binding Airport.Name_Airport}"></GridViewColumn>
-                                                <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding Time_Star, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã máy bay" DisplayMemberBinding="{Binding Plane.Id_Plane}"></GridViewColumn>
+                                                <GridViewColumn Header="Nơi khởi hành" DisplayMemberBinding="{Binding Airport.Name_Airport}"></GridViewColumn>
+                                                <GridViewColumn Header="Nơi kết thúc" DisplayMemberBinding="{Binding Airport1.Name_Airport}"></GridViewColumn>
+                                                <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding Time_Start, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                                 <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding Time_End, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
-                                                <GridViewColumn Header="Số lượng ghế" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
-                                                <GridViewColumn Header="Ghế đã đặt" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng ghế" ></GridViewColumn>
+                                                <GridViewColumn Header="Ghế đã đặt" ></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
