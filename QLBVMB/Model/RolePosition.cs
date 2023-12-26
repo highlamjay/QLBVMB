@@ -12,7 +12,7 @@ namespace QLBVMB.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Position
+    public partial class RolePosition
     {
         public string Id_Position { get; set; }
         public string DisplayName { get; set; }

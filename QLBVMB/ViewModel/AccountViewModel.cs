@@ -14,12 +14,12 @@ namespace QLBVMB.ViewModel
     {
         private ObservableCollection<Account> _AccountList;
         public ObservableCollection<Account> AccountList { get { return _AccountList; } set { _AccountList = value; OnPropertyChanged(); } }
-        private ObservableCollection<Position> _PositionList;
-        public ObservableCollection<Position> PositionList { get { return _PositionList; } set { _PositionList = value; OnPropertyChanged(); } }
+        private ObservableCollection<RolePosition> _RolePositionList;
+        public ObservableCollection<RolePosition> RolePositionList { get { return _RolePositionList; } set { _RolePositionList = value; OnPropertyChanged(); } }
         public AccountViewModel()
         {
             AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
-            PositionList = new ObservableCollection<Position>(DataProvider.Ins.DB.Positions);
+            RolePositionList = new ObservableCollection<RolePosition>(DataProvider.Ins.DB.RolePositions);
 
             var displayListAccount = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == Id_Account);
 
@@ -99,6 +99,7 @@ namespace QLBVMB.ViewModel
                 }
             }
         }
+
         private string _Id_Account;
         public string Id_Account { get => _Id_Account; set { _Id_Account = value; OnPropertyChanged(); } }
 

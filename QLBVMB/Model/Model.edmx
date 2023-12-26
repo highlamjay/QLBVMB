@@ -81,7 +81,7 @@
           <Property Name="Type_Plane" Type="varchar" MaxLength="100" />
           <Property Name="Brand" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="Position">
+        <EntityType Name="RolePosition">
           <Key>
             <PropertyRef Name="Id_Position" />
           </Key>
@@ -240,7 +240,7 @@
           <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locate" EntityType="Self.Locate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Plane" EntityType="Self.Plane" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePosition" EntityType="Self.RolePosition" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_airport" Association="Self.fk_airport">
             <End Role="Locate" EntitySet="Locate" />
@@ -388,7 +388,7 @@
           <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Flights" Relationship="Self.fk01_flight" FromRole="Plane" ToRole="Flight" />
         </EntityType>
-        <EntityType Name="Position">
+        <EntityType Name="RolePosition">
           <Key>
             <PropertyRef Name="Id_Position" />
           </Key>
@@ -549,7 +549,7 @@
           <EntitySet Name="Flights" EntityType="Self.Flight" />
           <EntitySet Name="Locates" EntityType="Self.Locate" />
           <EntitySet Name="Planes" EntityType="Self.Plane" />
-          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="RolePositions" EntityType="Self.RolePosition" />
           <EntitySet Name="Tickets" EntityType="Self.Ticket" />
           <AssociationSet Name="fk05_booked" Association="Self.fk05_booked">
             <End Role="Account" EntitySet="Accounts" />
@@ -686,9 +686,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Positions">
-            <EntityTypeMapping TypeName="QLBVMBModel.Position">
-              <MappingFragment StoreEntitySet="Position">
+          <EntitySetMapping Name="RolePositions">
+            <EntityTypeMapping TypeName="QLBVMBModel.RolePosition">
+              <MappingFragment StoreEntitySet="RolePosition">
                 <ScalarProperty Name="Id_Position" ColumnName="Id_Position" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
               </MappingFragment>

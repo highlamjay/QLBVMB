@@ -17,13 +17,14 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Airport> _AirportList;
         public ObservableCollection<Airport> AirportList { get { return _AirportList; } set { _AirportList = value; OnPropertyChanged(); } }
 
-        private ObservableCollection<Plane> _PlaneList;
-        public ObservableCollection<Plane> PlaneList { get { return _PlaneList; } set { _PlaneList = value; OnPropertyChanged(); } }
+        private ObservableCollection<Airport> _AirportList1;
+        public ObservableCollection<Airport> AirportList1 { get { return _AirportList1; } set { _AirportList1 = value; OnPropertyChanged(); } }
+
         public FlightViewModel()
         {
             FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
             AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
-            PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
+            AirportList1 = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
             var displayListFlight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == Id_Flight);
 
             AddFlightCommand = new RelayCommand<object>((p) =>
@@ -36,7 +37,7 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                var Flight = new Flight() { Id_Flight = Id_Flight, Id_Plane = SelectedPlane.Id_Plane, Airport_Take_Off = SelectedAirport.Name_Airport, Airport_Landing = SelectedAirport.Name_Airport, Time_Start = Time_Star, Time_End = Time_End };
+                var Flight = new Flight() { Id_Flight = Id_Flight, Id_Plane = SelectedPlane.Id_Plane, Airport_Take_Off = SelectedAirport.Name_Airport, Airport_Landing = SelectedAirport.Name_Airport, Time_Start = Time_Start, Time_End = Time_End };
 
                 DataProvider.Ins.DB.Flights.Add(Flight);
                 DataProvider.Ins.DB.SaveChanges();
@@ -57,10 +58,10 @@ namespace QLBVMB.ViewModel
             {
                 var Flight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == FlightSelectedItem.Id_Flight).SingleOrDefault();
                 Flight.Id_Flight = Id_Flight;
-                Flight.Id_Plane = SelectedPlane.Id_Plane;
+                Flight.Id_Plane = Id_Plane;
                 Flight.Airport_Take_Off = SelectedAirport.Name_Airport;
-                Flight.Airport_Landing = SelectedAirport.Name_Airport;
-                Flight.Time_Start = Time_Star;
+                Flight.Airport_Landing = SelectedAirport1.Name_Airport;
+                Flight.Time_Start = Time_Start;
                 Flight.Time_End = Time_End;
                 DataProvider.Ins.DB.SaveChanges();              
             });
@@ -137,9 +138,10 @@ namespace QLBVMB.ViewModel
                 if (FlightSelectedItem != null)
                 {
                     Id_Flight = FlightSelectedItem.Id_Flight;
-                    SelectedPlane = FlightSelectedItem.Plane;
+                    Id_Plane = FlightSelectedItem.Id_Plane;
                     SelectedAirport = FlightSelectedItem.Airport;
-                    Time_Star = FlightSelectedItem.Time_Start;
+                    SelectedAirport1 = FlightSelectedItem.Airport1;
+                    Time_Start = FlightSelectedItem.Time_Start;
                     Time_End = FlightSelectedItem.Time_End;
                 }
             }
@@ -156,8 +158,8 @@ namespace QLBVMB.ViewModel
         private string _Airport_Landing;
         public string Airport_Landing { get => _Airport_Landing; set { _Airport_Landing = value; OnPropertyChanged(); } }
 
-        private DateTime? _Time_Star;
-        public DateTime? Time_Star { get => _Time_Star; set { _Time_Star = value; OnPropertyChanged(); } }
+        private DateTime? _Time_Start;
+        public DateTime? Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
 
         private DateTime? _Time_End;
         public DateTime? Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
