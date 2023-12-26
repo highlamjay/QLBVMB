@@ -94,9 +94,20 @@ namespace QLBVMB.ViewModel
                     Id_Account = AccountSelectedItem.Id_Account;
                     Username = AccountSelectedItem.Username;
                     Password = AccountSelectedItem.Password;
-                    Position = AccountSelectedItem.Position;
+                    SelectedPosition = ;
                     DisplayName = AccountSelectedItem.DisplayName;
                 }
+            }
+        }
+
+        private Position _SelectedPosition;
+        public Position SelectedPosition
+        {
+            get => _SelectedPosition;
+            set
+            {
+                _SelectedPosition = value;
+                OnPropertyChanged();             
             }
         }
         private string _Id_Account;
