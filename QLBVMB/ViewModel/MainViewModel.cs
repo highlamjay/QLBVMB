@@ -116,7 +116,7 @@ namespace QLBVMB.ViewModel
              
         void LoadMainWindow()
         {
-            //AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
         }
     }
 }

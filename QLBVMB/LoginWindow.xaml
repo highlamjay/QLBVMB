@@ -45,8 +45,11 @@
                 </Image>
                 <Grid>
                     <Grid>
-                        <materialDesign:Card Width="330" Height="250"      
-                                         HorizontalAlignment="Center" VerticalAlignment="Center" UniformCornerRadius="30">
+                        <materialDesign:Card Width="330" Height="250"
+                                             HorizontalAlignment="Center"
+                                             VerticalAlignment="Center" 
+                                             UniformCornerRadius="30"
+                                             materialDesign:ElevationAssist.Elevation="Dp24">
                             <materialDesign:Card.Background>
                                 <SolidColorBrush Color="White" Opacity="0.8"/>
                             </materialDesign:Card.Background>
@@ -108,26 +111,31 @@
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    <Button Grid.Column="0"    
-                                        Style="{StaticResource MaterialDesignRaisedButton}"
-                                        Command="{Binding LoginCommand}"
-                                        CommandParameter="{Binding ElementName=loginWindow}"
-                                        Width="120"
-                                        Height="40"
-                                        materialDesign:ButtonAssist.CornerRadius="15"
-                                        Foreground="White"
-                                        BorderBrush="Green"
-                                        Background="#FF22DC22"
-                                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Đăng nhập" FontSize="18"></Button>
+                                    <Button Grid.Column="0"
+                                            Style="{StaticResource MaterialDesignRaisedButton}"
+                                            Command="{Binding LoginCommand}"
+                                            CommandParameter="{Binding ElementName=loginWindow}"
+                                            Width="120"
+                                            Height="40"
+                                            materialDesign:ButtonAssist.CornerRadius="15"
+                                            Foreground="White"
+                                            BorderBrush="Green"
+                                            Background="#FF22DC22"
+                                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                                            Content="Đăng nhập" FontSize="18"
+                                            materialDesign:ElevationAssist.Elevation="Dp4"></Button>
                                     <Button Grid.Column="1"    
-                                        Style="{StaticResource MaterialDesignRaisedButton}"    
-                                        Width="120"
-                                        Height="40"
-                                        materialDesign:ButtonAssist.CornerRadius="15"
-                                        Foreground="White"
-                                        BorderBrush="DarkRed"
-                                        Background="#FFFF0C00"                                         
-                                        ToolTip="Resource name: MaterialDesignRaisedButton" Content="Thoát" FontSize="18"></Button>
+                                            Style="{StaticResource MaterialDesignRaisedButton}"    
+                                            Width="120"
+                                            Height="40"
+                                            materialDesign:ButtonAssist.CornerRadius="15"
+                                            Foreground="White"
+                                            BorderBrush="DarkRed"
+                                            Background="#FFFF0C00"                                         
+                                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                                            Content="Thoát"
+                                            FontSize="18"
+                                            materialDesign:ElevationAssist.Elevation="Dp4"></Button>
                                 </Grid>
                             </Grid>
                         </materialDesign:Card>
