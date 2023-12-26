@@ -44,6 +44,7 @@
             <materialDesign:Card>
                 <TabControl x:Name="tcontrol"
                             materialDesign:ColorZoneAssist.Mode="PrimaryMid"
+                            materialDesign:ElevationAssist.Elevation="Dp8"
                             materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
                             materialDesign:NavigationRailAssist.SelectionCornerRadius="20,20,20,20"
                             Style="{StaticResource MaterialDesignNavigationRailTabControl}"
@@ -76,10 +77,10 @@
                                 </materialDesign:Card>
                            
                             <materialDesign:Card Grid.Row="1" Margin="5">
-                                <WrapPanel Margin="0 0 0 10">
-                                    <TextBox Text="{Binding Id_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Name_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="Id_Locate" ItemsSource="{Binding LocateList}" SelectedItem="{Binding SelectedLocate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã địa điểm" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                <WrapPanel Margin="0 0 0 8">
+                                    <TextBox Text="{Binding Id_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="30 5 15 5" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Name_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="15 5 15 5" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <ComboBox Margin="15 5 15 5" DisplayMemberPath="Id_Locate" ItemsSource="{Binding LocateList}" SelectedItem="{Binding SelectedLocate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã địa điểm" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
                                 </WrapPanel>
                             </materialDesign:Card>
 
@@ -184,6 +185,7 @@
                                     <ComboBox Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
                                     <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                     <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Width="100" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                    <TextBox Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                 </WrapPanel>
                             </materialDesign:Card>
 
@@ -206,6 +208,8 @@
                                                 <GridViewColumn Header="Mã sân bay hạ cánh" DisplayMemberBinding="{Binding Airport.Name_Airport}"></GridViewColumn>
                                                 <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding Time_Star, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                                 <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding Time_End, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng ghế" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
+                                                <GridViewColumn Header="Ghế đã đặt" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -350,11 +354,10 @@
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
                                                 <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Customer.Id_Customer}"></GridViewColumn>
-                                                <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding Customer.Name}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã địa điểm" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
-                                                <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding TimeEnd}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -402,12 +405,10 @@
                                     <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Id-Plane" DisplayMemberBinding="{Binding Plane.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã sân bay cất cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã sân bay hạ cánh" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
-                                                <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding TimeEnd}"></GridViewColumn>
+                                                <GridViewColumn Header="Id Flight" DisplayMemberBinding="{Binding Plane.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng ghế" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng ghế đã đặt" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
+                                                <GridViewColumn Header="Doanh thu" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>

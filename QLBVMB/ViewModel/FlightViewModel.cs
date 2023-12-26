@@ -21,9 +21,9 @@ namespace QLBVMB.ViewModel
         public ObservableCollection<Plane> PlaneList { get { return _PlaneList; } set { _PlaneList = value; OnPropertyChanged(); } }
         public FlightViewModel()
         {
-            //FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
-            //AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
-            //PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
+            FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
+            AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
+            PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
             var displayListFlight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == Id_Flight);
 
             AddFlightCommand = new RelayCommand<object>((p) =>

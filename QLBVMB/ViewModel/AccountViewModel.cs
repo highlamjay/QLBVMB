@@ -18,8 +18,8 @@ namespace QLBVMB.ViewModel
         public ObservableCollection<Position> PositionList { get { return _PositionList; } set { _PositionList = value; OnPropertyChanged(); } }
         public AccountViewModel()
         {
-            //AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
-            //PositionList = new ObservableCollection<Position>(DataProvider.Ins.DB.Positions);
+            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+            PositionList = new ObservableCollection<Position>(DataProvider.Ins.DB.Positions);
 
             var displayListAccount = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == Id_Account);
 
