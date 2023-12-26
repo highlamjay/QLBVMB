@@ -1,4 +1,5 @@
-﻿using Microsoft.Xaml.Behaviors.Core;
+﻿using MaterialDesignThemes.Wpf;
+using Microsoft.Xaml.Behaviors.Core;
 using QLBVMB.Model;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace QLBVMB.ViewModel
 {
@@ -34,16 +37,18 @@ namespace QLBVMB.ViewModel
 
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
-        public ICommand CustomerCommand { get; set; }
-        public ICommand AirportCommand { get; set; }
-        public ICommand PlaneCommand { get; set; }
-        public ICommand FlightCommand { get; set; }
-        public ICommand UserCommand { get; set; }
-        public ICommand BillCommand { get; set; }
-        public ICommand StatisticalCommand { get; set; }
-        public ICommand TicketCommand { get; set; }
+        public ICommand SelectionChangedCommand { get; set; }
+        //public ICommand CustomerCommand { get; set; }
+        //public ICommand AirportCommand { get; set; }
+        //public ICommand PlaneCommand { get; set; }
+        //public ICommand FlightCommand { get; set; }
+        //public ICommand UserCommand { get; set; }
+        //public ICommand BillCommand { get; set; }
+        //public ICommand StatisticalCommand { get; set; }
+        //public ICommand TicketCommand { get; set; }
         public MainViewModel()
         {
+            SetPrimaryColor(Colors.DeepSkyBlue);
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 Isloaded = true;
@@ -76,12 +81,42 @@ namespace QLBVMB.ViewModel
 
             }
             );
-           
+
+            SelectionChangedCommand = new RelayCommand<TabControl>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                switch (p.SelectedIndex)
+                {
+                    case 0:
+                        SetPrimaryColor(Colors.DeepSkyBlue);
+                        break;
+                    case 1:
+                        SetPrimaryColor(Colors.Red);
+                        break;
+                    case 2:
+                        SetPrimaryColor(Colors.Green);
+                        break;
+                    case 3:
+                        SetPrimaryColor(Colors.Blue);
+                        break;
+                    case 4:
+                        SetPrimaryColor(Colors.Orange);
+                        break;
+                    case 5:
+                        SetPrimaryColor(Colors.Yellow);
+                        break;
+                    case 6:
+                        SetPrimaryColor(Colors.Green);
+                        break;
+                }
+            });
         }
              
         void LoadMainWindow()
         {
-            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+            //AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
         }
     }
 }
