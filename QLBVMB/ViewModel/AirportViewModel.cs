@@ -18,8 +18,8 @@ namespace QLBVMB.ViewModel
         public ObservableCollection<Locate> LocateList { get { return _LocateList; } set { _LocateList = value; OnPropertyChanged(); } }
         public AirportViewModel()
         {
-            AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
-            LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
+            //AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
+            //LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
 
             var displayListAirport = DataProvider.Ins.DB.Airports.Where(x => x.Id_Airport == Id_Airport);
             var displayListLocate = DataProvider.Ins.DB.Airports.Where(x => x.Id_Locate == SelectedLocate.Id_Locate);

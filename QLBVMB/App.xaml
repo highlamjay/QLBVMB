@@ -15,8 +15,8 @@
                 <ResourceDictionary Source="/ResourceXAML/MainResource.xaml"></ResourceDictionary>
                 
                 <!--add before-->
-                <materialDesign:BundledTheme BaseTheme="Inherit" ColorAdjustment="{materialDesign:ColorAdjustment}"
-                                     PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <!--<materialDesign:BundledTheme BaseTheme="Inherit" ColorAdjustment="{materialDesign:ColorAdjustment}"
+                                     PrimaryColor="Cyan" SecondaryColor="Lime" />-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

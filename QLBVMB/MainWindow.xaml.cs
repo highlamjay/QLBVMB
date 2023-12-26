@@ -24,39 +24,5 @@ namespace QLBVMB
         {
             InitializeComponent();
         }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        
-        }
-
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ViewModel.BaseViewModel temp = new ViewModel.BaseViewModel();
-            switch (tcontrol.SelectedIndex)
-            {
-                case 0:
-                    temp.SetPrimaryColor(Colors.Cyan);
-                    break;
-                case 1:
-                    temp.SetPrimaryColor(Colors.Red);
-                    break;
-                case 2:
-                    temp.SetPrimaryColor(Colors.Green);
-                    break;
-                case 3:
-                    temp.SetPrimaryColor(Colors.Blue);
-                    break;
-                case 4:
-                    temp.SetPrimaryColor(Colors.Orange);
-                    break;
-                case 5:
-                    temp.SetPrimaryColor(Colors.Yellow);
-                    break;
-                case 6:
-                    temp.SetPrimaryColor(Colors.Green);
-                    break;
-            }
-        }
     }
 }
