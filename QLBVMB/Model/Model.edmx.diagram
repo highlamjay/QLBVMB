@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="07b77e31f15a4aa889eb866d991de965" Name="Diagram1">
+      <Diagram DiagramId="d77f2df9d6164524bf6a8dae07762de4" Name="Diagram1">
         <EntityTypeShape EntityType="QLBVMBModel.Account" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBVMBModel.Airport" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBVMBModel.Booked" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="QLBVMBModel.Flight" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBVMBModel.Locate" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBVMBModel.Plane" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Position" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBVMBModel.RolePosition" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBVMBModel.Ticket" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
         <AssociationConnector Association="QLBVMBModel.fk05_booked" ManuallyRouted="false" />
         <AssociationConnector Association="QLBVMBModel.fk_airport" ManuallyRouted="false" />
