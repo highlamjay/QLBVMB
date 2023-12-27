@@ -24,7 +24,7 @@
         
         Name="mainWindow"
         DataContext="{StaticResource MainVM}"
-        Title="Phần mềm quản lý bán vé máy bay" Height="600" Width="1000">
+        Title="Phần mềm quản lý bán vé máy bay" Height="600" Width="1168">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" 
@@ -74,7 +74,7 @@
                                 <TextBlock Margin="10" Text="Thiêt lập sân bay" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
                             </materialDesign:Card>
 
-                            <materialDesign:Card Width="345" Height="54" Grid.Row="1" Margin="32,118,551,337" materialDesign:ElevationAssist.Elevation="Dp8"
+                            <materialDesign:Card Width="345" Height="54" Grid.Row="1" Margin="54,118,529,337" materialDesign:ElevationAssist.Elevation="Dp8"
                                                  UniformCornerRadius="25">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -88,7 +88,7 @@
                                 </Grid>
                             </materialDesign:Card>
 
-                            <materialDesign:Card Width="345" Height="50" Grid.Row="1" Margin="32,184,551,275" materialDesign:ElevationAssist.Elevation="Dp8"
+                            <materialDesign:Card Width="345" Height="50" Grid.Row="1" Margin="54,184,529,275" materialDesign:ElevationAssist.Elevation="Dp8"
                                                  UniformCornerRadius="25">
                                 <WrapPanel>
                                     <Button materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding AddAirportCommand}" Content="Thêm" Margin="10,8,5,5" Width="100"></Button>
@@ -136,7 +136,7 @@
                                 <WrapPanel Margin="0 0 0 10">
                                     <TextBox Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                     <TextBox Text="{Binding Type_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Hãng máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" /> 
+                                    <TextBox Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Hãng máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                 </WrapPanel>
                             </materialDesign:Card>
 
@@ -191,7 +191,7 @@
                                     <ComboBox Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList1}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
                                     <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                     <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                    <TextBox  Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    <TextBox Text="{Binding Total_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                 </WrapPanel>
                             </materialDesign:Card>
 
@@ -204,7 +204,7 @@
                             </materialDesign:Card>
 
                             <materialDesign:Card Grid.Row="3" Margin="5" VerticalAlignment="Stretch">
-                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
                                     <ListView ItemsSource="{Binding FlightList}" SelectedItem="{Binding FlightSelectedItem, Mode=OneWayToSource}">
                                         <ListView.View>
                                             <GridView>
@@ -214,8 +214,8 @@
                                                 <GridViewColumn Header="Nơi kết thúc" DisplayMemberBinding="{Binding Airport1.Name_Airport}"></GridViewColumn>
                                                 <GridViewColumn Header="Thời gian cất cánh" DisplayMemberBinding="{Binding Time_Start, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
                                                 <GridViewColumn Header="Thời gian hạ cánh" DisplayMemberBinding="{Binding Time_End, StringFormat='dd/MM/yyyy'}"></GridViewColumn>
-                                                <GridViewColumn Header="Số lượng ghế" ></GridViewColumn>
-                                                <GridViewColumn Header="Ghế đã đặt" ></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng ghế" DisplayMemberBinding="{Binding Total_Seat}"></GridViewColumn>
+                                                <GridViewColumn Header="Ghế đã đặt" DisplayMemberBinding="{Binding Total_BookedSeat}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -453,7 +453,6 @@
                                     <Button Command="{Binding AddAccountCommand}" Content="Thêm" Margin="5" Width="100"></Button>
                                     <Button Command="{Binding EditAccountCommand}" Content="Sửa" Margin="5" Width="100"></Button>
                                     <Button Command="{Binding DeleteAccountCommand}" Content="Xóa" Margin="5" Width="100"></Button>
-                                    <Button Command="{Binding ChangePasswordCommand}" Content="Đổi pass" Margin="5" Width="100"></Button>
                                 </WrapPanel>
                             </materialDesign:Card>
 

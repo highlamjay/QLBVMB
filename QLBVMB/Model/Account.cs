@@ -38,6 +38,5 @@ namespace QLBVMB.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booked> Bookeds { get; set; }
-        public virtual RolePosition RolePosition { get; set; }
     }
 }

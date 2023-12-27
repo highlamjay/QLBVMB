@@ -65,6 +65,8 @@
           <ScalarProperty Name="Id_Plane" ColumnName="Id_Plane" />
           <ScalarProperty Name="Airport_Take_Off" ColumnName="Airport_Take_Off" />
           <ScalarProperty Name="Airport_Landing" ColumnName="Airport_Landing" />
+          <ScalarProperty Name="Total_Seat" ColumnName="Total_Seat" />
+          <ScalarProperty Name="Total_BookedSeat" ColumnName="Total_BookedSeat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -85,9 +87,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Positions">
-      <EntityTypeMapping TypeName="QLBVMBModel.Position">
-        <MappingFragment StoreEntitySet="Position">
+    <EntitySetMapping Name="RolePositions">
+      <EntityTypeMapping TypeName="QLBVMBModel.RolePosition">
+        <MappingFragment StoreEntitySet="RolePosition">
           <ScalarProperty Name="Id_Position" ColumnName="Id_Position" />
           <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
         </MappingFragment>

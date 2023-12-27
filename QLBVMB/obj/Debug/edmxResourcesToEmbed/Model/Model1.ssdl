@@ -60,6 +60,8 @@
     <Property Name="Id_Plane" Type="varchar" MaxLength="10" />
     <Property Name="Airport_Take_Off" Type="varchar" MaxLength="10" />
     <Property Name="Airport_Landing" Type="varchar" MaxLength="10" />
+    <Property Name="Total_Seat" Type="tinyint" />
+    <Property Name="Total_BookedSeat" Type="tinyint" />
   </EntityType>
   <EntityType Name="Locate">
     <Key>
@@ -76,7 +78,7 @@
     <Property Name="Type_Plane" Type="varchar" MaxLength="100" />
     <Property Name="Brand" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="Position">
+  <EntityType Name="RolePosition">
     <Key>
       <PropertyRef Name="Id_Position" />
     </Key>
@@ -235,7 +237,7 @@
     <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Locate" EntityType="Self.Locate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Plane" EntityType="Self.Plane" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePosition" EntityType="Self.RolePosition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_airport" Association="Self.fk_airport">
       <End Role="Locate" EntitySet="Locate" />

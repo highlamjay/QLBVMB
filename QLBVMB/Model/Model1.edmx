@@ -65,6 +65,8 @@
           <Property Name="Id_Plane" Type="varchar" MaxLength="10" />
           <Property Name="Airport_Take_Off" Type="varchar" MaxLength="10" />
           <Property Name="Airport_Landing" Type="varchar" MaxLength="10" />
+          <Property Name="Total_Seat" Type="tinyint" />
+          <Property Name="Total_BookedSeat" Type="tinyint" />
         </EntityType>
         <EntityType Name="Locate">
           <Key>
@@ -364,6 +366,8 @@
           <Property Name="Id_Plane" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Airport_Take_Off" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Airport_Landing" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Seat" Type="Byte" />
+          <Property Name="Total_BookedSeat" Type="Byte" />
           <NavigationProperty Name="Airport" Relationship="Self.fk02_flight" FromRole="Flight" ToRole="Airport" />
           <NavigationProperty Name="Airport1" Relationship="Self.fk03_flight" FromRole="Flight" ToRole="Airport" />
           <NavigationProperty Name="Bookeds" Relationship="Self.fk01_booked" FromRole="Flight" ToRole="Booked" />
@@ -666,6 +670,8 @@
                 <ScalarProperty Name="Id_Plane" ColumnName="Id_Plane" />
                 <ScalarProperty Name="Airport_Take_Off" ColumnName="Airport_Take_Off" />
                 <ScalarProperty Name="Airport_Landing" ColumnName="Airport_Landing" />
+                <ScalarProperty Name="Total_Seat" ColumnName="Total_Seat" />
+                <ScalarProperty Name="Total_BookedSeat" ColumnName="Total_BookedSeat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

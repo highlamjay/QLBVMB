@@ -21,7 +21,7 @@ namespace QLBVMB.Model
             this.Bookeds = new HashSet<Booked>();
             this.Tickets = new HashSet<Ticket>();
         }
-    
+
         private string _Id_Plane;
         public string Id_Plane { get => _Id_Plane; set { _Id_Plane = value; OnPropertyChanged(); } }
 
@@ -40,9 +40,11 @@ namespace QLBVMB.Model
         private Nullable<System.DateTime> _Time_End;
         public Nullable<System.DateTime> Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
 
-        private Airport _Airport;
-        private Airport _Airport1;
-        private Plane _Plane;
+        private Nullable<byte> _Total_Seat;
+        public Nullable<byte> Total_Seat { get => _Total_Seat; set { _Total_Seat = value; OnPropertyChanged(); } }
+
+        private Nullable<byte> _Total_BookedSeat;
+        public Nullable<byte> Total_BookedSeat { get => _Total_BookedSeat; set { _Total_BookedSeat = value; OnPropertyChanged(); } }
 
         public virtual Airport Airport { get; set; }
         public virtual Airport Airport1 { get; set; }

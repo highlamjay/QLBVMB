@@ -37,7 +37,17 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                var Flight = new Flight() { Id_Flight = Id_Flight, Id_Plane = SelectedPlane.Id_Plane, Airport_Take_Off = SelectedAirport.Name_Airport, Airport_Landing = SelectedAirport.Name_Airport, Time_Start = Time_Start, Time_End = Time_End };
+                var Flight = new Flight() 
+                { 
+                    Id_Flight = Id_Flight, 
+                    Id_Plane = SelectedPlane.Id_Plane, 
+                    Airport_Take_Off = SelectedAirport.Name_Airport, 
+                    Airport_Landing = SelectedAirport.Name_Airport, 
+                    Time_Start = Time_Start, 
+                    Time_End = Time_End,
+                    Total_Seat = Total_Seat,
+                    Total_BookedSeat = 0
+                };
 
                 DataProvider.Ins.DB.Flights.Add(Flight);
                 DataProvider.Ins.DB.SaveChanges();
@@ -63,6 +73,7 @@ namespace QLBVMB.ViewModel
                 Flight.Airport_Landing = SelectedAirport1.Name_Airport;
                 Flight.Time_Start = Time_Start;
                 Flight.Time_End = Time_End;
+                Flight.Total_Seat = Total_Seat;
                 DataProvider.Ins.DB.SaveChanges();              
             });
 
@@ -143,6 +154,8 @@ namespace QLBVMB.ViewModel
                     SelectedAirport1 = FlightSelectedItem.Airport1;
                     Time_Start = FlightSelectedItem.Time_Start;
                     Time_End = FlightSelectedItem.Time_End;
+                    Total_Seat = FlightSelectedItem.Total_Seat;
+                    Total_BookedSeat = FlightSelectedItem.Total_BookedSeat;
                 }
             }
         }
@@ -163,6 +176,12 @@ namespace QLBVMB.ViewModel
 
         private DateTime? _Time_End;
         public DateTime? Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
+
+        private byte? _Total_Seat;
+        public byte? Total_Seat { get => _Total_Seat; set { _Total_Seat = value; OnPropertyChanged(); } }
+
+        private byte? _Total_BookedSeat;
+        public byte? Total_BookedSeat { get => _Total_BookedSeat; set { _Total_BookedSeat = value; OnPropertyChanged(); } }
 
         public ICommand AddFlightCommand { get; set; }
         public ICommand EditFlightCommand { get; set; }

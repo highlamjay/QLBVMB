@@ -21,7 +21,7 @@ namespace QLBVMB.Model
             this.Flights = new HashSet<Flight>();
             this.Flights1 = new HashSet<Flight>();
         }
-
+    
         private string _Id_Airport;
         public string Id_Airport { get => _Id_Airport; set { _Id_Airport = value; OnPropertyChanged(); } }
 
