@@ -7,4 +7,5 @@
     <viewmodel:AirportViewModel x:Key="AirportVM"></viewmodel:AirportViewModel>
     <viewmodel:PlaneViewModel x:Key="PlaneVM"></viewmodel:PlaneViewModel>
     <viewmodel:FlightViewModel x:Key="FlightVM"></viewmodel:FlightViewModel>
+    <viewmodel:TicketViewModel x:Key="TicketVM"></viewmodel:TicketViewModel>
 </ResourceDictionary>

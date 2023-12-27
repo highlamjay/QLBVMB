@@ -223,7 +223,7 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem>
+                    <TabItem DataContext="{StaticResource TicketVM}">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"
@@ -267,12 +267,7 @@
                                                 </WrapPanel>
                                             </Grid>
                                         </Grid>
-
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                            <TextBlock Text="Thành Tiền" FontWeight="DemiBold" FontSize="25" Margin="0 10 0 0" HorizontalAlignment="Right" />
-                                            <TextBox x:Name="sumMoney" Margin="20 0 0 0" Width="220" IsReadOnly="True" VerticalAlignment="Bottom" FontSize="20" Text="0.00" />
-                                            <TextBlock Text="VNĐ" FontSize="17" Margin="10 10 0 0" HorizontalAlignment="Right" />
-                                        </StackPanel>
+                                      
                                     </StackPanel>
                                 </Grid>
                                 <Grid Grid.Column="1">
@@ -310,7 +305,7 @@
 
                             <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                                    <ListView ItemsSource="{Binding TicketList}" SelectedItem="{Binding SelectedTicket, Mode=OneWayToSource}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Ticket}"></GridViewColumn>
