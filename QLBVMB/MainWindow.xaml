@@ -174,36 +174,83 @@
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                                    <GradientStop Color="White" Offset="0.1" />
+                                    <GradientStop Color="#FF00CE4F" Offset="1" />
+                                </LinearGradientBrush>
+                            </Grid.Background>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition Height="auto"></RowDefinition>
+                                <RowDefinition Height="200"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <materialDesign:Card Grid.Row="0" Margin="5">
-                                <TextBlock Margin="10" Text="Thiêt lập chuyến bay" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
-                            </materialDesign:Card>
-                            <materialDesign:Card Grid.Row="1" Margin="5">
-                                <WrapPanel Margin="0 0 0 10">
-                                    <TextBox Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi khởi hành" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                    <ComboBox Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList1}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                    <TextBox Text="{Binding Total_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                </WrapPanel>
-                            </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Row="2" Margin="5">
-                                <WrapPanel>
-                                    <Button Command="{Binding AddFlightCommand}"  Content="Lập lịch chuyến bay" Margin="5" Width="200"></Button>
-                                    <Button Command="{Binding EditFlightCommand}" Content="Sửa lịch bay" Margin="5" Width="200"></Button>
-                                    <Button Command="{Binding DeleteFlightCommand}" Content="Xóa lịch bay" Margin="5" Width="200"></Button>
-                                </WrapPanel>
-                            </materialDesign:Card>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="270" ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
 
-                            <materialDesign:Card Grid.Row="3" Margin="5" VerticalAlignment="Stretch">
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="70"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <materialDesign:Card Grid.Row="0" Width="400" Height="50" Margin="5"
+                                                         materialDesign:ElevationAssist.Elevation="Dp8"
+                                                         UniformCornerRadius="10">
+                                        <TextBlock Margin="10" Text="Thiêt lập chuyến bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                    </materialDesign:Card>
+
+                                    <materialDesign:Card Grid.Row="1" Width="auto" Margin="25,5,25,5"
+                                                         materialDesign:ElevationAssist.Elevation="Dp8"
+                                                         UniformCornerRadius="10">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBox Grid.Column="0" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                <TextBox Grid.Column="1" Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                <ComboBox Grid.Column="2" Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi khởi hành" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                                <ComboBox Grid.Column="3" Margin="5 5 15 5" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList1}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                            </Grid>
+                                            <Grid Grid.Row="1">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <DatePicker Grid.Column="0" VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <DatePicker Grid.Column="1" VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Width="100" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <TextBox Grid.Column="2" Text="{Binding Total_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                            </Grid>
+                                        </Grid>
+                                    </materialDesign:Card>
+                                </Grid>
+
+                                <materialDesign:Card Grid.Column="1" Width="220" Margin="5"
+                                                     UniformCornerRadius="25"
+                                                     materialDesign:ElevationAssist.Elevation="Dp8">
+                                    <WrapPanel>
+                                        <Button materialDesign:ButtonAssist.CornerRadius="25,25,10,10" Command="{Binding AddFlightCommand}"  Content="Lập lịch chuyến bay" Margin="20,10,20,5" Width="180" Height="50"></Button>
+                                        <Button materialDesign:ButtonAssist.CornerRadius="10,10,10,10" Command="{Binding EditFlightCommand}" Content="Sửa lịch bay" Margin="20,5,20,5" Width="180" Height="50"></Button>
+                                        <Button materialDesign:ButtonAssist.CornerRadius="10,10,25,25" Command="{Binding DeleteFlightCommand}" Content="Xóa lịch bay" Margin="20,5,20,10" Width="180" Height="50"></Button>
+                                    </WrapPanel>
+                                </materialDesign:Card>
+                            </Grid>
+                            
+                            <materialDesign:Card Grid.Row="1" Margin="10,10,10,10" VerticalAlignment="Stretch"
+                                                 materialDesign:ElevationAssist.Elevation="Dp16"
+                                                 UniformCornerRadius="10">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
                                     <ListView ItemsSource="{Binding FlightList}" SelectedItem="{Binding FlightSelectedItem, Mode=OneWayToSource}">
                                         <ListView.View>

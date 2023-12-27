@@ -37,16 +37,17 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                var Flight = new Flight() 
-                { 
-                    Id_Flight = Id_Flight, 
-                    Id_Plane = Id_Plane, 
-                    Airport_Take_Off = SelectedAirport.Id_Airport, 
-                    Airport_Landing = SelectedAirport1.Id_Airport, 
-                    Time_Start = Time_Start, 
+                Total_BookedSeat = 0;
+                var Flight = new Flight()
+                {
+                    Id_Flight = Id_Flight,
+                    Id_Plane = Id_Plane,
+                    Airport_Take_Off = SelectedAirport.Id_Airport,
+                    Airport_Landing = SelectedAirport1.Id_Airport,
+                    Time_Start = Time_Start,
                     Time_End = Time_End,
                     Total_Seat = Total_Seat,
-                   
+                    Total_BookedSeat = Total_BookedSeat
                 };
 
                 DataProvider.Ins.DB.Flights.Add(Flight);
@@ -124,20 +125,7 @@ namespace QLBVMB.ViewModel
                 }
             }
         }
-        private Plane _SelectedPlane;
-        public Plane SelectedPlane
-        {
-            get => _SelectedPlane;
-            set
-            {
-                _SelectedPlane = value;
-                OnPropertyChanged();
-                if (SelectedPlane != null)
-                {
-
-                }
-            }
-        }
+        
         private Flight _FlightSelectedItem;
         public Flight FlightSelectedItem
         {
