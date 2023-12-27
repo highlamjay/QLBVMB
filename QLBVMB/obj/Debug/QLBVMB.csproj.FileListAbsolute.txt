@@ -1,54 +1,48 @@
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe.config
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.pdb
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.AssemblyReference.cache
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\MainWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\App.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.cache
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.lref
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\MainWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.g.resources
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.Properties.Resources.resources
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.GenerateResource.cache
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInputs.cache
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.dll
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.dll
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.dll
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.pdb
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.pdb
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.xml
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.xml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\App.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\LoginWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\LoginWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\ResourceXAML\MainResource.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe.config
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.pdb
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.dll
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.pdb
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.AssemblyReference.cache
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\AirportWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\BillWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\FlightWindow.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\LoginWindow.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\MainWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\TicketWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\UserWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\App.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.cache
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.lref
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\App.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\AirportWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\BillWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\FlightWindow.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\LoginWindow.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\MainWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\ResourceXAML\MainResource.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\TicketWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\UserWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.g.resources
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.Properties.Resources.resources
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.GenerateResource.cache
@@ -56,49 +50,3 @@ C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInp
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\AirportWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\AirportWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\BillWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\FlightWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\UserWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\BillWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\FlightWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\UserWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.baml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\TicketWindow.g.cs
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\TicketWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\AirportWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\BillWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\FlightWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\TicketWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\UserWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\AirportWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\BillWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\CustomerWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\FlightWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\PlaneWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\StatisticalWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\TicketWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\UserWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.baml
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.dll
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
-D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
-D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.dll
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
