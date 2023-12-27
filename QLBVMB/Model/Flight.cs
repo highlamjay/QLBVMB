@@ -46,14 +46,17 @@ namespace QLBVMB.Model
         private Nullable<byte> _Total_BookedSeat;
         public Nullable<byte> Total_BookedSeat { get => _Total_BookedSeat; set { _Total_BookedSeat = value; OnPropertyChanged(); } }
 
-        private Airport _Airport;
+        private Airport _Airport; 
+        public virtual Airport Airport { get => _Airport; set { _Airport = value; OnPropertyChanged(); } }
+
         private Airport _Airport1;
-        public virtual Airport Airport { get; set; }
-        public virtual Airport Airport1 { get; set; }
+        public virtual Airport Airport1 { get => _Airport1; set { _Airport1 = value; OnPropertyChanged(); } }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booked> Bookeds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Tickets { get; set; }
-        public virtual Plane Plane { get; set; }
+
+        private Plane _Plane;
+        public virtual Plane Plane { get => _Plane; set { _Plane = value; OnPropertyChanged(); } }
     }
 }
