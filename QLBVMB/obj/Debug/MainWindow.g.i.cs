@@ -61,12 +61,12 @@ namespace QLBVMB {
         #line 45 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TabControl tcontrol;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 133 "..\..\MainWindow.xaml"
+
+#line default
+#line hidden
+
+
+#line 116 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TabItem tPlane;
         
