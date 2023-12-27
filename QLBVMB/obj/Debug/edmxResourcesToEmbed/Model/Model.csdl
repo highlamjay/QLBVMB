@@ -72,6 +72,8 @@
     <Property Name="Id_Plane" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="Airport_Take_Off" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="Airport_Landing" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Total_Seat" Type="Byte" />
+    <Property Name="Total_BookedSeat" Type="Byte" />
     <NavigationProperty Name="Airport" Relationship="Self.fk02_flight" FromRole="Flight" ToRole="Airport" />
     <NavigationProperty Name="Airport1" Relationship="Self.fk03_flight" FromRole="Flight" ToRole="Airport" />
     <NavigationProperty Name="Bookeds" Relationship="Self.fk01_booked" FromRole="Flight" ToRole="Booked" />

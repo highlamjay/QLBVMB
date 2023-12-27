@@ -60,6 +60,8 @@
     <Property Name="Id_Plane" Type="varchar" MaxLength="10" />
     <Property Name="Airport_Take_Off" Type="varchar" MaxLength="10" />
     <Property Name="Airport_Landing" Type="varchar" MaxLength="10" />
+    <Property Name="Total_Seat" Type="tinyint" />
+    <Property Name="Total_BookedSeat" Type="tinyint" />
   </EntityType>
   <EntityType Name="Locate">
     <Key>

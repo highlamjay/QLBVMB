@@ -160,6 +160,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\AirportViewModel.cs" />
+    <Compile Include="ViewModel\TicketViewModel.cs" />
     <Page Include="AirportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
