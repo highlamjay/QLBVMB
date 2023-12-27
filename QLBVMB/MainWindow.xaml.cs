@@ -24,5 +24,6 @@ namespace QLBVMB
         {
             InitializeComponent();
         }
+
     }
 }
