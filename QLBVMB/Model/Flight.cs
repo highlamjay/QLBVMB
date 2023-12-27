@@ -12,7 +12,7 @@ namespace QLBVMB.Model
     using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Flight : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +21,7 @@ namespace QLBVMB.Model
             this.Bookeds = new HashSet<Booked>();
             this.Tickets = new HashSet<Ticket>();
         }
-    
+
         private string _Id_Plane;
         public string Id_Plane { get => _Id_Plane; set { _Id_Plane = value; OnPropertyChanged(); } }
 

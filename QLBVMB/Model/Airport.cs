@@ -12,7 +12,7 @@ namespace QLBVMB.Model
     using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Airport : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
