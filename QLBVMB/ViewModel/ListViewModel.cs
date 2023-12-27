@@ -14,14 +14,17 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<List> _List;
         public ObservableCollection<List> List { get { return _List; } set { _List = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<Ticket> _TicketList;
+        public ObservableCollection<Ticket> TicketList { get { return _TicketList; } set { _TicketList = value; OnPropertyChanged(); } }
+
         private ObservableCollection<Locate> _LocateList;
         public ObservableCollection<Locate> LocateList { get { return _LocateList; } set { _LocateList = value; OnPropertyChanged(); } }
 
         private ObservableCollection<Customer> _CustomerList;
         public ObservableCollection<Customer> CustomerList { get { return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
 
-        private ObservableCollection<Ticket> _TicketList;
-        public ObservableCollection<Ticket> TicketList { get { return _TicketList; } set { _TicketList = value; OnPropertyChanged(); } }
+        private ObservableCollection<Flight> _FlightList;
+        public ObservableCollection<Flight> FlightList { get { return _FlightList; } set { _FlightList = value; OnPropertyChanged(); } }
 
         private ObservableCollection<Checked_Baggage> _Checked_BaggageList;
         public ObservableCollection<Checked_Baggage> Checked_BaggageList { get { return _Checked_BaggageList; } set { _Checked_BaggageList = value; OnPropertyChanged(); } }
@@ -33,7 +36,9 @@ namespace QLBVMB.ViewModel
             List = new ObservableCollection<List>();
             Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
             LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
-           
+            //FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
+            TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
+
 
             var displayListCustomer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == SelectedList.Id_Customer);
             var bookedList = DataProvider.Ins.DB.Bookeds;
@@ -84,15 +89,23 @@ namespace QLBVMB.ViewModel
                     }
 
                 }
-                var customer = DataProvider.Ins.DB.Customers.Where(x=> x.Tel == Tel);
-                if (customer == null)
+                string id = ran_cus.ToString();
+                var customer = DataProvider.Ins.DB.Customers.Where(x=> x.Tel == Tel).Count();
+                if (customer == 0)
                 {
-                    var cus = new Customer() { Id_Customer = ran_cus.ToString(), Name = Name, Locate = Id_Locate, Age = Age, Sex = Sex, Email = Email, Tel = Tel };
+                    
+                    var cus = new Customer() { Id_Customer = ran_cus.ToString(), Name = Name, Locate = SelectedLocate.Id_Locate, Age = Age, Sex = Sex, Email = Email, Tel = Tel };
+
 
                     DataProvider.Ins.DB.Customers.Add(cus);
                     DataProvider.Ins.DB.SaveChanges();
                 }
-                
+                var booked = new Booked() { Id_Booked = ran.ToString(), Date = DateTime.Now , Id_Flight = Id_Flight, Id_Ticket = Id_Ticket, Id_Customer = Id_Customer, Id_CB = SelectedCB.Id_CB};
+                DataProvider.Ins.DB.Bookeds.Add(booked);
+                DataProvider.Ins.DB.SaveChanges();
+
+                //var list = new List() { Id_Ticket = Id_Ticket, Id_Customer = Id_Customer, Name = Name ,Id_Flight = Id_Flight , Id_Seat = Id_Seat, Type_Ticket = Type_Ticket, Price = Price, Status = "Booked"};
+                //List.Add(list);
             });
         }
         private List _SelectedList;
@@ -105,11 +118,10 @@ namespace QLBVMB.ViewModel
                 OnPropertyChanged();
                 if (SelectedList != null)
                 {
-                    var customer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == SelectedList.Id_Customer).SingleOrDefault();                  
+                    var customer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == SelectedList.Id_Customer).SingleOrDefault();
+                    var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == SelectedList.Id_Ticket).SingleOrDefault();
                     var bookedList = DataProvider.Ins.DB.Bookeds.Where(x=> x.Id_Ticket == SelectedList.Id_Ticket).SingleOrDefault();
                     
-
-
                     Name = SelectedList.Name;
                     Age = customer.Age;
                     Sex = customer.Sex;
@@ -119,9 +131,9 @@ namespace QLBVMB.ViewModel
                     SelectedCB = bookedList.Checked_Baggage;
                     SelectedLocate = customer.Locate1;
                     Id_Ticket = SelectedList.Id_Ticket;
-                    Id_Flight = SelectedList.Id_Flight;
+                    SelectedFlight = bookedList.Flight;
                     Type_Ticket = SelectedList.Type_Ticket;
-                    Id_Seat = SelectedList.Id_Seat;
+                    SelectedSeat = bookedList.Ticket;
                     Price = SelectedList.Price;                  
                 }
             }
@@ -146,6 +158,30 @@ namespace QLBVMB.ViewModel
             set
             {
                 _SelectedLocate = value;
+                OnPropertyChanged();
+
+            }
+        }
+
+        private Ticket _SelectedSeat;
+        public Ticket SelectedSeat
+        {
+            get => _SelectedSeat;
+            set
+            {
+                _SelectedSeat = value;
+                OnPropertyChanged();
+
+            }
+        }
+
+        private Flight _SelectedFlight;
+        public Flight SelectedFlight
+        {
+            get => _SelectedFlight;
+            set
+            {
+                _SelectedFlight = value;
                 OnPropertyChanged();
 
             }

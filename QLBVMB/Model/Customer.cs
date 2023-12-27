@@ -9,18 +9,20 @@
 
 namespace QLBVMB.Model
 {
+    using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class Customer : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
             this.Bookeds = new HashSet<Booked>();
         }
-    
-        public string Id_Customer { get; set; }
+
+        private string _Id_Customer;
+        public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
         public string Name { get; set; }
         public Nullable<byte> Age { get; set; }
         public string Sex { get; set; }
