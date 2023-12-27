@@ -72,7 +72,7 @@
                             </Grid.Background>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
@@ -81,7 +81,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp8"
                                                  UniformCornerRadius="10"
                                                  Grid.Column="0" FontSize="18">
-                                <TextBlock Margin="10" Text="Thiêt lập sân bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                <TextBlock Margin="10" Text="Thiết lập sân bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
                             </materialDesign:Card>
 
                             <materialDesign:Card Width="430" Height="60"
@@ -112,12 +112,12 @@
                                 </WrapPanel>
                             </materialDesign:Card>
 
-                            <materialDesign:Card Margin="46,24,47,23"
+                            <materialDesign:Card Margin="26,24,47,23"
                                                  UniformCornerRadius="30"
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  Grid.Column="1">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding AirportList}" SelectedItem="{Binding AirportSelectedItem}" Width="400" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="10,5,10,5" FontSize="16">
+                                    <ListView ItemsSource="{Binding AirportList}" SelectedItem="{Binding AirportSelectedItem}" Width="auto" d:ItemsSource="{d:SampleData ItemCount=5}" HorizontalContentAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="15,5,15,5" FontSize="16">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Airport}"></GridViewColumn>
@@ -153,7 +153,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp8"
                                                  UniformCornerRadius="10"
                                                  FontSize="22">
-                                <TextBlock Margin="10" Text="Thiêt lập máy bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                <TextBlock Margin="10" Text="Thiết lập máy bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </materialDesign:Card>
 
                             <materialDesign:Card  Width="430" Height="60"
@@ -189,7 +189,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  VerticalAlignment="Stretch">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding PlaneList}" SelectedItem="{Binding PlaneSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                    <ListView Margin="15,5,15,5" ItemsSource="{Binding PlaneList}" SelectedItem="{Binding PlaneSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Plane}"></GridViewColumn>
@@ -239,7 +239,7 @@
                                     <materialDesign:Card Grid.Row="0" Width="400" Height="50" Margin="5"
                                                          materialDesign:ElevationAssist.Elevation="Dp8"
                                                          UniformCornerRadius="10">
-                                        <TextBlock Margin="10" Text="Thiêt lập chuyến bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                        <TextBlock Margin="10" Text="Thiết lập chuyến bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
                                     </materialDesign:Card>
 
                                     <materialDesign:Card Grid.Row="1" Width="auto" Margin="25,5,25,5"
@@ -523,11 +523,11 @@
                             </Grid.Background>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="480"></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="auto" ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <materialDesign:Card
+                            <materialDesign:Card Width="430" Height="120"
                                                  Grid.Column="0" Margin="25,146,25,297"
                                                  materialDesign:ElevationAssist.Elevation="Dp8"
                                                  UniformCornerRadius="30">
@@ -557,7 +557,8 @@
                                 </Grid>
                             </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Column="0" Margin="25,278,25,225"
+                            <materialDesign:Card Width="430" Height="60"
+                                                 Grid.Column="0" Margin="25,278,25,225"
                                                  materialDesign:ElevationAssist.Elevation="Dp8"
                                                  UniformCornerRadius="25">
                                 <WrapPanel>
