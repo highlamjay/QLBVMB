@@ -52,7 +52,7 @@ namespace QLBVMB.ViewModel
 
                 list.Id_Ticket = item.Id_Ticket;
                 list.Id_Customer = item.Id_Customer;
-                list.Name = customerList.Name;
+                  list.Name = customerList.Name;
                 list.Id_Flight = item.Id_Flight;
                 list.Id_Seat = ticketList.Id_Seat;
                 list.Status = ticketList.Status;
