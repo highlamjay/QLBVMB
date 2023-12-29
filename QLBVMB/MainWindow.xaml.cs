@@ -25,5 +25,9 @@ namespace QLBVMB
             InitializeComponent();
         }
 
+        private void ComboBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

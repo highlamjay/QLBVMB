@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
@@ -65,6 +66,8 @@ namespace QLBVMB.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 BookedList.Add(Booked);
             });
+
+            ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts); });
         }
         private Booked _BookedSelectedItem;
         public Booked BookedSelectedItem
@@ -180,6 +183,6 @@ namespace QLBVMB.ViewModel
         public string Name_Locate { get => _Name_Locate; set { _Name_Locate = value; OnPropertyChanged(); } }
         public ICommand AddBookedCommand { get; set; }
 
-
+        public ICommand ComboBoxClick {  get; set; }
     }
 }
