@@ -11,9 +11,6 @@ namespace QLBVMB.ViewModel
 {
     public class ListViewModel : BaseViewModel
     {
-        private ObservableCollection<Seat> _List;
-        public ObservableCollection<Seat> List { get { return _List; } set { _List = value; OnPropertyChanged(); } }
-
         private ObservableCollection<Ticket> _TicketList;
         public ObservableCollection<Ticket> TicketList { get { return _TicketList; } set { _TicketList = value; OnPropertyChanged(); } }
 
