@@ -22,9 +22,9 @@ namespace QLBVMB.ViewModel
 
         public BookedViewModel()
         {
-            BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
-            TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
-            Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
+            //BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
+            //TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
+            //Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
 
             var displayListBooked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == Id_Booked);
 
