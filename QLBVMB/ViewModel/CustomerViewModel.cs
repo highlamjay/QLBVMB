@@ -17,8 +17,8 @@ namespace QLBVMB.ViewModel
         public ObservableCollection<Locate> LocateList { get { return _LocateList; } set { _LocateList = value; OnPropertyChanged(); } }
         public CustomerViewModel()
         {
-            CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
-            LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
+            //CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
+            //LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
 
             var displayListAccount = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == Id_Customer);
 

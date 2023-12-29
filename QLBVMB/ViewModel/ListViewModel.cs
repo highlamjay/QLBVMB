@@ -33,11 +33,11 @@ namespace QLBVMB.ViewModel
         public ListViewModel() 
         {
             
-            List = new ObservableCollection<List>();
-            Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
-            LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
-            FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
-            TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
+            //List = new ObservableCollection<List>();
+            //Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
+            //LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
+            //FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
+            //TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
 
 
             var displayListCustomer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == SelectedList.Id_Customer);

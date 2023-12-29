@@ -18,7 +18,7 @@ namespace QLBVMB.ViewModel
         
         public PlaneViewModel()
         {
-            PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
+            //PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
 
             var displayListPlane = DataProvider.Ins.DB.Planes.Where(x => x.Id_Plane == Id_Plane);
 

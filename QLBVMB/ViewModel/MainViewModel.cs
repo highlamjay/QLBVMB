@@ -102,13 +102,19 @@ namespace QLBVMB.ViewModel
                         SetPrimaryColor(Colors.Blue);
                         break;
                     case 4:
-                        SetPrimaryColor(Colors.Orange);
+                        SetPrimaryColor(Colors.DeepSkyBlue);
                         break;
                     case 5:
-                        SetPrimaryColor(Colors.Yellow);
+                        SetPrimaryColor(Colors.Orange);
                         break;
                     case 6:
                         SetPrimaryColor(Colors.Green);
+                        break;
+                    case 7:
+                        SetPrimaryColor(Colors.OrangeRed);
+                        break;
+                    case 8:
+                        SetPrimaryColor(Colors.DeepSkyBlue);
                         break;
                 }
             });
@@ -116,7 +122,7 @@ namespace QLBVMB.ViewModel
              
         void LoadMainWindow()
         {
-            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
+            //AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
         }
     }
 }
