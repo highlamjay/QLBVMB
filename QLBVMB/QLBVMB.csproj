@@ -155,6 +155,7 @@
     </Compile>
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\BookedViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\FlightViewModel.cs" />
     <Compile Include="ViewModel\ListViewModel.cs" />
