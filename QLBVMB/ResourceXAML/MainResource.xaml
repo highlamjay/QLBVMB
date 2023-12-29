@@ -9,4 +9,5 @@
     <viewmodel:FlightViewModel x:Key="FlightVM"></viewmodel:FlightViewModel>
     <viewmodel:ListViewModel x:Key="ListVM"></viewmodel:ListViewModel>
     <viewmodel:CustomerViewModel x:Key="CustomerVM"></viewmodel:CustomerViewModel>
+    <viewmodel:TicketViewModel x:Key="TicketVM"></viewmodel:TicketViewModel>
 </ResourceDictionary>
