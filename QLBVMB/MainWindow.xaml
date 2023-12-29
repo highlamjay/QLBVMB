@@ -753,13 +753,28 @@
 
                             </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Row="1" Margin="5">
+                            <materialDesign:Card Grid.Row="1" Margin="15,5,15,5"
+                                                 materialDesign:ElevationAssist.Elevation="Dp16"
+                                                 UniformCornerRadius="15"
+                                                 Width="500">
                                 <WrapPanel>
                                     <Button Command="{Binding FindCommand}" Content="Tìm kiếm" Margin="5" Width="100"></Button>
+                                    <TextBox x:Name="FindBillBox"
+                                             Margin="5" Width="200"
+                                             materialDesign:HintAssist.Hint="Tìm kiếm"
+                                             materialDesign:HintAssist.FloatingScale="0.9"
+                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                             materialDesign:TextFieldAssist.HasClearButton="True"
+                                             materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                             materialDesign:TextFieldAssist.LeadingIcon="Search"
+                                             Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15">
+                                    </TextBox>
                                 </WrapPanel>
                             </materialDesign:Card>
 
-                            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                            <materialDesign:Card Grid.Row="2" Margin="15,10,15,15" VerticalAlignment="Stretch"
+                                                 materialDesign:ElevationAssist.Elevation="Dp16"
+                                                 UniformCornerRadius="15">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                                     <ListView ItemsSource="{Binding TicketList}" SelectedItem="{Binding SelectedTicket, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
