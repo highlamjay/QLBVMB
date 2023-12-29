@@ -110,7 +110,6 @@
     <Compile Include="Model\Flight.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Seat.cs" />
     <Compile Include="Model\Locate.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
