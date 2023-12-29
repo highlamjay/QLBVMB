@@ -22,9 +22,9 @@ namespace QLBVMB.ViewModel
 
         public FlightViewModel()
         {
-            FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
-            AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
-            AirportList1 = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
+            //FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
+            //AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
+            //AirportList1 = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
 
             var displayListFlight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == Id_Flight);
 
