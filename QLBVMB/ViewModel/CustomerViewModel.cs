@@ -12,8 +12,7 @@ namespace QLBVMB.ViewModel
     public class CustomerViewModel : BaseViewModel
     {
         private ObservableCollection<Customer> _CustomerList;
-        public ObservableCollection<Customer> CustomerList { get { return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
-
+        public ObservableCollection<Customer> CustomerList { get {  return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
         private ObservableCollection<Locate> _LocateList;
         public ObservableCollection<Locate> LocateList { get { return _LocateList; } set { _LocateList = value; OnPropertyChanged(); } }
         public CustomerViewModel()
@@ -21,57 +20,64 @@ namespace QLBVMB.ViewModel
             CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
             LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
 
-            var displayListCustomer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == Id_Customer);
-            var displayListLocate = DataProvider.Ins.DB.Customers.Where(x => x.Locate == SelectedLocate.Id_Locate);
+            var displayListAccount = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == Id_Customer);
 
             AddCustomerCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Customer) && string.IsNullOrEmpty(Name_Customer))
+                if (string.IsNullOrEmpty(Id_Customer))
                     return false;
 
-                if ((displayListCustomer != null && displayListCustomer.Count() != 0))
-                    return false;
+                if (displayListAccount == null || displayListAccount.Count() != 0)
+                { return false; }
                 return true;
             }, (p) =>
             {
-                var Customer = new Customer() { Id_Customer = Id_Customer, Name_Customer = Name_Customer, Id_Locate = SelectedLocate.Id_Locate };
+                var customer = new Customer() { Id_Customer = Id_Customer, Name = Name, Age = Age, Sex = Sex, Email = Email, Tel = Tel, Locate = SelectedLocate.Id_Locate };
 
-                DataProvider.Ins.DB.Customers.Add(Customer);
+                DataProvider.Ins.DB.Customers.Add(customer);
                 DataProvider.Ins.DB.SaveChanges();
 
-                CustomerList.Add(Customer);
+                CustomerList.Add(customer);
             });
 
             EditCustomerCommand = new RelayCommand<object>((p) =>
             {
-                if (CustomerSelectedItem == null)
-                    return false;
+                //if (AccountSelectedItem == null)
+                //    return false;
+                //var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
+                //if (displayListAccount1 != null && displayListAccount.Count() != 0)
+                //    return true;
 
-                if (CustomerSelectedItem.Locate.Id_Locate == SelectedLocate.Id_Locate)
-                    return true;
                 return false;
             }, (p) =>
             {
-                var Customer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == CustomerSelectedItem.Id_Customer).SingleOrDefault();
-                Customer.Id_Customer = Id_Customer;
-                Customer.Name_Customer = Name_Customer;
-                Customer.Id_Locate = SelectedLocate.Id_Locate;
-                DataProvider.Ins.DB.SaveChanges();
+                //var Account = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account).SingleOrDefault();
+                //Account.Id_Account = Id_Account;
+                //Account.Username = Username;
+                //Account.Password = Password;
+                //Account.DisplayName = DisplayName;
+                //Account.Position = Position;
+                //DataProvider.Ins.DB.SaveChanges();
 
+                //AccountSelectedItem.DisplayName = DisplayName;
             });
+
             DeleteCustomerCommand = new RelayCommand<object>((p) =>
             {
-                if (CustomerSelectedItem != null)
-                    return true;
+                //if (AccountSelectedItem == null)
+                //    return false;
+
+                //var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
+                //if (displayListAccount1 != null && displayListAccount.Count() != 0)
+                //    return true;
+
                 return false;
             }, (p) =>
             {
-                var Customer = new Customer() { Id_Customer = Id_Customer, Name_Customer = Name_Customer, Id_Locate = SelectedLocate.Id_Locate };
+                //DataProvider.Ins.DB.Accounts.Remove(AccountSelectedItem);
+                //DataProvider.Ins.DB.SaveChanges();
 
-                DataProvider.Ins.DB.Customers.Remove(CustomerSelectedItem);
-                DataProvider.Ins.DB.SaveChanges();
-
-                CustomerList.Remove(CustomerSelectedItem);
+                //CustomerList.Remove(AccountSelectedItem);
             });
         }
         private Customer _CustomerSelectedItem;
@@ -85,8 +91,12 @@ namespace QLBVMB.ViewModel
                 if (CustomerSelectedItem != null)
                 {
                     Id_Customer = CustomerSelectedItem.Id_Customer;
-                    Name_Customer = CustomerSelectedItem.Name_Customer;
-                    SelectedLocate = CustomerSelectedItem.Locate;
+                    Name = CustomerSelectedItem.Name;
+                    Age = CustomerSelectedItem.Age;
+                    Sex = CustomerSelectedItem.Sex;
+                    Email = CustomerSelectedItem.Email;
+                    Tel = CustomerSelectedItem.Tel;
+                    SelectedLocate = CustomerSelectedItem.Locate1;
                 }
             }
         }
@@ -103,11 +113,23 @@ namespace QLBVMB.ViewModel
         private string _Id_Customer;
         public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
 
-        private string _Name_Customer;
-        public string Name_Customer { get => _Name_Customer; set { _Name_Customer = value; OnPropertyChanged(); } }
+        private string _Name;
+        public string Name { get => _Name; set { _Name = value; OnPropertyChanged(); } }
 
-        private string _Id_Locate;
-        public string Id_Locate { get => _Id_Locate; set { _Id_Locate = value; OnPropertyChanged(); } }
+        private byte? _Age;
+        public byte? Age { get => _Age; set { _Age = value; OnPropertyChanged(); } }
+
+        private string _Sex;
+        public string Sex { get => _Sex; set { _Sex = value; OnPropertyChanged(); } }
+
+        private string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+
+        private string _Tel;
+        public string Tel { get => _Tel; set { _Tel = value; OnPropertyChanged(); } }
+
+        private string _Locate;
+        public string Locate { get => _Locate; set { _Locate = value; OnPropertyChanged(); } }
         public ICommand AddCustomerCommand { get; set; }
         public ICommand EditCustomerCommand { get; set; }
         public ICommand DeleteCustomerCommand { get; set; }
