@@ -20,14 +20,14 @@ namespace QLBVMB.ViewModel
             //CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
             //LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
 
-            var displayListAccount = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == Id_Customer);
+            var displayListCustomer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == Id_Customer);
 
             AddCustomerCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(Id_Customer))
                     return false;
 
-                if (displayListAccount == null || displayListAccount.Count() != 0)
+                if (displayListCustomer == null || displayListCustomer.Count() != 0)
                 { return false; }
                 return true;
             }, (p) =>
@@ -42,42 +42,38 @@ namespace QLBVMB.ViewModel
 
             EditCustomerCommand = new RelayCommand<object>((p) =>
             {
-                //if (AccountSelectedItem == null)
-                //    return false;
-                //var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
-                //if (displayListAccount1 != null && displayListAccount.Count() != 0)
-                //    return true;
-
+                if (CustomerSelectedItem == null)
+                    return false;
+              
+                if (displayListCustomer != null && displayListCustomer.Count() != 0)
+                    return true;
                 return false;
             }, (p) =>
             {
-                //var Account = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account).SingleOrDefault();
-                //Account.Id_Account = Id_Account;
-                //Account.Username = Username;
-                //Account.Password = Password;
-                //Account.DisplayName = DisplayName;
-                //Account.Position = Position;
-                //DataProvider.Ins.DB.SaveChanges();
-
-                //AccountSelectedItem.DisplayName = DisplayName;
+                var customer = DataProvider.Ins.DB.Customers.Where(x=> x.Id_Customer == CustomerSelectedItem.Id_Customer).SingleOrDefault();
+                customer.Id_Customer = Id_Customer;
+                customer.Name = Name;
+                customer.Age = Age;
+                customer.Sex = Sex;
+                customer.Email = Email;
+                customer.Tel = Tel;
+                customer.Locate = SelectedLocate.Id_Locate;
+                DataProvider.Ins.DB.SaveChanges();          
             });
 
             DeleteCustomerCommand = new RelayCommand<object>((p) =>
             {
-                //if (AccountSelectedItem == null)
-                //    return false;
+                if (CustomerSelectedItem == null)
+                    return false;
 
-                //var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
-                //if (displayListAccount1 != null && displayListAccount.Count() != 0)
-                //    return true;
-
+                if (displayListCustomer != null && displayListCustomer.Count() != 0)
+                    return true;
                 return false;
             }, (p) =>
             {
-                //DataProvider.Ins.DB.Accounts.Remove(AccountSelectedItem);
-                //DataProvider.Ins.DB.SaveChanges();
-
-                //CustomerList.Remove(AccountSelectedItem);
+                DataProvider.Ins.DB.Customers.Remove(CustomerSelectedItem);
+                DataProvider.Ins.DB.SaveChanges();
+                CustomerList.Remove(CustomerSelectedItem);
             });
         }
         private Customer _CustomerSelectedItem;
@@ -116,8 +112,8 @@ namespace QLBVMB.ViewModel
         private string _Name;
         public string Name { get => _Name; set { _Name = value; OnPropertyChanged(); } }
 
-        private byte? _Age;
-        public byte? Age { get => _Age; set { _Age = value; OnPropertyChanged(); } }
+        private Nullable<byte> _Age;
+        public Nullable<byte> Age { get => _Age; set { _Age = value; OnPropertyChanged(); } }
 
         private string _Sex;
         public string Sex { get => _Sex; set { _Sex = value; OnPropertyChanged(); } }

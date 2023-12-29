@@ -23,15 +23,29 @@ namespace QLBVMB.Model
 
         private string _Id_Customer;
         public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
-        public string Name { get; set; }
-        public Nullable<byte> Age { get; set; }
-        public string Sex { get; set; }
-        public string Email { get; set; }
-        public string Tel { get; set; }
-        public string Locate { get; set; }
-    
+
+        private string _Name;
+        public string Name { get => _Name; set { _Name = value; OnPropertyChanged(); } }
+
+        private Nullable<byte> _Age;
+        public Nullable<byte> Age { get => _Age; set { _Age = value; OnPropertyChanged(); } }
+
+        private string _Sex;
+        public string Sex { get => _Sex; set { _Sex = value; OnPropertyChanged(); } }
+
+        private string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+
+        private string _Tel;
+        public string Tel { get => _Tel; set { _Tel = value; OnPropertyChanged(); } }
+
+        private string _Locate;
+        public string Locate { get => _Locate; set { _Locate = value; OnPropertyChanged(); } }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booked> Bookeds { get; set; }
-        public virtual Locate Locate1 { get; set; }
+
+        private Locate _Locate1;
+        public virtual Locate Locate1 { get => _Locate1; set { _Locate1 = value; OnPropertyChanged(); } }
     }
 }
