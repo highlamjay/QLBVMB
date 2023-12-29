@@ -44,6 +44,7 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
+
                 var account = new Account() { Id_Account = Id_Account,Username = Username,Password = Password,Position = Position, DisplayName = DisplayName };
 
                 DataProvider.Ins.DB.Accounts.Add(account);
