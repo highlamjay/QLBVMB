@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,7 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Customer> _CustomerList;
         public ObservableCollection<Customer> CustomerList { get { return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
         public BookedViewModel()
-        {
-
+        {           
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
             TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
             Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
@@ -42,13 +42,10 @@ namespace QLBVMB.ViewModel
             {
                 if (string.IsNullOrEmpty(Id_Booked))
                     return false;
-
                 if (displayListBooked == null || displayListBooked.Count() != 0)
                     return false;
                 if (displayListTicket == null || displayListTicket.Count() != 0)
                     return false;
-
-
                 return true;
             }, (p) =>
             {
