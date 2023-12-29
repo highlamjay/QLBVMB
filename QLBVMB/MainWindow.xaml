@@ -704,7 +704,7 @@
                                                 <GridViewColumn DisplayMemberBinding="{Binding Customer.Name}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Tên khách hàng" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Ticket.Id_Ticket}">
+                                                <GridViewColumn DisplayMemberBinding="{Binding Id_Ticket}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Mã vé" ></GridViewColumnHeader>
                                                 </GridViewColumn>
                                                 <GridViewColumn DisplayMemberBinding="{Binding Ticket.Id_Seat}">

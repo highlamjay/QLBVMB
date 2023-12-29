@@ -31,6 +31,7 @@ namespace QLBVMB.ViewModel
 
                 if (displayListTicket == null || displayListTicket.Count() != 0)
                 { return false; }
+                
                 return true;
             }, (p) =>
             {

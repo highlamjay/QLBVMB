@@ -28,6 +28,7 @@ namespace QLBVMB.ViewModel
         public ObservableCollection<Customer> CustomerList { get { return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
         public BookedViewModel()
         {
+
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
             TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
             Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
@@ -35,6 +36,7 @@ namespace QLBVMB.ViewModel
             CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
 
             var displayListBooked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == Id_Booked);
+            var displayListTicket = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket);
 
             AddBookedCommand = new RelayCommand<object>((p) =>
             {
@@ -42,7 +44,11 @@ namespace QLBVMB.ViewModel
                     return false;
 
                 if (displayListBooked == null || displayListBooked.Count() != 0)
-                { return false; }
+                    return false;
+                if (displayListTicket == null || displayListTicket.Count() != 0)
+                    return false;
+
+
                 return true;
             }, (p) =>
             {
@@ -116,7 +122,7 @@ namespace QLBVMB.ViewModel
             set
             {
                 _SelectedAccount = value;
-                OnPropertyChanged();
+                OnPropertyChanged();              
             }
         }
         private Customer _SelectedCustomer;
@@ -139,6 +145,9 @@ namespace QLBVMB.ViewModel
 
         private string _Id_Booked;
         public string Id_Booked { get => _Id_Booked; set { _Id_Booked = value; OnPropertyChanged(); } }
+
+        private string _Id_Ticket;
+        public string Id_Ticket { get => _Id_Ticket; set { _Id_Ticket = value; OnPropertyChanged(); } }
 
         private string _Id_Seat;
         public string Id_Seat { get => _Id_Seat; set { _Id_Seat = value; OnPropertyChanged(); } }
