@@ -12,5 +12,7 @@ namespace QLBVMB.Model
         public int Id_Bill { get; set; }
         public int CountTicket { get; set; }
         public int SumMoney { get; set; }
+        public Booked Booked { get; set; }
+        public Booked Booked1 { get; set; }
     }
 }

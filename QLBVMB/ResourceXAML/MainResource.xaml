@@ -11,4 +11,5 @@
     <viewmodel:CustomerViewModel x:Key="CustomerVM"></viewmodel:CustomerViewModel>
     <viewmodel:TicketViewModel x:Key="TicketVM"></viewmodel:TicketViewModel>
     <viewmodel:BookedViewModel x:Key="BookedVM"></viewmodel:BookedViewModel>
+    <viewmodel:BillViewModel x:Key="BillVM"></viewmodel:BillViewModel>
 </ResourceDictionary>

@@ -733,7 +733,7 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="62">
+                    <TabItem Height="62" DataContext="{StaticResource BillVM}">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"
@@ -787,7 +787,7 @@
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
                                                 <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Booked.Id_Flight}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Booked.Id_Customer}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Booked1.Id_Customer}"></GridViewColumn>
                                                 <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding CountTicket}"></GridViewColumn>
                                                 <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding SumMoney}"></GridViewColumn>
                                             </GridView>
