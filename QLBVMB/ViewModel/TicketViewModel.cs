@@ -19,8 +19,8 @@ namespace QLBVMB.ViewModel
         public ObservableCollection<Flight> FlightList { get { return _FlightList; } set { _FlightList = value; OnPropertyChanged(); } }
         public TicketViewModel()
         {
-            //TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
-            //FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
+            TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
+            FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
 
             var displayListTicket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == Id_Ticket);
 

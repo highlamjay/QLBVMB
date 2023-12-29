@@ -33,10 +33,10 @@ namespace QLBVMB.ViewModel
         {
             if (p == null)
                 return;
-            int accCount = 0;
-            if (Username == "admin" && Password == "admin")
-                accCount = 1;
-            //var accCount = DataProvider.Ins.DB.Accounts.Where(a => a.Username == Username && a.Password == Password).Count();
+            //int accCount = 0;
+            //if (Username == "admin" && Password == "admin")
+            //    accCount = 1;
+            var accCount = DataProvider.Ins.DB.Accounts.Where(a => a.Username == Username && a.Password == Password).Count();
             if (accCount > 0)
             {
                 IsLogin = true;
