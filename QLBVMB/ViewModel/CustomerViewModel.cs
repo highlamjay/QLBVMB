@@ -24,11 +24,10 @@ namespace QLBVMB.ViewModel
 
             AddCustomerCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Customer))
+                if (string.IsNullOrEmpty(Id_Customer) || string.IsNullOrEmpty(Name) || Age.Value.ToString() == null || string.IsNullOrEmpty(Sex) || string.IsNullOrEmpty(Tel) || string.IsNullOrEmpty(Email))
                     return false;
-
                 if (displayListCustomer == null || displayListCustomer.Count() != 0)
-                { return false; }
+                    return false; 
                 return true;
             }, (p) =>
             {
@@ -42,9 +41,10 @@ namespace QLBVMB.ViewModel
 
             EditCustomerCommand = new RelayCommand<object>((p) =>
             {
-                if (CustomerSelectedItem == null)
+                if (string.IsNullOrEmpty(Id_Customer) || string.IsNullOrEmpty(Name) || Age.Value.ToString() == null || string.IsNullOrEmpty(Sex) || string.IsNullOrEmpty(Tel) || string.IsNullOrEmpty(Email))
                     return false;
-              
+                if (CustomerSelectedItem == null)
+                    return false;              
                 if (displayListCustomer != null && displayListCustomer.Count() != 0)
                     return true;
                 return false;
@@ -63,9 +63,10 @@ namespace QLBVMB.ViewModel
 
             DeleteCustomerCommand = new RelayCommand<object>((p) =>
             {
+                if (string.IsNullOrEmpty(Id_Customer) || string.IsNullOrEmpty(Name) || Age.Value.ToString() == null || string.IsNullOrEmpty(Sex) || string.IsNullOrEmpty(Tel) || string.IsNullOrEmpty(Email))
+                    return false;
                 if (CustomerSelectedItem == null)
                     return false;
-
                 if (displayListCustomer != null && displayListCustomer.Count() != 0)
                     return true;
                 return false;

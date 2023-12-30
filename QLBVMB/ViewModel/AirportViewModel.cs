@@ -44,11 +44,14 @@ namespace QLBVMB.ViewModel
             EditAirportCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(Id_Airport) || string.IsNullOrEmpty(Name_Airport) || SelectedLocate == null)
-                    return false;
-                if (AirportSelectedItem == null)
-                    return false;               
-                if ( AirportSelectedItem.Locate.Id_Locate == SelectedLocate.Id_Locate)
-                    return true;                   
+                    return false;  
+                foreach(var item in AirportList)
+                {
+                    if (Id_Airport == item.Id_Airport)
+                        return true;
+                }
+                if (AirportSelectedItem.Locate.Id_Locate == SelectedLocate.Id_Locate)
+                    return true;
                 return false;
             }, (p) =>
             {
@@ -69,12 +72,9 @@ namespace QLBVMB.ViewModel
                     return true;
                 return false;
             }, (p) =>
-            {
-                var airport = new Airport() { Id_Airport = Id_Airport, Name_Airport = Name_Airport, Id_Locate = SelectedLocate.Id_Locate };
-                
+            {                         
                 DataProvider.Ins.DB.Airports.Remove(AirportSelectedItem);
                 DataProvider.Ins.DB.SaveChanges();
-
                 AirportList.Remove(AirportSelectedItem);
             });
         }
@@ -101,7 +101,8 @@ namespace QLBVMB.ViewModel
             set
             {
                 _SelectedLocate = value;
-                OnPropertyChanged();          
+                OnPropertyChanged(); 
+                Id_Locate = SelectedLocate.Id_Locate;
             }
         }
         private string _Id_Airport;

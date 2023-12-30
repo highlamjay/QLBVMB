@@ -40,7 +40,7 @@ namespace QLBVMB.ViewModel
 
             AddBookedCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Booked))
+                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedAccount == null || SelectedCustomer == null)
                     return false;
                 if (displayListBooked == null || displayListBooked.Count() != 0)
                     return false;
@@ -59,13 +59,13 @@ namespace QLBVMB.ViewModel
             });
             DeleteBookedCommand = new RelayCommand<object>((p) =>
             {
+                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedAccount == null || SelectedCustomer == null)
+                    return false;
                 if (BookedSelectedItem == null)
                     return false;
-
                 var displayListBook = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == BookedSelectedItem.Id_Booked);
                 if (displayListBook != null && displayListBook.Count() != 0)
                     return true;
-
                 return false;
             }, (p) =>
             {
@@ -76,7 +76,6 @@ namespace QLBVMB.ViewModel
 
                 BookedList.Remove(BookedSelectedItem);
             });
-
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts); });
             ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); });
         }

@@ -26,12 +26,10 @@ namespace QLBVMB.ViewModel
 
             AddTicketCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Ticket))
+                if (string.IsNullOrEmpty(Id_Ticket) || SelectedFlight == null || string.IsNullOrEmpty(Id_Seat) || string.IsNullOrEmpty(Type_Ticket) || Price == null)
                     return false;
-
                 if (displayListTicket == null || displayListTicket.Count() != 0)
-                { return false; }
-                
+                    return false;                
                 return true;
             }, (p) =>
             {

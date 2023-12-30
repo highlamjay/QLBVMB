@@ -343,8 +343,8 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="62" DataContext="{StaticResource CustomerVM}">
-                        <TabItem.Header>
+                    <TabItem Height="62" DataContext="{StaticResource CustomerVM}" >
+                        <TabItem.Header >
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="CardAccountDetailsOutline" />
                                 <TextBlock HorizontalAlignment="Center" Text="Khách hàng" FontSize="12"/>

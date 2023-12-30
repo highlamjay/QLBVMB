@@ -30,11 +30,10 @@ namespace QLBVMB.ViewModel
 
             AddFlightCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Flight))
+                if (string.IsNullOrEmpty(Id_Flight) || SelectedPlane == null || SelectedAirport == null || SelectedAirport1 == null || Time_Start == null || Time_End == null || Total_Seat == null)
                     return false;
-
                 if (displayListFlight == null || displayListFlight.Count() != 0)
-                { return false; }
+                    return false;
                 return true;
             }, (p) =>
             {
@@ -59,12 +58,13 @@ namespace QLBVMB.ViewModel
 
             EditFlightCommand = new RelayCommand<object>((p) =>
             {
+                if (string.IsNullOrEmpty(Id_Flight) || SelectedPlane == null || SelectedAirport == null || SelectedAirport1 == null || Time_Start == null || Time_End == null || Total_Seat == null)
+                    return false;
                 if (FlightSelectedItem == null)
                     return false;
                 var displayListFlight1 = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == FlightSelectedItem.Id_Flight);
                 if (displayListFlight1 != null && displayListFlight.Count() != 0)
                     return true;
-
                 return false;
             }, (p) =>
             {
@@ -81,13 +81,13 @@ namespace QLBVMB.ViewModel
 
             DeleteFlightCommand = new RelayCommand<object>((p) =>
             {
+                if (string.IsNullOrEmpty(Id_Flight) || SelectedPlane == null || SelectedAirport == null || SelectedAirport1 == null || Time_Start == null || Time_End == null || Total_Seat == null)
+                    return false;
                 if (FlightSelectedItem == null)
                     return false;
-
                 var displayListFlight1 = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == FlightSelectedItem.Id_Flight);
                 if (displayListFlight1 != null && displayListFlight.Count() != 0)
                     return true;
-
                 return false;
             }, (p) =>
             {
@@ -96,9 +96,19 @@ namespace QLBVMB.ViewModel
 
                 FlightList.Remove(FlightSelectedItem);
             });
-
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports); });
             ComboBoxPlaneClick = new RelayCommand<object>((p) => { return true; }, (p) => { PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes); });
+        }
+
+        private Plane _SelectedPlane;
+        public Plane SelectedPlane
+        {
+            get => _SelectedPlane;
+            set
+            {
+                _SelectedPlane = value;
+                OnPropertyChanged();               
+            }
         }
         private Airport _SelectedAirport;
         public Airport SelectedAirport
@@ -107,11 +117,7 @@ namespace QLBVMB.ViewModel
             set
             {
                 _SelectedAirport = value;
-                OnPropertyChanged();
-                if (SelectedAirport != null)
-                {
-                   
-                }
+                OnPropertyChanged();               
             }
         }
 
@@ -122,11 +128,7 @@ namespace QLBVMB.ViewModel
             set
             {
                 _SelectedAirport1 = value;
-                OnPropertyChanged();
-                if (SelectedAirport1 != null)
-                {
-
-                }
+                OnPropertyChanged();            
             }
         }
         
@@ -178,7 +180,6 @@ namespace QLBVMB.ViewModel
         public ICommand AddFlightCommand { get; set; }
         public ICommand EditFlightCommand { get; set; }
         public ICommand DeleteFlightCommand { get; set; }
-
         public ICommand ComboBoxClick {  get; set; }
         public ICommand ComboBoxPlaneClick { get; set; }
     }
