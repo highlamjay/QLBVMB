@@ -40,7 +40,7 @@ namespace QLBVMB.ViewModel
 
             AddBookedCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedAccount == null || SelectedCustomer == null)
+                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedCustomer == null)
                     return false;
                 if (displayListBooked == null || displayListBooked.Count() != 0)
                     return false;
@@ -59,7 +59,7 @@ namespace QLBVMB.ViewModel
             });
             DeleteBookedCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedAccount == null || SelectedCustomer == null)
+                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedCustomer == null)
                     return false;
                 if (BookedSelectedItem == null)
                     return false;
