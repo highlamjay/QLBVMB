@@ -778,6 +778,7 @@
                                 <WrapPanel>
                                     <Button Command="{Binding FindCommand}" Content="Tìm kiếm" Margin="5" Width="100"></Button>
                                     <TextBox x:Name="FindBillBox"
+                                         
                                              Margin="5" Width="200"
                                              materialDesign:HintAssist.Hint="Tìm kiếm"
                                              materialDesign:HintAssist.FloatingScale="0.9"
