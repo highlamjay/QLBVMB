@@ -17,10 +17,14 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Airport> _AirportList;
         public ObservableCollection<Airport> AirportList { get { return _AirportList; } set { _AirportList = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<Plane> _PlaneList;
+        public ObservableCollection<Plane> PlaneList { get { return _PlaneList; } set { _PlaneList = value; OnPropertyChanged(); } }
+
         public FlightViewModel()
         {
             FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
             AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
+            PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
 
             var displayListFlight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == Id_Flight);
 
@@ -94,6 +98,7 @@ namespace QLBVMB.ViewModel
             });
 
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports); });
+            ComboBoxPlaneClick = new RelayCommand<object>((p) => { return true; }, (p) => { PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes); });
         }
         private Airport _SelectedAirport;
         public Airport SelectedAirport
@@ -175,5 +180,6 @@ namespace QLBVMB.ViewModel
         public ICommand DeleteFlightCommand { get; set; }
 
         public ICommand ComboBoxClick {  get; set; }
+        public ICommand ComboBoxPlaneClick { get; set; }
     }
 }

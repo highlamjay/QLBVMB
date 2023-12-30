@@ -9,9 +9,16 @@ namespace QLBVMB.Model
 {
     public class Statistical : BaseViewModel
     {
-        public string Id_Flight { get; set; }
-        public int SumSeat { get; set; }
-        public int SumSeatBooked { get; set; }
-        public int  Revenue { get; set; }
+        private string _Id_Flight;
+        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
+
+        private int _SumSeat;
+        public int SumSeat { get => _SumSeat; set { _SumSeat = value; OnPropertyChanged(); } }
+
+        private int _SumSeatBooked;
+        public int SumSeatBooked { get => _SumSeatBooked; set { _SumSeatBooked = value; OnPropertyChanged(); } }
+
+        private int _Revenue;
+        public int Revenue { get => _Revenue; set { _Revenue = value; OnPropertyChanged(); } }
     }
 }
