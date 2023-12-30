@@ -683,6 +683,7 @@
                                             <Button materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding DeleteBookedCommand}" Content="Hủy đặt vé" Margin="10" Width="100" materialDesign:ButtonAssist.CornerRadius="10"></Button>
                                         </WrapPanel>
                                     </materialDesign:Card>
+                                    
                                 </Grid>
                                 <materialDesign:Card Grid.Column="1" Width="auto" Margin="25,5,25,5"
                                                     materialDesign:ElevationAssist.Elevation="Dp8"
@@ -732,6 +733,7 @@
                                         </StackPanel>
                                     </Grid>
                                 </materialDesign:Card>
+                                
                             </Grid>
                             <materialDesign:Card Grid.Row="1" Margin="25,10,25,10" VerticalAlignment="Stretch"
                                                  materialDesign:ElevationAssist.Elevation="Dp16"

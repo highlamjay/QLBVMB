@@ -36,8 +36,8 @@ namespace QLBVMB.ViewModel
             //int accCount = 0;
             //if (Username == "admin" && Password == "admin")
             //    accCount = 1;
-            var accCount = DataProvider.Ins.DB.Accounts.Where(a => a.Username == Username && a.Password == Password).Count();
-            if (accCount > 0)
+            var accCount = DataProvider.Ins.DB.Accounts.Where(a => a.Username == Username && a.Password == Password).SingleOrDefault();
+            if (accCount.Position == "Quản lý")
             {
                 IsLogin = true;
                 p.Close();
@@ -47,6 +47,7 @@ namespace QLBVMB.ViewModel
                 IsLogin = false;
                 MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
             }
+
         }
     }
 
