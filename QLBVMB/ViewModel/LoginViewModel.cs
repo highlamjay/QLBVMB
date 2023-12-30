@@ -37,8 +37,9 @@ namespace QLBVMB.ViewModel
             //if (Username == "admin" && Password == "admin")
             //    accCount = 1;
             var accCount = DataProvider.Ins.DB.Accounts.Where(a => a.Username == Username && a.Password == Password).SingleOrDefault();
-            if (accCount.Position == "Quản lý")
+            if (accCount != null)
             {
+                AccountLogin = accCount;
                 IsLogin = true;
                 p.Close();
             }

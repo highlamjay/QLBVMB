@@ -1,4 +1,5 @@
 ﻿using MaterialDesignThemes.Wpf;
+using QLBVMB.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace QLBVMB.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        static public Account AccountLogin;
         public void SetPrimaryColor(Color color)
         {
             PaletteHelper paletteHelper = new PaletteHelper();
