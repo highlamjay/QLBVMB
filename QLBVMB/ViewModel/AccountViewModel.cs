@@ -90,13 +90,12 @@ namespace QLBVMB.ViewModel
                 return false;
             }, (p) =>
             {
-                //var booked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_AccountSeller == Id_Account);
-                //foreach (var item in booked)
-                //{
-                //    DataProvider.Ins.DB.Bookeds.Remove(item);
-                    
-                //}
-                //DataProvider.Ins.DB.Accounts.Remove(AccountSelectedItem);
+                var booked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_AccountSeller == Id_Account);
+                foreach (var item in booked)
+                {
+                    item.Id_AccountSeller = null;
+                }
+                DataProvider.Ins.DB.Accounts.Remove(AccountSelectedItem);
                 DataProvider.Ins.DB.SaveChanges();
 
                 AccountList.Remove(AccountSelectedItem);
