@@ -26,9 +26,8 @@ namespace QLBVMB.ViewModel
 
             AddAirportCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Airport) && string.IsNullOrEmpty(Name_Airport) )
+                if (string.IsNullOrEmpty(Id_Airport) || string.IsNullOrEmpty(Name_Airport) || SelectedLocate == null )
                     return false;
-
                 if ((displayListAirport != null && displayListAirport.Count() != 0))
                     return false;
                 return true;
@@ -44,9 +43,10 @@ namespace QLBVMB.ViewModel
 
             EditAirportCommand = new RelayCommand<object>((p) =>
             {
-                if (AirportSelectedItem == null)
+                if (string.IsNullOrEmpty(Id_Airport) || string.IsNullOrEmpty(Name_Airport) || SelectedLocate == null)
                     return false;
-               
+                if (AirportSelectedItem == null)
+                    return false;               
                 if ( AirportSelectedItem.Locate.Id_Locate == SelectedLocate.Id_Locate)
                     return true;                   
                 return false;
@@ -61,7 +61,11 @@ namespace QLBVMB.ViewModel
             });
             DeleteAirportCommand = new RelayCommand<object>((p) =>
             {
-                if (AirportSelectedItem != null)
+                if (string.IsNullOrEmpty(Id_Airport) || string.IsNullOrEmpty(Name_Airport) || SelectedLocate == null)
+                    return false;
+                if (AirportSelectedItem == null)
+                    return false;
+                if (AirportSelectedItem.Locate.Id_Locate == SelectedLocate.Id_Locate)
                     return true;
                 return false;
             }, (p) =>

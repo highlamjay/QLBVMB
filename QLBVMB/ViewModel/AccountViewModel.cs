@@ -32,15 +32,14 @@ namespace QLBVMB.ViewModel
 
             AddAccountCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Account))
+                if (string.IsNullOrEmpty(Id_Account) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(DisplayName) || string.IsNullOrEmpty(Position))
                     return false;
-
                 if (displayListAccountId == null || displayListAccountId.Count() != 0)
-                { return false; }
+                    return false;
                 if (displayListAccountUserName == null || displayListAccountUserName.Count() != 0)
-                { return false; }
+                    return false;
                 if (displayListAccountDisplayName == null || displayListAccountDisplayName.Count() != 0)
-                { return false; }
+                    return false;
                 return true;
             }, (p) =>
             {
@@ -55,6 +54,8 @@ namespace QLBVMB.ViewModel
 
             EditAccountCommand = new RelayCommand<object>((p) =>
             {
+                if (string.IsNullOrEmpty(Id_Account) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(DisplayName) || string.IsNullOrEmpty(Position))
+                    return false;
                 if (AccountSelectedItem == null)
                     return false;
                 var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
@@ -77,6 +78,8 @@ namespace QLBVMB.ViewModel
 
             DeleteAccountCommand = new RelayCommand<object>((p) =>
             {
+                if (string.IsNullOrEmpty(Id_Account) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(DisplayName) || string.IsNullOrEmpty(Position))
+                    return false;
                 if (AccountSelectedItem == null)
                     return false;
 
@@ -87,13 +90,13 @@ namespace QLBVMB.ViewModel
                 return false;
             }, (p) =>
             {
-                var booked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_AccountSeller == Id_Account);
-                //foreach(var item in booked)
+                //var booked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_AccountSeller == Id_Account);
+                //foreach (var item in booked)
                 //{
-                //    DataProvider.Ins.DB.Bookeds.Remove(item);            
-                //    BookedList.Remove(BookedtSelectedItem);
+                //    DataProvider.Ins.DB.Bookeds.Remove(item);
+                    
                 //}
-                DataProvider.Ins.DB.Accounts.Remove(AccountSelectedItem);
+                //DataProvider.Ins.DB.Accounts.Remove(AccountSelectedItem);
                 DataProvider.Ins.DB.SaveChanges();
 
                 AccountList.Remove(AccountSelectedItem);
@@ -118,23 +121,23 @@ namespace QLBVMB.ViewModel
             }
         }
 
-        //private Booked _BookedtSelectedItem;
-        //public Booked BookedtSelectedItem
+        //private Booked _BookedtSelecitedItem;
+        //public Booked BookedtSelecitedItem
         //{
-        //    get => _BookedtSelectedItem;
+        //    get => _BookedtSelecitedItem;
         //    set
         //    {
-        //        _BookedtSelectedItem = value;
+        //        _BookedtSelecitedItem = value;
         //        OnPropertyChanged();
-        //        if (BookedtSelectedItem != null)
+        //        if (BookedtSelecitedItem != null)
         //        {
-        //            Id_Booked = BookedtSelectedItem.Id_Booked;
-        //            Id_Customer = BookedtSelectedItem.Id_Customer;
-        //            Id_Flight = BookedtSelectedItem.Id_Flight;
-        //            Id_CB = BookedtSelectedItem.Id_CB;
-        //            Id_AccountSeller = BookedtSelectedItem?.Id_AccountSeller;
-        //            Id_Ticket = BookedtSelectedItem?.Id_Ticket;
-        //            Date = BookedtSelectedItem?.Date;
+        //            Id_Booked = BookedtSelecitedItem.Id_Booked;
+        //            Id_Customer = BookedtSelecitedItem.Id_Customer;
+        //            Id_Flight = BookedtSelecitedItem.Id_Flight;
+        //            Id_CB = BookedtSelecitedItem.Id_CB;
+        //            Id_AccountSeller = BookedtSelecitedItem?.Id_AccountSeller;
+        //            Id_Ticket = BookedtSelecitedItem?.Id_Ticket;
+        //            Date = BookedtSelecitedItem?.Date;
         //        }
         //    }
         //}
