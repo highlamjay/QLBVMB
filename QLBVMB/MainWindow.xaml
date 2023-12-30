@@ -747,7 +747,7 @@
                             <Grid.Background>
                                 <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
                                     <GradientStop Color="White" Offset="0" />
-                                    <GradientStop Color="#FF2CFF2C" Offset="1" />
+                                    <GradientStop Color="DeepSkyBlue" Offset="1" />
                                 </LinearGradientBrush>
                             </Grid.Background>
                             <Grid.RowDefinitions>
@@ -782,7 +782,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="15">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding BillItems}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView ItemsSource="{Binding BillList}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
@@ -812,7 +812,7 @@
                             <Grid.Background>
                                 <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
                                     <GradientStop Color="White" Offset="0" />
-                                    <GradientStop Color="OrangeRed" Offset="1" />
+                                    <GradientStop Color="DeepSkyBlue" Offset="1" />
                                 </LinearGradientBrush>
                             </Grid.Background>
 

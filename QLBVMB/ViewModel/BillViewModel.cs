@@ -22,14 +22,16 @@ namespace QLBVMB.ViewModel
 
         private ObservableCollection<Bill> _BillItems;
         public ObservableCollection<Bill> BillItems { get { return _BillItems; } set { _BillItems = value; OnPropertyChanged(); } }
+
+        Booked preId_Flight, preId_Customer = null;
         public BillViewModel()
         {
             BillList = new ObservableCollection<Bill>();
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
             int i = 1;
-
+            
             var booked = DataProvider.Ins.DB.Bookeds;
-   
+
             foreach (var book in booked)
             {
                 var customer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == book.Id_Customer).FirstOrDefault();
@@ -48,28 +50,32 @@ namespace QLBVMB.ViewModel
                     sum = (int)ticket.Price + (int)cb.Extra_Price;
                 }
 
-
                 Bill bill = new Bill();
-                
+                bill.Id_Bill = i;
                 bill.Booked = book;
                 bill.Booked1 = book;
                 bill.CountTicket = count;
                 bill.SumMoney = sum;
 
                 BillList.Add(bill);
-
                 i++;
             }
-            var finalBill = BillList.GroupBy(item => new { item.Booked, item.Booked1 }).Select(group => new Bill
+            var billlist = BillList;
+            foreach (var item in billlist)
             {
+                Bill billItem = item;
                
-                Booked = group.Key.Booked,
-                Booked1 = group.Key.Booked1,
+            }
+            //var finalBill = BillList.GroupBy(item => new { item.Booked, item.Booked1 }).Select(group => new Bill
+            //{
+               
+            //    Booked = group.Key.Booked,
+            //    Booked1 = group.Key.Booked1,
        
-                SumMoney = group.Sum(sum=> sum.SumMoney)
-            });
+            //    SumMoney = group.Sum(sum=> sum.SumMoney)
+            //});
 
-            BillItems = new ObservableCollection<Bill>(finalBill);
+            //BillItems = new ObservableCollection<Bill>(finalBill);
 
 
         }
