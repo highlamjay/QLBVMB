@@ -794,7 +794,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="15">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding BillList}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView ItemsSource="{Binding BillItems}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
