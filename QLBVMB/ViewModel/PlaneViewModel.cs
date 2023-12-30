@@ -24,30 +24,27 @@ namespace QLBVMB.ViewModel
 
             AddPlaneCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Plane))
+                if (string.IsNullOrEmpty(Id_Plane) || string.IsNullOrEmpty(Type_Plane) || string.IsNullOrEmpty(Brand))
                     return false;
-
                 if (displayListPlane == null || displayListPlane.Count() != 0)
-                { return false; }
+                    return false;
                 return true;
             }, (p) =>
             {
                 var Plane = new Plane() { Id_Plane = Id_Plane, Type_Plane = Type_Plane, Brand = Brand };
-
                 DataProvider.Ins.DB.Planes.Add(Plane);
                 DataProvider.Ins.DB.SaveChanges();
-
                 PlaneList.Add(Plane);
             });
 
             EditPlaneCommand = new RelayCommand<object>((p) =>
             {
-                if (PlaneSelectedItem == null)
+                if (string.IsNullOrEmpty(Id_Plane) || string.IsNullOrEmpty(Type_Plane) || string.IsNullOrEmpty(Brand))
                     return false;
-              
+                if (PlaneSelectedItem == null)
+                    return false;           
                 if (displayListPlane != null && displayListPlane.Count() != 0)
                     return true;
-
                 return false;
             }, (p) =>
             {
@@ -64,13 +61,17 @@ namespace QLBVMB.ViewModel
 
             DeletePlaneCommand = new RelayCommand<object>((p) =>
             {
+                if (string.IsNullOrEmpty(Id_Plane) || string.IsNullOrEmpty(Type_Plane) || string.IsNullOrEmpty(Brand))
+                    return false;
                 if (PlaneSelectedItem == null)
                     return false;
-
-                var displayListPlane1 = DataProvider.Ins.DB.Planes.Where(x => x.Id_Plane == PlaneSelectedItem.Id_Plane);
-                if (displayListPlane1 != null && displayListPlane1.Count() != 0)
+                if (displayListPlane != null && displayListPlane.Count() != 0)
                     return true;
-
+                foreach(var item in PlaneList)
+                {
+                    if (Type_Plane == item.Type_Plane && Brand == item.Brand)
+                        return true;
+                }
                 return false;
             }, (p) =>
             {
