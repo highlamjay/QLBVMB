@@ -38,8 +38,8 @@ namespace QLBVMB.Model
         public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
- 
-        private ICollection<Booked> _Bookeds;
-        public virtual ICollection<Booked> Bookeds { get => _Bookeds; set { _Bookeds = value; OnPropertyChanged(); } }
+        public virtual ICollection<Booked> Bookeds { get; set; }
+
+
     }
 }

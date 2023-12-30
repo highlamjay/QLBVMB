@@ -733,7 +733,7 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="62">
+                    <TabItem Height="62" DataContext="{StaticResource BillVM}">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"
@@ -782,14 +782,14 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="15">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding TicketList}" SelectedItem="{Binding SelectedTicket, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView ItemsSource="{Binding BillList}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Ticket}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Flight.Id_Flight}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Customer.Id_Customer}"></GridViewColumn>
-                                                <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Booked.Id_Flight}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Booked1.Id_Customer}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding CountTicket}"></GridViewColumn>
+                                                <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding SumMoney}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
