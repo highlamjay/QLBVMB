@@ -497,7 +497,13 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <TextBox Grid.Column="0" Text="{Binding Id_Ticket, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <ComboBox Grid.Column="1" Margin="10 5 20 8" DisplayMemberPath="Id_Flight" ItemsSource="{Binding FlightList}" SelectedItem="{Binding SelectedFlight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã chuyến bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15"></ComboBox>
+                                                    <ComboBox Grid.Column="1" Margin="10 5 20 8" DisplayMemberPath="Id_Flight" ItemsSource="{Binding FlightList,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedFlight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã chuyến bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="DropDownOpened" >
+                                                                <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
+                                                    </ComboBox>
                                                 </Grid>
                                                 <Grid Grid.Row="1">
                                                     <Grid.ColumnDefinitions>
@@ -688,7 +694,13 @@
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <ComboBox Grid.Column="0" Margin="5 10 15 10" DisplayMemberPath="Id_Customer" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã khách hàng" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                                    <ComboBox Grid.Column="0" Margin="5 10 15 10" DisplayMemberPath="Id_Customer" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã khách hàng" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="DropDownOpened" >
+                                                                <i:InvokeCommandAction Command="{Binding ComboBoxIDKhackHang_Click}" />
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
+                                                    </ComboBox>
                                                     <TextBox Grid.Column="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 </Grid>
                                                 <Grid Grid.Row="1">

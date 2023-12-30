@@ -65,6 +65,7 @@ namespace QLBVMB.ViewModel
             });
 
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts); });
+            ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); });
         }
         private Booked _BookedSelectedItem;
         public Booked BookedSelectedItem
@@ -181,5 +182,6 @@ namespace QLBVMB.ViewModel
         public ICommand AddBookedCommand { get; set; }
 
         public ICommand ComboBoxClick {  get; set; }
+        public ICommand ComboBoxIDKhackHang_Click {  get; set; }
     }
 }
