@@ -260,8 +260,20 @@
                                                 </Grid.ColumnDefinitions>
                                                 <TextBox Grid.Column="0" FontSize="15" Margin="20,5,10,10" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 <TextBox Grid.Column="1" FontSize="15" Margin="10,5,10,10" Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                <ComboBox Grid.Column="2" FontSize="15" Margin="10 5 10 8" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi khởi hành" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                                <ComboBox Grid.Column="3" FontSize="15" Margin="10 5 20 8" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList1}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                                <ComboBox Grid.Column="2" FontSize="15" Margin="10 5 10 8" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi khởi hành" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="DropDownOpened" >
+                                                            <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </ComboBox>
+                                                <ComboBox Grid.Column="3" FontSize="15" Margin="10 5 20 8" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="DropDownOpened" >
+                                                            <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </ComboBox>
                                             </Grid>
                                             <Grid Grid.Row="1">
                                                 <Grid.ColumnDefinitions>
@@ -663,27 +675,27 @@
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
-                                                        <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBox Grid.Column="0" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox Grid.Column="1" Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox Grid.Column="2" Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <ComboBox Grid.Column="0" Margin="5 10 15 10" DisplayMemberPath="Id_Customer" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã khách hàng" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                                    <TextBox Grid.Column="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 </Grid>
                                                 <Grid Grid.Row="1">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>                                                        
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBox Grid.Column="0" VerticalAlignment="Stretch" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox Grid.Column="1" VerticalAlignment="Stretch" Text="{Binding Tel, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tel" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox Grid.Column="0" Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox Grid.Column="1" Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox Grid.Column="2" VerticalAlignment="Stretch" Text="{Binding Name_Locate, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 </Grid>
                                                 <Grid Grid.Row="2">
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
-                                                    <TextBox Grid.Column="0" VerticalAlignment="Stretch" Text="{Binding Name_Locate, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <ComboBox Grid.Column="1" Margin="5 10 15 10" DisplayMemberPath="Id_Customer" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding SelectedCustomer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã khách hàng" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+                                                    <TextBox Grid.Column="0" VerticalAlignment="Stretch" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    <TextBox Grid.Column="1" VerticalAlignment="Stretch" Text="{Binding Tel, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tel" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                 </Grid>
                                             </Grid>
                                         </StackPanel>
@@ -704,25 +716,25 @@
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Width="80" Header="Id" DisplayMemberBinding="{Binding Id_Booked}"></GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Id_Customer}">
+                                                <GridViewColumn Width="120" DisplayMemberBinding="{Binding Id_Customer}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Mã khách hàng" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Customer.Name}">
+                                                <GridViewColumn Width="180" DisplayMemberBinding="{Binding Customer.Name}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Tên khách hàng" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Id_Ticket}">
+                                                <GridViewColumn Width="100" DisplayMemberBinding="{Binding Id_Ticket}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Mã vé" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Ticket.Id_Seat}">
+                                                <GridViewColumn Width="100" DisplayMemberBinding="{Binding Ticket.Id_Seat}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Mã ghế" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Checked_Baggage.Type_CB}">
+                                                <GridViewColumn Width="100" DisplayMemberBinding="{Binding Checked_Baggage.Type_CB}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Loại hành lý" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Date, StringFormat='dd/MM/yyyy'}">
+                                                <GridViewColumn Width="120" DisplayMemberBinding="{Binding Date, StringFormat='dd/MM/yyyy'}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Ngày đặt vé" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Account.DisplayName}">
+                                                <GridViewColumn Width="160" DisplayMemberBinding="{Binding Account.DisplayName}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Nhân viên phụ trách" ></GridViewColumnHeader>
                                                 </GridViewColumn>
 
@@ -925,7 +937,7 @@
                                                  UniformCornerRadius="30"
                                                  materialDesign:ElevationAssist.Elevation="Dp16">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding AccountList}" SelectedItem="{Binding AccountSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="13">
+                                    <ListView Margin="10" ItemsSource="{Binding AccountList}" SelectedItem="{Binding AccountSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="13">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Account}"></GridViewColumn>
