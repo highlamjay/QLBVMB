@@ -52,11 +52,6 @@ namespace QLBVMB.ViewModel
             {
                 var Booked = new Booked() { Id_Booked = Id_Booked, Date = Date, Id_Ticket = SelectedTicket.Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Id_AccountSeller = SelectedAccount.Id_Account, Id_Flight = Id_Flight};
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket).SingleOrDefault();
-                //ticket.Id_Ticket = SelectedTicket.Id_Ticket;
-                //ticket.Id_Flight = SelectedTicket.Id_Flight;
-                //ticket.Type_Ticket = SelectedTicket.Type_Ticket;
-                //ticket.Id_Seat = SelectedTicket.Id_Seat;
-                //ticket.Price = SelectedTicket.Price;
                 ticket.Status = "Booked";
 
                 DataProvider.Ins.DB.Bookeds.Add(Booked);
