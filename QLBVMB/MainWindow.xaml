@@ -259,7 +259,13 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <TextBox Grid.Column="0" FontSize="15" Margin="20,5,10,10" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                <TextBox Grid.Column="1" FontSize="15" Margin="10,5,10,10" Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                <ComboBox x:Name="cbPlane" Grid.Column="1" Margin="5 10 10 10" DisplayMemberPath="Id_Plane" ItemsSource="{Binding PlaneList, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedPlane, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã máy bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="DropDownOpened" >
+                                                            <i:InvokeCommandAction Command="{Binding ComboBoxPlaneClick}" />
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </ComboBox>
                                                 <ComboBox Grid.Column="2" FontSize="15" Margin="10 5 10 8" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi khởi hành" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                                                     <i:Interaction.Triggers>
                                                         <i:EventTrigger EventName="DropDownOpened" >

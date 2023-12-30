@@ -9,6 +9,12 @@ namespace QLBVMB.Model
 {
     public class Bill : BaseViewModel
     {
+        private string _Id_Flight;
+        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
+
+        private string _Id_Customer;
+        public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
+
         private int _Id_Bill;
         public int Id_Bill { get => _Id_Bill; set { _Id_Bill = value; OnPropertyChanged(); } }
 
@@ -17,12 +23,6 @@ namespace QLBVMB.Model
 
         private int _SumMoney;
         public int SumMoney { get => _SumMoney; set { _SumMoney = value; OnPropertyChanged(); } }
-
-        private string _Id_Flight;
-        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
-
-        private string _Id_Customer;
-        public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
-
+        
     }
 }
