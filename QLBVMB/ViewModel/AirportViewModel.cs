@@ -26,7 +26,7 @@ namespace QLBVMB.ViewModel
 
             AddAirportCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Airport) && string.IsNullOrEmpty(Name_Airport))
+                if (string.IsNullOrEmpty(Id_Airport) && string.IsNullOrEmpty(Name_Airport) )
                     return false;
 
                 if ((displayListAirport != null && displayListAirport.Count() != 0))

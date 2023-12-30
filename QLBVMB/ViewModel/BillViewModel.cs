@@ -2,12 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 
@@ -24,11 +27,24 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Bill> _BillItems;
         public ObservableCollection<Bill> BillItems { get { return _BillItems; } set { _BillItems = value; OnPropertyChanged(); } }
 
-        Booked preId_Flight, preId_Customer = null;
+        private ICollectionView _BillCollection;
+        public ICollectionView BillCollection { get { return _BillCollection; } set { _BillCollection = value; OnPropertyChanged(); } }
+        public bool FilterById_Customer(object bill)
+        {
+            if ( !string.IsNullOrEmpty(TextToFilter))
+            {
+                var billDetail = bill as Bill;
+                return billDetail != null && billDetail.Id_Customer.Contains(TextToFilter);
+            }
+            return true;
+        }
+
         public BillViewModel()
         {
+            
             BillList = new ObservableCollection<Bill>();
             BillListFull = new ObservableCollection<Bill>();
+        
 
             UpdateData();
             BtClick = new RelayCommand<object>((p) => { return true; }, (p) => { UpdateData(); });
@@ -36,8 +52,10 @@ namespace QLBVMB.ViewModel
 
         void UpdateData()
         {
+            BillCollection = CollectionViewSource.GetDefaultView(BillListFull);
             var booked = DataProvider.Ins.DB.Bookeds;
 
+            int i = 1;
             BillList.Clear();
             foreach (var book in booked)
             {
@@ -57,7 +75,7 @@ namespace QLBVMB.ViewModel
 
             var finalBill = BillList.GroupBy(item => new { item.Id_Flight, item.Id_Customer }).Select(group => new Bill
             {
-
+                Id_Bill = i++,
                 Id_Flight = group.Key.Id_Flight,
                 Id_Customer = group.Key.Id_Customer,
                 CountTicket = group.Sum(x => x.CountTicket),
@@ -65,26 +83,22 @@ namespace QLBVMB.ViewModel
             });
 
             BillListFull = new ObservableCollection<Bill>(finalBill);
-            //BillItems = new ObservableCollection<Bill>(finalBill);
 
-            //int i = 1;
-            //BillListFull.Clear();
-            //foreach (var item in BillItems)
-            //{
-            //    Bill bill = new Bill();
-            //    bill.Id_Bill = i;
-            //    bill.Id_Flight = item.Id_Flight;
-            //    bill.Id_Customer = item.Id_Customer;
-            //    bill.CountTicket = item.CountTicket;
-            //    bill.SumMoney = item.SumMoney;
-
-            //    i++;
-            //    BillListFull.Add(bill);
-
-            //}
         }
         
         public ICommand BtClick {  get; set; }
+
+        private string _TextToFilter;
+        public string TextToFilter
+        {
+            get => _TextToFilter;
+            set
+            {
+                _TextToFilter = value;
+                OnPropertyChanged();
+                BillCollection.Filter = FilterById_Customer;
+            }
+        }
     }
 
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLBVMB.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,8 @@ namespace QLBVMB
         public MainWindow()
         {
             InitializeComponent();
-        }
 
+        }
         private void ComboBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 

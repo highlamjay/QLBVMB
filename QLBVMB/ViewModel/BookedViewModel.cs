@@ -63,6 +63,25 @@ namespace QLBVMB.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 BookedList.Add(Booked);
             });
+            DeleteBookedCommand = new RelayCommand<object>((p) =>
+            {
+                if (BookedSelectedItem == null)
+                    return false;
+
+                var displayListBook = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == BookedSelectedItem.Id_Booked);
+                if (displayListBook != null && displayListBook.Count() != 0)
+                    return true;
+
+                return false;
+            }, (p) => 
+            {
+                var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == BookedSelectedItem.Id_Ticket).SingleOrDefault();
+                DataProvider.Ins.DB.Bookeds.Remove(BookedSelectedItem);              
+                ticket.Status = "Remained";
+                DataProvider.Ins.DB.SaveChanges();
+
+                BookedList.Remove(BookedSelectedItem);
+            });
 
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts); });
             ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); });
@@ -180,6 +199,7 @@ namespace QLBVMB.ViewModel
         private string _Name_Locate;
         public string Name_Locate { get => _Name_Locate; set { _Name_Locate = value; OnPropertyChanged(); } }
         public ICommand AddBookedCommand { get; set; }
+        public ICommand DeleteBookedCommand { get; set; }
         public ICommand ComboBoxClick {  get; set; }
         public ICommand ComboBoxIDKhackHang_Click {  get; set; }
     }
