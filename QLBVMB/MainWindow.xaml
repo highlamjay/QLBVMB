@@ -794,12 +794,12 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="15">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding BillList}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView ItemsSource="{Binding BillListFull}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Booked.Id_Flight}"></GridViewColumn>
-                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Booked1.Id_Customer}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
+                                                <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding Id_Customer}"></GridViewColumn>
                                                 <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding CountTicket}"></GridViewColumn>
                                                 <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding SumMoney}"></GridViewColumn>
                                             </GridView>

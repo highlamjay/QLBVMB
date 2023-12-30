@@ -17,6 +17,9 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Bill> _BillList;
         public ObservableCollection<Bill> BillList { get { return _BillList; } set { _BillList = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<Bill> _BillListFull;
+        public ObservableCollection<Bill> BillListFull { get { return _BillListFull; } set { _BillListFull = value; OnPropertyChanged(); } }
+
         private ObservableCollection<Booked> _BookedList;
         public ObservableCollection<Booked> BookedList { get { return _BookedList; } set { _BookedList = value; OnPropertyChanged(); } }
 
@@ -27,57 +30,54 @@ namespace QLBVMB.ViewModel
         public BillViewModel()
         {
             BillList = new ObservableCollection<Bill>();
+            BillListFull = new ObservableCollection<Bill>();
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
-            int i = 1;
+           
             
             var booked = DataProvider.Ins.DB.Bookeds;
 
             foreach (var book in booked)
             {
-                var customer = DataProvider.Ins.DB.Customers.Where(x => x.Id_Customer == book.Id_Customer).FirstOrDefault();
-                var flight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == book.Id_Flight).FirstOrDefault();
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == book.Id_Ticket).FirstOrDefault();
                 var cb = DataProvider.Ins.DB.Checked_Baggage.Where(x => x.Id_CB == book.Id_CB).FirstOrDefault();
 
-                int count = 0;
-                int sum = 0;
-                if (customer != null && flight != null)
-                {
-                    count++;
-                }
-                if (ticket != null && cb != null)
-                {
-                    sum = (int)ticket.Price + (int)cb.Extra_Price;
-                }
-
+                int count = 1;
+                int sum = (int)(ticket.Price + cb.Extra_Price);
                 Bill bill = new Bill();
-                bill.Id_Bill = i;
-                bill.Booked = book;
-                bill.Booked1 = book;
+                bill.Id_Flight = book.Id_Flight;
+                bill.Id_Customer = book.Id_Customer;
                 bill.CountTicket = count;
                 bill.SumMoney = sum;
 
                 BillList.Add(bill);
-                i++;
+                
             }
-            var billlist = BillList;
-            foreach (var item in billlist)
+
+            var finalBill = BillList.GroupBy(item => new {item.Id_Flight, item.Id_Customer}).Select(group => new Bill
             {
-                Bill billItem = item;
-               
+
+                Id_Flight = group.Key.Id_Flight,
+                Id_Customer = group.Key.Id_Customer,
+                CountTicket = group.Sum(x=> x.CountTicket),
+                SumMoney = group.Sum(x=>x.SumMoney)              
+            });
+
+            BillItems = new ObservableCollection<Bill>(finalBill);
+
+            int i = 1;
+            foreach (var item in BillItems)
+            {
+                Bill bill = new Bill();
+                bill.Id_Bill = i;
+                bill.Id_Flight = item.Id_Flight;
+                bill.Id_Customer = item.Id_Customer;
+                bill.CountTicket = item.CountTicket;
+                bill.SumMoney = item.SumMoney;
+
+                i++;
+                BillListFull.Add(bill);
+
             }
-            //var finalBill = BillList.GroupBy(item => new { item.Booked, item.Booked1 }).Select(group => new Bill
-            //{
-               
-            //    Booked = group.Key.Booked,
-            //    Booked1 = group.Key.Booked1,
-       
-            //    SumMoney = group.Sum(sum=> sum.SumMoney)
-            //});
-
-            //BillItems = new ObservableCollection<Bill>(finalBill);
-
-
         }
     }
 
