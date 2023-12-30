@@ -41,7 +41,9 @@ namespace QLBVMB.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 TicketList.Add(Ticket);
-            });        
+            });
+
+            ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights); });
         }
         private Ticket _TicketSelectedItem;
         public Ticket TicketSelectedItem
@@ -88,5 +90,6 @@ namespace QLBVMB.ViewModel
         public string Status { get => _Status; set { _Status = value; OnPropertyChanged(); } }
         public ICommand AddTicketCommand { get; set; }
        
+        public ICommand ComboBoxClick {  get; set; }
     }
 }
