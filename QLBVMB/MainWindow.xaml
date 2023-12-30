@@ -557,7 +557,7 @@
                                     <ListView ItemsSource="{Binding TicketList}" SelectedItem="{Binding TicketSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Ticket}"></GridViewColumn>                                                                     
+                                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Ticket}"></GridViewColumn>
                                                 <GridViewColumn Header="Mã chuyến bay" DisplayMemberBinding="{Binding Flight.Id_Flight}"></GridViewColumn>
                                                 <GridViewColumn Header="Mã ghế" DisplayMemberBinding="{Binding Id_Seat}"></GridViewColumn>
                                                 <GridViewColumn Header="Loại vé" DisplayMemberBinding="{Binding Type_Ticket}"></GridViewColumn>
@@ -587,12 +587,12 @@
                                     <GradientStop Color="Orange" Offset="1" />
                                 </LinearGradientBrush>
                             </Grid.Background>
-                            
+
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            
+
                             <Grid Grid.Row="0" Margin="5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
@@ -707,7 +707,7 @@
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
-                                                        <ColumnDefinition></ColumnDefinition>                                                        
+                                                        <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
                                                     <TextBox Grid.Column="0" Text="{Binding Sex, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giới tính" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                     <TextBox Grid.Column="1" Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Tuổi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -782,36 +782,42 @@
                             </Grid.Background>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"></RowDefinition>
-                                <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <materialDesign:Card Grid.Row="0" Margin="5">
 
-                            </materialDesign:Card>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" >
+                                <materialDesign:Card Margin="15,5,15,5"
+                                                     materialDesign:ElevationAssist.Elevation="Dp16"
+                                                     UniformCornerRadius="25"
+                                                     Width="500">
+                                    <WrapPanel>
+                                        <TextBox x:Name="FindBillBox"
+                                                 Margin="5" Width="490"
+                                                 materialDesign:HintAssist.Hint="Tìm kiếm"
+                                                 materialDesign:HintAssist.FloatingScale="0.9"
+                                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
+                                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                                 materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                                 materialDesign:TextFieldAssist.LeadingIcon="Search"
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15">
+                                        </TextBox>
+                                    </WrapPanel>
+                                </materialDesign:Card>
+                                <Button Background="White" Padding="0" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding AddBookedCommand}" Width="60" Height="60" materialDesign:ButtonAssist.CornerRadius="45" BorderBrush="{x:Null}">
+                                    <materialDesign:PackIcon Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50" Kind="Cached" />
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click" >
+                                            <i:InvokeCommandAction Command="{Binding BtClick}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </StackPanel>
 
-                            <materialDesign:Card Grid.Row="1" Margin="15,5,15,5"
-                                                 materialDesign:ElevationAssist.Elevation="Dp16"
-                                                 UniformCornerRadius="25"
-                                                 Width="500">
-                                <WrapPanel>
-                                    <TextBox x:Name="FindBillBox"
-                                             Margin="5" Width="200"
-                                             materialDesign:HintAssist.Hint="Tìm kiếm"
-                                             materialDesign:HintAssist.FloatingScale="0.9"
-                                             materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
-                                             materialDesign:TextFieldAssist.HasClearButton="True"
-                                             materialDesign:TextFieldAssist.HasLeadingIcon="True"
-                                             materialDesign:TextFieldAssist.LeadingIcon="Search"
-                                             Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15">
-                                    </TextBox>
-                                </WrapPanel>
-                            </materialDesign:Card>
-
-                            <materialDesign:Card Grid.Row="2" Margin="30,10,30,15" VerticalAlignment="Stretch"
+                            <materialDesign:Card Grid.Row="1" Margin="30,10,30,15" VerticalAlignment="Stretch"
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="20">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView Margin="10" ItemsSource="{Binding BillListFull}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView Margin="10" ItemsSource="{Binding BillListFull, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
@@ -844,12 +850,12 @@
                                     <GradientStop Color="OrangeRed" Offset="1" />
                                 </LinearGradientBrush>
                             </Grid.Background>
-                            
+
                             <materialDesign:Card Margin="20" VerticalAlignment="Stretch"
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="25">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView Margin="10" ItemsSource="{Binding StatisticalListFull}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView Margin="10" ItemsSource="{Binding StatisticalListFull,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id Flight" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
@@ -861,6 +867,14 @@
                                     </ListView>
                                 </ScrollViewer>
                             </materialDesign:Card>
+                            <Button Background="White" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding AddBookedCommand}" Width="60" Height="60" materialDesign:ButtonAssist.CornerRadius="45" BorderBrush="{x:Null}" Margin="20" >
+                                <materialDesign:PackIcon Foreground="Black" Height="50" Width="50" Kind="Cached" />
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click" >
+                                        <i:InvokeCommandAction Command="{Binding BtClick}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
                         </Grid>
                     </TabItem>
                     <TabItem Height="62" DataContext="{StaticResource AccountVM}">

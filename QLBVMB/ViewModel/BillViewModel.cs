@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
 {
@@ -20,9 +21,6 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Bill> _BillListFull;
         public ObservableCollection<Bill> BillListFull { get { return _BillListFull; } set { _BillListFull = value; OnPropertyChanged(); } }
 
-        private ObservableCollection<Booked> _BookedList;
-        public ObservableCollection<Booked> BookedList { get { return _BookedList; } set { _BookedList = value; OnPropertyChanged(); } }
-
         private ObservableCollection<Bill> _BillItems;
         public ObservableCollection<Bill> BillItems { get { return _BillItems; } set { _BillItems = value; OnPropertyChanged(); } }
 
@@ -31,11 +29,16 @@ namespace QLBVMB.ViewModel
         {
             BillList = new ObservableCollection<Bill>();
             BillListFull = new ObservableCollection<Bill>();
-            BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
-           
-            
+
+            UpdateData();
+            BtClick = new RelayCommand<object>((p) => { return true; }, (p) => { UpdateData(); });
+        }
+
+        void UpdateData()
+        {
             var booked = DataProvider.Ins.DB.Bookeds;
 
+            BillList.Clear();
             foreach (var book in booked)
             {
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == book.Id_Ticket).FirstOrDefault();
@@ -50,35 +53,38 @@ namespace QLBVMB.ViewModel
                 bill.SumMoney = sum;
 
                 BillList.Add(bill);
-                
             }
 
-            var finalBill = BillList.GroupBy(item => new {item.Id_Flight, item.Id_Customer}).Select(group => new Bill
+            var finalBill = BillList.GroupBy(item => new { item.Id_Flight, item.Id_Customer }).Select(group => new Bill
             {
 
                 Id_Flight = group.Key.Id_Flight,
                 Id_Customer = group.Key.Id_Customer,
-                CountTicket = group.Sum(x=> x.CountTicket),
-                SumMoney = group.Sum(x=>x.SumMoney)              
+                CountTicket = group.Sum(x => x.CountTicket),
+                SumMoney = group.Sum(x => x.SumMoney)
             });
 
-            BillItems = new ObservableCollection<Bill>(finalBill);
+            BillListFull = new ObservableCollection<Bill>(finalBill);
+            //BillItems = new ObservableCollection<Bill>(finalBill);
 
-            int i = 1;
-            foreach (var item in BillItems)
-            {
-                Bill bill = new Bill();
-                bill.Id_Bill = i;
-                bill.Id_Flight = item.Id_Flight;
-                bill.Id_Customer = item.Id_Customer;
-                bill.CountTicket = item.CountTicket;
-                bill.SumMoney = item.SumMoney;
+            //int i = 1;
+            //BillListFull.Clear();
+            //foreach (var item in BillItems)
+            //{
+            //    Bill bill = new Bill();
+            //    bill.Id_Bill = i;
+            //    bill.Id_Flight = item.Id_Flight;
+            //    bill.Id_Customer = item.Id_Customer;
+            //    bill.CountTicket = item.CountTicket;
+            //    bill.SumMoney = item.SumMoney;
 
-                i++;
-                BillListFull.Add(bill);
+            //    i++;
+            //    BillListFull.Add(bill);
 
-            }
+            //}
         }
+        
+        public ICommand BtClick {  get; set; }
     }
 
 }

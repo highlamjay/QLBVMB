@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
 {
@@ -19,8 +20,14 @@ namespace QLBVMB.ViewModel
         {
             StatisticalList = new ObservableCollection<Statistical>();
 
-            var booked = DataProvider.Ins.DB.Bookeds;
+            UpdateData();
+            BtClick = new RelayCommand<object>((p) => { return true; }, (p) => { UpdateData(); });
+        }
 
+        void UpdateData()
+        {
+            var booked = DataProvider.Ins.DB.Bookeds;
+            StatisticalList.Clear();
             foreach (var book in booked)
             {
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == book.Id_Ticket).FirstOrDefault();
@@ -35,16 +42,17 @@ namespace QLBVMB.ViewModel
                 statistical.Revenue = count;
 
                 StatisticalList.Add(statistical);
-
             }
-            var finalStatistical = StatisticalList.GroupBy(item => new {item.Id_Flight, item.SumSeat}).Select(group => new Statistical
+            var finalStatistical = StatisticalList.GroupBy(item => new { item.Id_Flight, item.SumSeat }).Select(group => new Statistical
             {
                 Id_Flight = group.Key.Id_Flight,
                 SumSeat = group.Key.SumSeat,
-                SumSeatBooked = group.Sum(x=>x.SumSeatBooked),
-                Revenue = group.Sum(x=>x.Revenue)
+                SumSeatBooked = group.Sum(x => x.SumSeatBooked),
+                Revenue = group.Sum(x => x.Revenue)
             });
             StatisticalListFull = new ObservableCollection<Statistical>(finalStatistical);
         }
+
+        public ICommand BtClick { get; set; }
     }
 }
