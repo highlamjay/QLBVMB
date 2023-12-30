@@ -7,9 +7,9 @@
     <viewmodel:AirportViewModel x:Key="AirportVM"></viewmodel:AirportViewModel>
     <viewmodel:PlaneViewModel x:Key="PlaneVM"></viewmodel:PlaneViewModel>
     <viewmodel:FlightViewModel x:Key="FlightVM"></viewmodel:FlightViewModel>
-    <viewmodel:ListViewModel x:Key="ListVM"></viewmodel:ListViewModel>
     <viewmodel:CustomerViewModel x:Key="CustomerVM"></viewmodel:CustomerViewModel>
     <viewmodel:TicketViewModel x:Key="TicketVM"></viewmodel:TicketViewModel>
     <viewmodel:BookedViewModel x:Key="BookedVM"></viewmodel:BookedViewModel>
     <viewmodel:BillViewModel x:Key="BillVM"></viewmodel:BillViewModel>
+    <viewmodel:StatisticalViewModel x:Key="StatisticalVM"></viewmodel:StatisticalViewModel>
 </ResourceDictionary>

@@ -809,7 +809,7 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="62">
+                    <TabItem Height="62" DataContext="{StaticResource StatisticalVM}">
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"
@@ -854,13 +854,13 @@
 
                             <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView ItemsSource="{Binding StatisticalListFull}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
-                                                <GridViewColumn Header="Id Flight" DisplayMemberBinding="{Binding Plane.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Số lượng ghế" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Số lượng ghế đã đặt" DisplayMemberBinding="{Binding Airport.Id}"></GridViewColumn>
-                                                <GridViewColumn Header="Doanh thu" DisplayMemberBinding="{Binding TimeStar}"></GridViewColumn>
+                                                <GridViewColumn Header="Id Flight" DisplayMemberBinding="{Binding Id_Flight}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng ghế" DisplayMemberBinding="{Binding SumSeat}"></GridViewColumn>
+                                                <GridViewColumn Header="Số lượng ghế đã đặt" DisplayMemberBinding="{Binding SumSeatBooked}"></GridViewColumn>
+                                                <GridViewColumn Header="Doanh thu" DisplayMemberBinding="{Binding Revenue}"></GridViewColumn>
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
