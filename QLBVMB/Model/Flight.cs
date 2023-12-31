@@ -9,11 +9,10 @@
 
 namespace QLBVMB.Model
 {
-    using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
-
-    public partial class Flight : BaseViewModel
+    
+    public partial class Flight
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Flight()
@@ -21,42 +20,21 @@ namespace QLBVMB.Model
             this.Bookeds = new HashSet<Booked>();
             this.Tickets = new HashSet<Ticket>();
         }
-
-        private string _Id_Plane;
-        public string Id_Plane { get => _Id_Plane; set { _Id_Plane = value; OnPropertyChanged(); } }
-
-        private string _Id_Flight;
-        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
-
-        private string _Airport_Take_Off;
-        public string Airport_Take_Off { get => _Airport_Take_Off; set { _Airport_Take_Off = value; OnPropertyChanged(); } }
-
-        private string _Airport_Landing;
-        public string Airport_Landing { get => _Airport_Landing; set { _Airport_Landing = value; OnPropertyChanged(); } }
-
-        private Nullable<System.DateTime> _Time_Start;
-        public Nullable<System.DateTime> Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
-
-        private Nullable<System.DateTime> _Time_End;
-        public Nullable<System.DateTime> Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
-
-        private Nullable<byte> _Total_Seat;
-        public Nullable<byte> Total_Seat { get => _Total_Seat; set { _Total_Seat = value; OnPropertyChanged(); } }
-
-        private Nullable<byte> _Total_BookedSeat;
-        public Nullable<byte> Total_BookedSeat { get => _Total_BookedSeat; set { _Total_BookedSeat = value; OnPropertyChanged(); } }
-
-        private Airport _Airport; 
-        public virtual Airport Airport { get => _Airport; set { _Airport = value; OnPropertyChanged(); } }
-
-        private Airport _Airport1;
-        public virtual Airport Airport1 { get => _Airport1; set { _Airport1 = value; OnPropertyChanged(); } }
+    
+        public string Id_Flight { get; set; }
+        public Nullable<System.DateTime> Time_Start { get; set; }
+        public Nullable<System.DateTime> Time_End { get; set; }
+        public string Id_Plane { get; set; }
+        public string Airport_Take_Off { get; set; }
+        public string Airport_Landing { get; set; }
+        public Nullable<byte> Total_Seat { get; set; }
+    
+        public virtual Airport Airport { get; set; }
+        public virtual Airport Airport1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booked> Bookeds { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ticket> Tickets { get; set; }
-
-        private Plane _Plane;
-        public virtual Plane Plane { get => _Plane; set { _Plane = value; OnPropertyChanged(); } }
+        public virtual Plane Plane { get; set; }
     }
 }

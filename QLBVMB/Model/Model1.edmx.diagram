@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2dc49178dd8b478a942f51858f2d631b" Name="Diagram1">
-        <EntityTypeShape EntityType="QLBVMBModel.Account" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Airport" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Booked" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Checked_Baggage" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Customer" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Flight" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Locate" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Plane" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.RolePosition" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBVMBModel.Ticket" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
-        <AssociationConnector Association="QLBVMBModel.fk05_booked" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk_airport" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk02_flight" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk03_flight" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk01_booked" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk02_booked" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk03_booked" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk04_booked" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk_customer" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk_ticket" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBVMBModel.fk01_flight" ManuallyRouted="false" />
+      <Diagram DiagramId="2dc49178dd8b478a942f51858f2d631b" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="QLBVMBModel.Account" Width="1.5" PointX="1.5" PointY="2.625" />
+        <EntityTypeShape EntityType="QLBVMBModel.Airport" Width="1.5" PointX="4.125" PointY="2.625" />
+        <EntityTypeShape EntityType="QLBVMBModel.Booked" Width="1.5" PointX="3.5" PointY="9.625" />
+        <EntityTypeShape EntityType="QLBVMBModel.Checked_Baggage" Width="1.5" PointX="7.625" PointY="10.25" />
+        <EntityTypeShape EntityType="QLBVMBModel.Customer" Width="1.5" PointX="1.25" PointY="9.625" />
+        <EntityTypeShape EntityType="QLBVMBModel.Flight" Width="1.5" PointX="4.125" PointY="5.75" />
+        <EntityTypeShape EntityType="QLBVMBModel.Locate" Width="1.5" PointX="6.75" PointY="2.625" />
+        <EntityTypeShape EntityType="QLBVMBModel.Plane" Width="1.5" PointX="1.25" PointY="5.75" />
+        <EntityTypeShape EntityType="QLBVMBModel.RolePosition" Width="1.5" PointX="1.25" PointY="7.875" />
+        <EntityTypeShape EntityType="QLBVMBModel.Ticket" Width="1.5" PointX="7" PointY="5.875" />
+        <AssociationConnector Association="QLBVMBModel.fk05_booked" />
+        <AssociationConnector Association="QLBVMBModel.fk_airport" />
+        <AssociationConnector Association="QLBVMBModel.fk02_flight" />
+        <AssociationConnector Association="QLBVMBModel.fk03_flight" />
+        <AssociationConnector Association="QLBVMBModel.fk01_booked" />
+        <AssociationConnector Association="QLBVMBModel.fk02_booked" />
+        <AssociationConnector Association="QLBVMBModel.fk03_booked" />
+        <AssociationConnector Association="QLBVMBModel.fk04_booked" />
+        <AssociationConnector Association="QLBVMBModel.fk_customer" />
+        <AssociationConnector Association="QLBVMBModel.fk_ticket" />
+        <AssociationConnector Association="QLBVMBModel.fk01_flight" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

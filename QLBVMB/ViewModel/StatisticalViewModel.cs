@@ -33,7 +33,6 @@ namespace QLBVMB.ViewModel
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == book.Id_Ticket).FirstOrDefault();
                 var cb = DataProvider.Ins.DB.Checked_Baggage.Where(x => x.Id_CB == book.Id_CB).FirstOrDefault();
 
-                int sum = 1;
                 int count = (int)(ticket.Price + cb.Extra_Price);
                 Statistical statistical = new Statistical();
                 statistical.Id_Flight = ticket.Id_Flight;

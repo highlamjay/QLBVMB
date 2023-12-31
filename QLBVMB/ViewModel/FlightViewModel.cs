@@ -48,7 +48,6 @@ namespace QLBVMB.ViewModel
                     Time_Start = Time_Start,
                     Time_End = Time_End,
                     Total_Seat = Total_Seat,
-                    Total_BookedSeat = Total_BookedSeat
                 };
 
                 DataProvider.Ins.DB.Flights.Add(Flight);
@@ -152,7 +151,6 @@ namespace QLBVMB.ViewModel
                     Time_Start = FlightSelectedItem.Time_Start;
                     Time_End = FlightSelectedItem.Time_End;
                     Total_Seat = FlightSelectedItem.Total_Seat;
-                    Total_BookedSeat = FlightSelectedItem.Total_BookedSeat;
                 }
             }
         }
