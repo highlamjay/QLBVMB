@@ -648,12 +648,10 @@
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
-                                                            <ColumnDefinition></ColumnDefinition>
                                                         </Grid.ColumnDefinitions>
                                                         <TextBox Grid.Column="0" Text="{Binding Id_Booked, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã đặt vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                         <ComboBox Grid.Column="1" Margin="5 10 5 10" DisplayMemberPath="Id_Ticket" ItemsSource="{Binding TicketList}" SelectedItem="{Binding SelectedTicket, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã vé" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                                        <ComboBox Grid.Column="2" Margin="5 10 10 10" DisplayMemberPath="Type_CB" ItemsSource="{Binding Checked_BaggageList}" SelectedItem="{Binding SelectedCB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Loại hành lý" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                                        <TextBox Grid.Column="3" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <TextBox Grid.Column="2" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 10 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                     </Grid>
                                                     <Grid Grid.Row="1">
                                                         <Grid.ColumnDefinitions>
@@ -662,14 +660,8 @@
                                                             <ColumnDefinition></ColumnDefinition>
                                                         </Grid.ColumnDefinitions>
                                                         <TextBox Grid.Column="0" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                        <DatePicker Grid.Column="1" FontSize="15" SelectedDate="{Binding Date}" Margin="10 5 10 8" materialDesign:HintAssist.Hint="Thời gian đặt vé" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                                        <ComboBox x:Name="cbAccount" Grid.Column="2" Margin="5 10 10 10" DisplayMemberPath="DisplayName" ItemsSource="{Binding AccountList, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nhân viên phụ trách" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                                                            <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="DropDownOpened" >
-                                                                    <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
-                                                                </i:EventTrigger>
-                                                            </i:Interaction.Triggers>
-                                                        </ComboBox>
+                                                        <DatePicker Grid.Column="1" FontSize="15" SelectedDate="{Binding Date}" Margin="5 5 5 8" materialDesign:HintAssist.Hint="Thời gian đặt vé" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                        <ComboBox Grid.Column="2" Margin="5 10 10 10" DisplayMemberPath="Type_CB" ItemsSource="{Binding Checked_BaggageList}" SelectedItem="{Binding SelectedCB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Loại hành lý" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
                                                     </Grid>
                                                 </Grid>
                                             </StackPanel>
@@ -761,7 +753,7 @@
                                                 <GridViewColumn Width="120" DisplayMemberBinding="{Binding Date, StringFormat='dd/MM/yyyy'}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Ngày đặt vé" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn Width="160" DisplayMemberBinding="{Binding Account.DisplayName}">
+                                                <GridViewColumn Width="160" DisplayMemberBinding="{Binding Account.Username}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Nhân viên phụ trách" ></GridViewColumnHeader>
                                                 </GridViewColumn>
 
@@ -809,7 +801,8 @@
                                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                                  materialDesign:TextFieldAssist.HasLeadingIcon="True"
                                                  materialDesign:TextFieldAssist.LeadingIcon="Search"
-                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15">
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15"
+                                                 TextChanged="txtFilter_TextChanged">                                            
                                         </TextBox>
                                     </WrapPanel>
                                 </materialDesign:Card>
@@ -817,7 +810,7 @@
                                     <materialDesign:PackIcon Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50" Kind="Cached" />
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click" >
-                                            <i:InvokeCommandAction Command="{Binding BtClick}" />
+                                            <i:InvokeCommandAction Command="{Binding BtClick}"/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
@@ -827,7 +820,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="20">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView Margin="10" Name="lvBill" ItemsSource="{Binding BillListFull, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView x:Name="LvBill" Margin="10" ItemsSource="{Binding BillListFull, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
@@ -836,7 +829,7 @@
                                                 <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding CountTicket}"></GridViewColumn>
                                                 <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding SumMoney}"></GridViewColumn>
                                             </GridView>
-                                        </ListView.View>
+                                        </ListView.View>                                       
                                     </ListView>
                                 </ScrollViewer>
                             </materialDesign:Card>

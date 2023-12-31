@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,15 +45,15 @@ namespace QLBVMB.ViewModel
             
             BillList = new ObservableCollection<Bill>();
             BillListFull = new ObservableCollection<Bill>();
-        
-
+            
+                        
             UpdateData();
             BtClick = new RelayCommand<object>((p) => { return true; }, (p) => { UpdateData(); });
+            BillCollection = (CollectionView)CollectionViewSource.GetDefaultView(BillListFull);
         }
-
+        
         void UpdateData()
         {
-            BillCollection = CollectionViewSource.GetDefaultView(BillListFull);
             var booked = DataProvider.Ins.DB.Bookeds;
 
             int i = 1;
@@ -96,10 +97,7 @@ namespace QLBVMB.ViewModel
             {
                 _TextToFilter = value;
                 OnPropertyChanged();
-                BillCollection.Filter = FilterById_Customer;
             }
         }
     }
-
 }
-

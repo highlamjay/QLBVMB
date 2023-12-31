@@ -63,6 +63,7 @@ namespace QLBVMB.ViewModel
 
             DeleteCustomerCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Customer) || string.IsNullOrEmpty(Name) || Age.Value.ToString() == null || string.IsNullOrEmpty(Sex) || string.IsNullOrEmpty(Tel) || string.IsNullOrEmpty(Email))
                     return false;
                 if (CustomerSelectedItem == null)
