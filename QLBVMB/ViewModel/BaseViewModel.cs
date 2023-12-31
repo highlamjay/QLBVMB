@@ -19,7 +19,7 @@ namespace QLBVMB.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        static public Account AccountLogin;
+        static public Account AccountLogin = new Account();
         public void SetPrimaryColor(Color color)
         {
             PaletteHelper paletteHelper = new PaletteHelper();
