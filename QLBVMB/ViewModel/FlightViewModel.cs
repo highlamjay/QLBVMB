@@ -30,6 +30,7 @@ namespace QLBVMB.ViewModel
 
             AddFlightCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Flight) || SelectedPlane == null || SelectedAirport == null || SelectedAirport1 == null || Time_Start == null || Time_End == null || Total_Seat == null)
                     return false;
                 if (displayListFlight == null || displayListFlight.Count() != 0)
@@ -58,6 +59,7 @@ namespace QLBVMB.ViewModel
 
             EditFlightCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Flight) || SelectedPlane == null || SelectedAirport == null || SelectedAirport1 == null || Time_Start == null || Time_End == null || Total_Seat == null)
                     return false;
                 if (FlightSelectedItem == null)
@@ -81,6 +83,7 @@ namespace QLBVMB.ViewModel
 
             DeleteFlightCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Flight) || SelectedPlane == null || SelectedAirport == null || SelectedAirport1 == null || Time_Start == null || Time_End == null || Total_Seat == null)
                     return false;
                 if (FlightSelectedItem == null)
@@ -143,7 +146,7 @@ namespace QLBVMB.ViewModel
                 if (FlightSelectedItem != null)
                 {
                     Id_Flight = FlightSelectedItem.Id_Flight;
-                    Id_Plane = FlightSelectedItem.Id_Plane;
+                    SelectedPlane = FlightSelectedItem.Plane;
                     SelectedAirport = FlightSelectedItem.Airport;
                     SelectedAirport1 = FlightSelectedItem.Airport1;
                     Time_Start = FlightSelectedItem.Time_Start;

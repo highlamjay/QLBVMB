@@ -24,6 +24,7 @@ namespace QLBVMB.ViewModel
 
             AddPlaneCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Plane) || string.IsNullOrEmpty(Type_Plane) || string.IsNullOrEmpty(Brand))
                     return false;
                 if (displayListPlane == null || displayListPlane.Count() != 0)
@@ -39,6 +40,7 @@ namespace QLBVMB.ViewModel
 
             EditPlaneCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Plane) || string.IsNullOrEmpty(Type_Plane) || string.IsNullOrEmpty(Brand))
                     return false;
                 if (PlaneSelectedItem == null)
@@ -61,6 +63,7 @@ namespace QLBVMB.ViewModel
 
             DeletePlaneCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Plane) || string.IsNullOrEmpty(Type_Plane) || string.IsNullOrEmpty(Brand))
                     return false;
                 if (PlaneSelectedItem == null)

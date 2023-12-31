@@ -753,7 +753,7 @@
                                                 <GridViewColumn Width="120" DisplayMemberBinding="{Binding Date, StringFormat='dd/MM/yyyy'}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Ngày đặt vé" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn Width="160" DisplayMemberBinding="{Binding Account.DisplayName}">
+                                                <GridViewColumn Width="160" DisplayMemberBinding="{Binding Account.Username}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Nhân viên phụ trách" ></GridViewColumnHeader>
                                                 </GridViewColumn>
 

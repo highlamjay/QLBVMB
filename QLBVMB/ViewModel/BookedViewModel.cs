@@ -49,7 +49,7 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                var Booked = new Booked() { Id_Booked = Id_Booked, Date = Date, Id_Ticket = SelectedTicket.Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Id_AccountSeller = AccountLogin.Id_Account, Id_Flight = Id_Flight };
+                var Booked = new Booked() { Id_Booked = Id_Booked, Date = Date, Id_Ticket = SelectedTicket.Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Account = AccountLogin, Id_Flight = Id_Flight };
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket).SingleOrDefault();
                 ticket.Status = "Booked";
 
@@ -59,6 +59,7 @@ namespace QLBVMB.ViewModel
             });
             DeleteBookedCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedCustomer == null)
                     return false;
                 if (BookedSelectedItem == null)

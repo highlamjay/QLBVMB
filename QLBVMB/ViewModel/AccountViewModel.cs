@@ -32,13 +32,12 @@ namespace QLBVMB.ViewModel
 
             AddAccountCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Account) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(DisplayName) || string.IsNullOrEmpty(Position))
                     return false;
                 if (displayListAccountId == null || displayListAccountId.Count() != 0)
                     return false;
                 if (displayListAccountUserName == null || displayListAccountUserName.Count() != 0)
-                    return false;
-                if (displayListAccountDisplayName == null || displayListAccountDisplayName.Count() != 0)
                     return false;
                 return true;
             }, (p) =>
@@ -54,12 +53,13 @@ namespace QLBVMB.ViewModel
 
             EditAccountCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Account) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(DisplayName) || string.IsNullOrEmpty(Position))
                     return false;
                 if (AccountSelectedItem == null)
                     return false;
                 var displayListAccount1 = DataProvider.Ins.DB.Accounts.Where(x => x.Id_Account == AccountSelectedItem.Id_Account);
-                if (displayListAccount1 != null && displayListAccount1.Count() != 0)
+                if (displayListAccount1 != null && displayListAccount1.Count() != 0 && Id_Account == AccountSelectedItem.Id_Account)
                     return true;
 
                 return false;
@@ -78,6 +78,7 @@ namespace QLBVMB.ViewModel
 
             DeleteAccountCommand = new RelayCommand<object>((p) =>
             {
+                if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Account) || string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password) || string.IsNullOrEmpty(DisplayName) || string.IsNullOrEmpty(Position))
                     return false;
                 if (AccountSelectedItem == null)
