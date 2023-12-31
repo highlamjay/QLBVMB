@@ -801,7 +801,8 @@
                                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                                  materialDesign:TextFieldAssist.HasLeadingIcon="True"
                                                  materialDesign:TextFieldAssist.LeadingIcon="Search"
-                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15">
+                                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15"
+                                                 TextChanged="txtFilter_TextChanged">                                            
                                         </TextBox>
                                     </WrapPanel>
                                 </materialDesign:Card>
@@ -809,7 +810,7 @@
                                     <materialDesign:PackIcon Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50" Kind="Cached" />
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click" >
-                                            <i:InvokeCommandAction Command="{Binding BtClick}" />
+                                            <i:InvokeCommandAction Command="{Binding BtClick}"/>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
@@ -819,7 +820,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="20">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView Margin="10" Name="lvBill" ItemsSource="{Binding BillListFull, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView x:Name="LvBill" Margin="10" ItemsSource="{Binding BillListFull, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBill, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Bill}"></GridViewColumn>
@@ -828,7 +829,7 @@
                                                 <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding CountTicket}"></GridViewColumn>
                                                 <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding SumMoney}"></GridViewColumn>
                                             </GridView>
-                                        </ListView.View>
+                                        </ListView.View>                                       
                                     </ListView>
                                 </ScrollViewer>
                             </materialDesign:Card>
