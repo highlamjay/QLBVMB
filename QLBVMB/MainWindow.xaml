@@ -333,9 +333,7 @@
                                                 <GridViewColumn DisplayMemberBinding="{Binding Total_Seat}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Số lượng ghế"></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Total_BookedSeat}">
-                                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Ghế đã đặt"></GridViewColumnHeader>
-                                                </GridViewColumn>
+                                                
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
