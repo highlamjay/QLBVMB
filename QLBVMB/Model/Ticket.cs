@@ -9,24 +9,36 @@
 
 namespace QLBVMB.Model
 {
+    using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class Ticket
+    public partial class Ticket : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ticket()
         {
             this.Bookeds = new HashSet<Booked>();
         }
-    
-        public string Id_Ticket { get; set; }
-        public string Type_Ticket { get; set; }
-        public string Id_Seat { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public string Status { get; set; }
-        public string Id_Flight { get; set; }
-    
+
+        private string _Id_Ticket;
+        public string Id_Ticket { get => _Id_Ticket; set { _Id_Ticket = value; OnPropertyChanged(); } }
+
+        private string _Type_Ticket;
+        public string Type_Ticket { get => _Type_Ticket; set { _Type_Ticket = value; OnPropertyChanged(); } }
+
+        private string _Id_Seat;
+        public string Id_Seat { get => _Id_Seat; set { _Id_Seat = value; OnPropertyChanged(); } }
+
+        private Nullable<decimal> _Price;
+        public Nullable<decimal> Price { get => _Price; set { _Price = value; OnPropertyChanged(); } }
+
+        private string _Status;
+        public string Status { get => _Status; set { _Status = value; OnPropertyChanged(); } }
+
+        private string _Id_Flight;
+        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booked> Bookeds { get; set; }
         public virtual Flight Flight { get; set; }

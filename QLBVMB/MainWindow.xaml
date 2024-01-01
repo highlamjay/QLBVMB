@@ -259,7 +259,7 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <TextBox Grid.Column="0" FontSize="15" Margin="20,5,10,10" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                <ComboBox x:Name="cbPlane" Grid.Column="1" Margin="5 10 10 10" DisplayMemberPath="Id_Plane" ItemsSource="{Binding PlaneList, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedPlane, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã máy bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                <ComboBox x:Name="cbPlane" FontSize="15" Grid.Column="1" Margin="10 5 10 8" DisplayMemberPath="Id_Plane" ItemsSource="{Binding PlaneList, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedPlane, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã máy bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
                                                     <i:Interaction.Triggers>
                                                         <i:EventTrigger EventName="DropDownOpened" >
                                                             <i:InvokeCommandAction Command="{Binding ComboBoxPlaneClick}" />
@@ -523,11 +523,13 @@
                                         </StackPanel>
                                     </Grid>
                                 </materialDesign:Card>
-                                <materialDesign:Card Grid.Column="1" Margin="35,35,70,35"
+                                <materialDesign:Card Grid.Column="1" Margin="35,15,70,15"
                                                      materialDesign:ElevationAssist.Elevation="Dp8"
-                                                     UniformCornerRadius="20">
+                                                     UniformCornerRadius="30">
                                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <Button FontSize="16" Command="{Binding AddTicketCommand}" Content="Tạo vé" Margin="5" Width="100" materialDesign:ElevationAssist.Elevation="Dp8" materialDesign:ButtonAssist.CornerRadius="10"></Button>
+                                        <Button Height="35" FontSize="16" Command="{Binding AddTicketCommand}" Content="Tạo vé" Margin="5" Width="100" materialDesign:ElevationAssist.Elevation="Dp8" materialDesign:ButtonAssist.CornerRadius="20,20,10,10"></Button>
+                                        <Button Height="35" FontSize="16" Command="{Binding EditTicketCommand}" Content="Sửa vé" Margin="5" Width="100" materialDesign:ElevationAssist.Elevation="Dp8" materialDesign:ButtonAssist.CornerRadius="10"></Button>
+                                        <Button Height="35" FontSize="16" Command="{Binding DeleteTicketCommand}" Content="Xóa vé" Margin="5" Width="100" materialDesign:ElevationAssist.Elevation="Dp8" materialDesign:ButtonAssist.CornerRadius="10,10,20,20"></Button>
                                     </WrapPanel>
                                 </materialDesign:Card>
                                 <!--<StackPanel Margin="0 0 0 10">
@@ -575,13 +577,19 @@
                         </Grid>
                     </TabItem>
                     <TabItem Height="62" DataContext="{StaticResource BookedVM}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding TabItemClick}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <TabItem.Header>
-                            <StackPanel Width="auto" Height="auto">
+                            <StackPanel Margin="10">
                                 <materialDesign:PackIcon Width="24"
-                                    Height="24"
-                                    HorizontalAlignment="Center"
-                                    Kind="Ticket" />
-                                <TextBlock HorizontalAlignment="Center" Text="Đặt Vé" FontSize="12"/>
+                                                             Height="24"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Kind="Ticket" />
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Đặt Vé" FontSize="12"/>
                             </StackPanel>
                         </TabItem.Header>
                         <Grid>
@@ -754,7 +762,6 @@
                                                 <GridViewColumn Width="160" DisplayMemberBinding="{Binding Account.Username}">
                                                     <GridViewColumnHeader HorizontalContentAlignment="Center" Width="auto" Padding="0" Content="Nhân viên phụ trách" ></GridViewColumnHeader>
                                                 </GridViewColumn>
-
                                             </GridView>
                                         </ListView.View>
                                     </ListView>

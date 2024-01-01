@@ -1,39 +1,3 @@
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe.config
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.pdb
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.dll
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.dll
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.dll
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.dll
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.pdb
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.pdb
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.xml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.AssemblyReference.cache
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\LoginWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\MainWindow.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\App.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.cache
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.lref
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\App.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\LoginWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\MainWindow.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\ResourceXAML\MainResource.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.baml
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.g.resources
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.Properties.Resources.resources
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.GenerateResource.cache
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInputs.cache
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
-C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
 D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe.config
 D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe
 D:\QLBVMB\QLBVMB\QLBVMB\bin\Debug\QLBVMB.pdb
@@ -70,3 +34,39 @@ D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInputs.cache
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe.config
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.exe
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\QLBVMB.pdb
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.xml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignColors.pdb
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.AssemblyReference.cache
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\LoginWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\MainWindow.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\App.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_Content.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.cache
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB_MarkupCompile.lref
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\App.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\LoginWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\MainWindow.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\ResourceXAML\MainResource.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\User_control\ControlBarUC.baml
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.g.resources
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.Properties.Resources.resources
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.GenerateResource.cache
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInputs.cache
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
+C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb

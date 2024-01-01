@@ -2,6 +2,7 @@
 using QLBVMB.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -20,6 +21,7 @@ namespace QLBVMB.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         static public Account AccountLogin = new Account();
+        static public bool IsLoaded = true;
         public void SetPrimaryColor(Color color)
         {
             PaletteHelper paletteHelper = new PaletteHelper();

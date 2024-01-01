@@ -38,7 +38,6 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                Total_BookedSeat = 0;
                 var Flight = new Flight()
                 {
                     Id_Flight = Id_Flight,
@@ -88,6 +87,12 @@ namespace QLBVMB.ViewModel
                 if (FlightSelectedItem == null)
                     return false;
                 var displayListFlight1 = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == FlightSelectedItem.Id_Flight);
+                var TicketList = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Flight == FlightSelectedItem.Id_Flight);
+                foreach ( var ticket in TicketList )
+                {
+                    if (ticket.Status == "Booked")
+                        return false;
+                }
                 if (displayListFlight1 != null && displayListFlight.Count() != 0)
                     return true;
                 return false;
@@ -154,17 +159,9 @@ namespace QLBVMB.ViewModel
                 }
             }
         }
-        private string _Id_Plane;
-        public string Id_Plane { get => _Id_Plane; set { _Id_Plane = value; OnPropertyChanged(); } }
-
+        
         private string _Id_Flight;
         public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
-
-        private string _Airport_Take_Off;
-        public string Airport_Take_Off { get => _Airport_Take_Off; set { _Airport_Take_Off = value; OnPropertyChanged(); } }
-
-        private string _Airport_Landing;
-        public string Airport_Landing { get => _Airport_Landing; set { _Airport_Landing = value; OnPropertyChanged(); } }
 
         private DateTime? _Time_Start;
         public DateTime? Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
@@ -172,11 +169,17 @@ namespace QLBVMB.ViewModel
         private DateTime? _Time_End;
         public DateTime? Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
 
+        private string _Id_Plane;
+        public string Id_Plane { get => _Id_Plane; set { _Id_Plane = value; OnPropertyChanged(); } }
+
+        private string _Airport_Take_Off;
+        public string Airport_Take_Off { get => _Airport_Take_Off; set { _Airport_Take_Off = value; OnPropertyChanged(); } }
+
+        private string _Airport_Landing;
+        public string Airport_Landing { get => _Airport_Landing; set { _Airport_Landing = value; OnPropertyChanged(); } }
+
         private byte? _Total_Seat;
         public byte? Total_Seat { get => _Total_Seat; set { _Total_Seat = value; OnPropertyChanged(); } }
-
-        private byte? _Total_BookedSeat;
-        public byte? Total_BookedSeat { get => _Total_BookedSeat; set { _Total_BookedSeat = value; OnPropertyChanged(); } }
 
         public ICommand AddFlightCommand { get; set; }
         public ICommand EditFlightCommand { get; set; }

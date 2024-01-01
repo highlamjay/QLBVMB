@@ -2,13 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace QLBVMB.ViewModel
 {
@@ -28,8 +31,9 @@ namespace QLBVMB.ViewModel
 
         private ObservableCollection<Customer> _CustomerList;
         public ObservableCollection<Customer> CustomerList { get { return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
+
         public BookedViewModel()
-        {           
+        {
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
             TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
             Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
@@ -62,7 +66,7 @@ namespace QLBVMB.ViewModel
                 if (AccountLogin.Position != "Quản lý") return false;
                 if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedCustomer == null)
                     return false;
-                if (BookedSelectedItem == null)
+                if (BookedSelectedItem == null || Id_Booked != BookedSelectedItem.Id_Booked)
                     return false;
                 var displayListBook = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == BookedSelectedItem.Id_Booked);
                 if (displayListBook != null && displayListBook.Count() != 0)
@@ -77,8 +81,8 @@ namespace QLBVMB.ViewModel
 
                 BookedList.Remove(BookedSelectedItem);
             });
-            ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts); });
             ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); });
+            TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoaded) { BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds); IsLoaded = true; } });
         }
 
         private Booked _BookedSelectedItem;
@@ -151,20 +155,20 @@ namespace QLBVMB.ViewModel
         private string _Id_Booked;
         public string Id_Booked { get => _Id_Booked; set { _Id_Booked = value; OnPropertyChanged(); } }
 
+        private Nullable<System.DateTime> _Date;
+        public Nullable<System.DateTime> Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
+
+        private string _Id_Flight;
+        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
+
         private string _Id_Ticket;
         public string Id_Ticket { get => _Id_Ticket; set { _Id_Ticket = value; OnPropertyChanged(); } }
 
         private string _Id_Seat;
         public string Id_Seat { get => _Id_Seat; set { _Id_Seat = value; OnPropertyChanged(); } }
 
-        private string _Id_Flight;
-        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
-
         private string _Status;
         public string Status { get => _Status; set { _Status = value; OnPropertyChanged(); } }
-
-        private Nullable<System.DateTime> _Date;
-        public Nullable<System.DateTime> Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
 
         private string _Name;
         public string Name { get => _Name; set { _Name = value; OnPropertyChanged(); } }
@@ -185,7 +189,8 @@ namespace QLBVMB.ViewModel
         public string Name_Locate { get => _Name_Locate; set { _Name_Locate = value; OnPropertyChanged(); } }
         public ICommand AddBookedCommand { get; set; }
         public ICommand DeleteBookedCommand { get; set; }
-        public ICommand ComboBoxClick {  get; set; }
         public ICommand ComboBoxIDKhackHang_Click {  get; set; }
+        public ICommand TabItemClick {  get; set; }
+        public ICommand TabItemExit { get; set; }
     }
 }

@@ -42,6 +42,50 @@ namespace QLBVMB.ViewModel
                 TicketList.Add(Ticket);
             });
 
+            EditTicketCommand = new RelayCommand<object>((p) =>
+            {
+                if (AccountLogin.Position != "Quản lý") return false;
+                if (TicketSelectedItem == null)
+                    return false;
+                if (string.IsNullOrEmpty(Id_Ticket) || SelectedFlight == null || Id_Seat == null || Type_Ticket == null || Price == null)
+                    return false;
+                var displayListTicket1 = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == TicketSelectedItem.Id_Ticket);
+                if (displayListTicket1.SingleOrDefault().Id_Flight != SelectedFlight.Id_Flight || displayListTicket1.SingleOrDefault().Id_Ticket != Id_Ticket)
+                    return false;
+                if (displayListTicket1 != null && displayListTicket.Count() != 0)
+                    return true;
+                return false;
+            }, (p) =>
+            {
+                var Ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == TicketSelectedItem.Id_Ticket).SingleOrDefault();
+                Ticket.Id_Ticket = Id_Ticket;
+                Ticket.Id_Flight = SelectedFlight.Id_Flight;
+                Ticket.Id_Seat = Id_Seat;
+                Ticket.Type_Ticket = Type_Ticket;
+                Ticket.Price = Price;
+                Ticket.Status = "Remained";
+                DataProvider.Ins.DB.SaveChanges();
+            });
+
+            DeleteTicketCommand = new RelayCommand<object>((p) =>
+            {
+                if (AccountLogin.Position != "Quản lý") return false;
+                if (TicketSelectedItem == null)
+                    return false;
+                if (string.IsNullOrEmpty(Id_Ticket) || SelectedFlight == null || Id_Seat == null || Type_Ticket == null || Price == null || Status == "Booked")
+                    return false;
+                var displayListFlight1 = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == TicketSelectedItem.Id_Ticket);
+                if (displayListFlight1 != null && displayListTicket.Count() != 0)
+                    return true;
+                return false;
+            }, (p) =>
+            {
+                DataProvider.Ins.DB.Tickets.Remove(TicketSelectedItem);
+                DataProvider.Ins.DB.SaveChanges();
+
+                TicketList.Remove(TicketSelectedItem);
+            });
+
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights); });
         }
         private Ticket _TicketSelectedItem;
@@ -59,6 +103,7 @@ namespace QLBVMB.ViewModel
                     Type_Ticket = TicketSelectedItem.Type_Ticket;
                     Id_Seat = TicketSelectedItem.Id_Seat;
                     Price = TicketSelectedItem.Price;
+                    Status = TicketSelectedItem.Status;
                 }
             }
         }
@@ -76,11 +121,11 @@ namespace QLBVMB.ViewModel
         private string _Id_Ticket;
         public string Id_Ticket { get => _Id_Ticket; set { _Id_Ticket = value; OnPropertyChanged(); } }
 
-        private string _Id_Seat;
-        public string Id_Seat { get => _Id_Seat; set { _Id_Seat = value; OnPropertyChanged(); } }
-
         private string _Type_Ticket;
         public string Type_Ticket { get => _Type_Ticket; set { _Type_Ticket = value; OnPropertyChanged(); } }
+
+        private string _Id_Seat;
+        public string Id_Seat { get => _Id_Seat; set { _Id_Seat = value; OnPropertyChanged(); } }
 
         private Nullable<decimal> _Price;
         public Nullable<decimal> Price { get => _Price; set { _Price = value; OnPropertyChanged(); } }
@@ -88,7 +133,9 @@ namespace QLBVMB.ViewModel
         private string _Status;
         public string Status { get => _Status; set { _Status = value; OnPropertyChanged(); } }
         public ICommand AddTicketCommand { get; set; }
-       
+        public ICommand EditTicketCommand { get; set; }
+        public ICommand DeleteTicketCommand { get; set; }
+
         public ICommand ComboBoxClick {  get; set; }
     }
 }

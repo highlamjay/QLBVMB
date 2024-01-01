@@ -73,6 +73,14 @@ namespace QLBVMB.ViewModel
                 return false;
             }, (p) =>
             {
+                var booked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Customer == CustomerSelectedItem.Id_Customer);
+                foreach (var book in booked)
+                {
+                    var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == book.Id_Ticket).SingleOrDefault();
+                    ticket.Status = "Remained";
+                    DataProvider.Ins.DB.Bookeds.Remove(book);
+                    IsLoaded = false;
+                }
                 DataProvider.Ins.DB.Customers.Remove(CustomerSelectedItem);
                 DataProvider.Ins.DB.SaveChanges();
                 CustomerList.Remove(CustomerSelectedItem);

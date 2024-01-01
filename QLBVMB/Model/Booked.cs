@@ -9,19 +9,33 @@
 
 namespace QLBVMB.Model
 {
+    using QLBVMB.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class Booked
+    public partial class Booked : BaseViewModel
     {
-        public string Id_Booked { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public string Id_Flight { get; set; }
-        public string Id_Ticket { get; set; }
-        public string Id_Customer { get; set; }
-        public string Id_CB { get; set; }
-        public string Id_AccountSeller { get; set; }
-    
+        private string _Id_Booked;
+        public string Id_Booked { get => _Id_Booked; set { _Id_Booked = value; OnPropertyChanged(); } }
+
+        private Nullable<System.DateTime> _Date;
+        public Nullable<System.DateTime> Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
+
+        private string _Id_Flight;
+        public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
+
+        private string _Id_Ticket;
+        public string Id_Ticket { get => _Id_Ticket; set { _Id_Ticket = value; OnPropertyChanged(); } }
+
+        private string _Id_Customer;
+        public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
+
+        private string _Id_CB;
+        public string Id_CB { get => _Id_CB; set { _Id_CB = value; OnPropertyChanged(); } }
+
+        private string _Id_AccountSeller;
+        public string Id_AccountSeller { get => _Id_AccountSeller; set { _Id_AccountSeller = value; OnPropertyChanged(); } }
+
         public virtual Account Account { get; set; }
         public virtual Flight Flight { get; set; }
         public virtual Ticket Ticket { get; set; }

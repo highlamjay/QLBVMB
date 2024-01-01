@@ -28,10 +28,6 @@ namespace QLBVMB
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(LvBill.ItemsSource);
             view.Filter = UserFilter;
         }
-        private void ComboBox_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
         private bool UserFilter(object item)
         {
             if (String.IsNullOrEmpty(FindBillBox.Text))
