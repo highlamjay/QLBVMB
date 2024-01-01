@@ -19,12 +19,14 @@ namespace QLBVMB.ViewModel
         public string Username { get => _Username; set { _Username = value; OnPropertyChanged(); } }
         public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
         public ICommand LoginCommand { get; set; }
+        public ICommand ExitCommand { get; set; }
         public ICommand UsernameChangedCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public LoginViewModel()
         {
             IsLogin = false;
             LoginCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { Login(p); });
+            ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { p.Close(); });
             UsernameChangedCommand = new RelayCommand<TextBox>((p) => { return true; }, (p) => { Username = p.Text; });
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => { return true; }, (p) => { Password = p.Password; });
         }

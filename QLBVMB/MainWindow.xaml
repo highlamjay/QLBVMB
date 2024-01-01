@@ -979,7 +979,15 @@
                                 Content="Logout"
                                 HorizontalContentAlignment="Center"
                                 VerticalContentAlignment="Center"
-                                FontSize="12" BorderBrush="{x:Null}"/> 
+                                FontSize="12" BorderBrush="{x:Null}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click" >
+                                    <i:InvokeCommandAction Command="{Binding BtLogoutClick}"
+                                                           CommandParameter="{Binding ElementName=mainWindow}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+
                     </materialDesign:NavigationRailAssist.FloatingContent>
                 </TabControl>
             </materialDesign:Card>
