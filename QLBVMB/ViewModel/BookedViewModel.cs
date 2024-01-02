@@ -191,6 +191,5 @@ namespace QLBVMB.ViewModel
         public ICommand DeleteBookedCommand { get; set; }
         public ICommand ComboBoxIDKhackHang_Click {  get; set; }
         public ICommand TabItemClick {  get; set; }
-        public ICommand TabItemExit { get; set; }
     }
 }

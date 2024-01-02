@@ -459,6 +459,11 @@
                         </Grid>
                     </TabItem>
                     <TabItem DataContext="{StaticResource TicketVM}" Height="62">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding TabItemClick}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <TabItem.Header>
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24"

@@ -22,6 +22,7 @@ namespace QLBVMB.ViewModel
         }
         static public Account AccountLogin = new Account();
         static public bool IsLoaded = true;
+        static public bool IsLoadedTicketVM = true;
         public void SetPrimaryColor(Color color)
         {
             PaletteHelper paletteHelper = new PaletteHelper();

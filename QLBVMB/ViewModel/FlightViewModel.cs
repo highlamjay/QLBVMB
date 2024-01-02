@@ -98,6 +98,12 @@ namespace QLBVMB.ViewModel
                 return false;
             }, (p) =>
             {
+                var TicketList = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Flight == FlightSelectedItem.Id_Flight);
+                foreach (var ticket in TicketList)
+                {
+                    DataProvider.Ins.DB.Tickets.Remove(ticket);
+                }
+                IsLoadedTicketVM = false;
                 DataProvider.Ins.DB.Flights.Remove(FlightSelectedItem);
                 DataProvider.Ins.DB.SaveChanges();
 
