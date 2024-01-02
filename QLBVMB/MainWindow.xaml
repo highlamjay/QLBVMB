@@ -678,12 +678,13 @@
                                             </StackPanel>
                                         </Grid>
                                     </materialDesign:Card>
-                                    <materialDesign:Card Grid.Row="1" Margin="25,5,25,5"
+                                    <materialDesign:Card Grid.Row="1" Margin="45,5,45,5"
                                                          materialDesign:ElevationAssist.Elevation="Dp8"
-                                                         UniformCornerRadius="20">
+                                                         UniformCornerRadius="25"
+                                                         HorizontalContentAlignment="Center">
                                         <WrapPanel>
-                                            <Button materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding AddBookedCommand}" Content="Đặt vé" Margin="10" Width="100" materialDesign:ButtonAssist.CornerRadius="10"></Button>
-                                            <Button materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding DeleteBookedCommand}" Content="Hủy đặt vé" Margin="10" Width="100" materialDesign:ButtonAssist.CornerRadius="10"></Button>
+                                            <Button FontSize="18" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding AddBookedCommand}" Content="Đặt vé" Margin="5,5,3,8" Width="205" Height="42" materialDesign:ButtonAssist.CornerRadius="20,5,5,20"></Button>
+                                            <Button FontSize="18" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding DeleteBookedCommand}" Content="Hủy đặt vé" Margin="3,5,5,8" Width="205" Height="42" materialDesign:ButtonAssist.CornerRadius="5,20,20,5"></Button>
                                         </WrapPanel>
                                     </materialDesign:Card>
                                     
