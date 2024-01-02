@@ -333,7 +333,7 @@
                                                 <GridViewColumn DisplayMemberBinding="{Binding Total_Seat}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Số lượng ghế"></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                
+
                                             </GridView>
                                         </ListView.View>
                                     </ListView>
@@ -686,7 +686,7 @@
                                             <Button materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding DeleteBookedCommand}" Content="Hủy đặt vé" Margin="10" Width="100" materialDesign:ButtonAssist.CornerRadius="10"></Button>
                                         </WrapPanel>
                                     </materialDesign:Card>
-                                    
+
                                 </Grid>
                                 <materialDesign:Card Grid.Column="1" Width="auto" Margin="25,5,25,5"
                                                     materialDesign:ElevationAssist.Elevation="Dp8"
@@ -736,7 +736,7 @@
                                         </StackPanel>
                                     </Grid>
                                 </materialDesign:Card>
-                                
+
                             </Grid>
                             <materialDesign:Card Grid.Row="1" Margin="25,10,25,10" VerticalAlignment="Stretch"
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
@@ -812,7 +812,7 @@
                                                  materialDesign:TextFieldAssist.HasLeadingIcon="True"
                                                  materialDesign:TextFieldAssist.LeadingIcon="Search"
                                                  Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15"
-                                                 TextChanged="txtFilter_TextChanged">                                            
+                                                 TextChanged="txtFilter_TextChanged">
                                         </TextBox>
                                     </WrapPanel>
                                 </materialDesign:Card>
@@ -839,7 +839,7 @@
                                                 <GridViewColumn Header="Số lượng vé" DisplayMemberBinding="{Binding CountTicket}"></GridViewColumn>
                                                 <GridViewColumn Header="Tổng tiền" DisplayMemberBinding="{Binding SumMoney}"></GridViewColumn>
                                             </GridView>
-                                        </ListView.View>                                       
+                                        </ListView.View>
                                     </ListView>
                                 </ScrollViewer>
                             </materialDesign:Card>
