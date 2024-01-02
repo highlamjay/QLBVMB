@@ -22,6 +22,7 @@ namespace QLBVMB.ViewModel
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand SelectionChangedCommand { get; set; }
+        public ICommand BtLogoutClick { get; set; }
         public MainViewModel()
         {
             SetPrimaryColor(Colors.DeepSkyBlue);
@@ -92,6 +93,37 @@ namespace QLBVMB.ViewModel
                     case 8:
                         SetPrimaryColor(Colors.DeepSkyBlue);
                         break;
+                }
+            });
+
+            BtLogoutClick = new RelayCommand<Window>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                if (MessageBox.Show("Do you want to logout?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    p.Hide();
+
+                    LoginWindow loginWindow = new LoginWindow();
+                    loginWindow.ShowDialog();
+                    LoadMainWindow();
+
+                    if (loginWindow.DataContext == null)
+                    {
+                        return;
+                    }
+
+                    var loginVM = loginWindow.DataContext as LoginViewModel;
+
+                    if (loginVM.IsLogin == true)
+                    {
+                        p.Show();
+                    }
+                    else
+                    {
+                        p.Close();
+                    }
                 }
             });
         }

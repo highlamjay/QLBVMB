@@ -129,7 +129,9 @@
                                             Content="Đăng nhập" FontSize="18"
                                             materialDesign:ElevationAssist.Elevation="Dp4"></Button>
                                     <Button Grid.Column="1"    
-                                            Style="{StaticResource MaterialDesignRaisedButton}"    
+                                            Style="{StaticResource MaterialDesignRaisedButton}"  
+                                            Command="{Binding ExitCommand}"
+                                            CommandParameter="{Binding ElementName=loginWindow}"
                                             Width="120"
                                             Height="40"
                                             materialDesign:ButtonAssist.CornerRadius="15"
