@@ -76,28 +76,27 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <materialDesign:Card Height="50" Width="430"
-                                                 Margin="60,108,20,401"
-                                                 materialDesign:ElevationAssist.Elevation="Dp8"
-                                                 UniformCornerRadius="20"
-                                                 Grid.Column="0" FontSize="18">
-                                <TextBlock Margin="10" Text="Thiết lập sân bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
-                            </materialDesign:Card>
-
-                            <materialDesign:Card Width="430" Height="60"
-                                                 Margin="60,174,20,325"
+                            <materialDesign:Card Width="430" Height="110"
+                                                 Margin="60,130,20,342"
                                                  materialDesign:ElevationAssist.Elevation="Dp8"
                                                  UniformCornerRadius="25"
                                                  Grid.Column="0">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBox Grid.Column="0" Text="{Binding Id_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="20 5 10 10" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" />
-                                    <TextBox Grid.Column="1" Text="{Binding Name_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 10 10" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" />
-                                    <ComboBox Grid.Column="2" Margin="10 5 20 8" DisplayMemberPath="Id_Locate" ItemsSource="{Binding LocateList}" SelectedItem="{Binding SelectedLocate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã địa điểm" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15"></ComboBox>
+                                <Grid Margin="0,10,0,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập sân bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" Text="{Binding Id_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="20 0 10 10" materialDesign:HintAssist.Hint="Mã sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" />
+                                        <TextBox Grid.Column="1" Text="{Binding Name_Airport, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" materialDesign:HintAssist.Hint="Tên sân bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="15" />
+                                        <ComboBox Grid.Column="2" Margin="10 0 20 10" DisplayMemberPath="Id_Locate" ItemsSource="{Binding LocateList}" SelectedItem="{Binding SelectedLocate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã địa điểm" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15"></ComboBox>
+                                    </Grid>
                                 </Grid>
                             </materialDesign:Card>
 
@@ -149,26 +148,27 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <materialDesign:Card Height="50" Width="430" Grid.Column="0" Margin="70,110,30,403"
-                                                 materialDesign:ElevationAssist.Elevation="Dp8"
-                                                 UniformCornerRadius="10"
-                                                 FontSize="22">
-                                <TextBlock Margin="10" Text="Thiết lập máy bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
-                            </materialDesign:Card>
-
-                            <materialDesign:Card  Width="430" Height="60"
-                                                  Grid.Column="0" Margin="70,176,30,327"
+                            <materialDesign:Card  Width="430" Height="110"
+                                                  Margin="60,130,20,342"
+                                                  Grid.Column="0"
                                                   materialDesign:ElevationAssist.Elevation="Dp8"
                                                   UniformCornerRadius="25">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBox Grid.Column="0" FontSize="15" Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="20 5 10 10" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Grid.Column="1" FontSize="15" Text="{Binding Type_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 10 10" materialDesign:HintAssist.Hint="Tên máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                    <TextBox Grid.Column="2" FontSize="15" Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 20 10" materialDesign:HintAssist.Hint="Hãng máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                <Grid Margin="0,10,0,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập máy bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox Grid.Column="0" FontSize="15" Text="{Binding Id_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="20 0 10 10" materialDesign:HintAssist.Hint="Mã máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Grid.Column="1" FontSize="15" Text="{Binding Type_Plane, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" materialDesign:HintAssist.Hint="Tên máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                        <TextBox Grid.Column="2" FontSize="15" Text="{Binding Brand, UpdateSourceTrigger=PropertyChanged}" Margin="10 0 20 10" materialDesign:HintAssist.Hint="Hãng máy bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                    </Grid>
                                 </Grid>
                             </materialDesign:Card>
 
@@ -417,7 +417,7 @@
                                 <materialDesign:Card Grid.Column="1" Width="140" Height="165" Margin="25,17,65,17"
                                                      UniformCornerRadius="25"
                                                      materialDesign:ElevationAssist.Elevation="Dp8">
-                                    <WrapPanel>
+                                    <WrapPanel HorizontalAlignment="Left" Width="140">
                                         <Button materialDesign:ButtonAssist.CornerRadius="25,25,10,10" Command="{Binding AddCustomerCommand}" Content="Thêm" Margin="20,10,20,5" Width="100" Height="40" FontSize="15" materialDesign:ElevationAssist.Elevation="Dp8"></Button>
                                         <Button materialDesign:ButtonAssist.CornerRadius="10,10,10,10" Command="{Binding EditCustomerCommand}" Content="Sửa" Margin="20,5,20,5" Width="100" Height="40" FontSize="15" materialDesign:ElevationAssist.Elevation="Dp8"></Button>
                                         <Button materialDesign:ButtonAssist.CornerRadius="10,10,25,25" Command="{Binding DeleteCustomerCommand}" Content="Xóa" Margin="20,5,20,10" Width="100" Height="40" FontSize="15" materialDesign:ElevationAssist.Elevation="Dp8"></Button>
@@ -484,51 +484,64 @@
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Margin="5">
+
+                            <Grid Grid.Row="0" Margin="0">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="800"></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="250"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <materialDesign:Card Grid.Column="0" Width="auto" Margin="35,10,25,10"
-                                                     materialDesign:ElevationAssist.Elevation="Dp8"
-                                                     UniformCornerRadius="20">
-                                    <Grid Width="auto">
-                                        <StackPanel Margin="10 10 10 10">
-                                            <TextBlock Margin="10,10,10,0" Text="Thông tin vé chuyến bay" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
-                                            <Grid>
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition></RowDefinition>
-                                                    <RowDefinition></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid Grid.Row="0">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition></ColumnDefinition>
-                                                        <ColumnDefinition></ColumnDefinition>
-                                                    </Grid.ColumnDefinitions>
-                                                    <TextBox Grid.Column="0" Text="{Binding Id_Ticket, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <ComboBox Grid.Column="1" Margin="10 5 20 8" DisplayMemberPath="Id_Flight" ItemsSource="{Binding FlightList,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedFlight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã chuyến bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15">
-                                                        <i:Interaction.Triggers>
-                                                            <i:EventTrigger EventName="DropDownOpened" >
-                                                                <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
-                                                            </i:EventTrigger>
-                                                        </i:Interaction.Triggers>
-                                                    </ComboBox>
+
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="70"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <materialDesign:Card Grid.Row="0" Width="400" Height="50" Margin="200,10,200,10"
+                                                         materialDesign:ElevationAssist.Elevation="Dp8"
+                                                         UniformCornerRadius="20">
+                                        <TextBlock Margin="10" Text="Thông tin vé chuyến bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                    </materialDesign:Card>
+                                    <materialDesign:Card Grid.Row="1" Width="750" Margin="35,5,25,5"
+                                                         materialDesign:ElevationAssist.Elevation="Dp8"
+                                                         UniformCornerRadius="20"
+                                                         HorizontalAlignment="Center">
+                                        <Grid Width="auto">
+                                            <StackPanel Margin="10 10 10 10">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBox Grid.Column="0" Text="{Binding Id_Ticket, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Mã vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <ComboBox Grid.Column="1" Margin="10 5 20 8" DisplayMemberPath="Id_Flight" ItemsSource="{Binding FlightList,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedFlight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã chuyến bay" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="15">
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="DropDownOpened" >
+                                                                    <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </ComboBox>
+                                                    </Grid>
+                                                    <Grid Grid.Row="1">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                            <ColumnDefinition></ColumnDefinition>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBox Grid.Column="0" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <TextBox Grid.Column="1" Text="{Binding Type_Ticket, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <TextBox Grid.Column="2" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                    </Grid>
                                                 </Grid>
-                                                <Grid Grid.Row="1">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition></ColumnDefinition>
-                                                        <ColumnDefinition></ColumnDefinition>
-                                                        <ColumnDefinition></ColumnDefinition>
-                                                    </Grid.ColumnDefinitions>
-                                                    <TextBox Grid.Column="0" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox Grid.Column="1" Text="{Binding Type_Ticket, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Loại vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                    <TextBox Grid.Column="2" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 15 10" materialDesign:HintAssist.Hint="Giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                </Grid>
-                                            </Grid>
-                                        </StackPanel>
-                                    </Grid>
-                                </materialDesign:Card>
-                                <materialDesign:Card Grid.Column="1" Margin="35,15,70,15"
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Card>
+                                </Grid>
+                                <materialDesign:Card Width="140" Height="165" Grid.Column="1" Margin="35,15,60,15"
                                                      materialDesign:ElevationAssist.Elevation="Dp8"
                                                      UniformCornerRadius="30">
                                     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -565,7 +578,7 @@
                                                  materialDesign:ElevationAssist.Elevation="Dp16"
                                                  UniformCornerRadius="20">
                                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                    <ListView ItemsSource="{Binding TicketList}" SelectedItem="{Binding TicketSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
+                                    <ListView Margin="10" ItemsSource="{Binding TicketList}" SelectedItem="{Binding TicketSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}">
                                         <ListView.View>
                                             <GridView>
                                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id_Ticket}"></GridViewColumn>
@@ -678,13 +691,13 @@
                                             </StackPanel>
                                         </Grid>
                                     </materialDesign:Card>
-                                    <materialDesign:Card Grid.Row="1" Margin="45,5,45,5"
+                                    <materialDesign:Card Height="60" Width="440" Grid.Row="1" Margin="40,5,40,0"
                                                          materialDesign:ElevationAssist.Elevation="Dp8"
                                                          UniformCornerRadius="25"
                                                          HorizontalContentAlignment="Center">
                                         <WrapPanel>
-                                            <Button FontSize="18" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding AddBookedCommand}" Content="Đặt vé" Margin="5,5,3,8" Width="205" Height="42" materialDesign:ButtonAssist.CornerRadius="20,5,5,20"></Button>
-                                            <Button FontSize="18" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding DeleteBookedCommand}" Content="Hủy đặt vé" Margin="3,5,5,8" Width="205" Height="42" materialDesign:ButtonAssist.CornerRadius="5,20,20,5"></Button>
+                                            <Button FontSize="18" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding AddBookedCommand}" Content="Đặt vé" Margin="5,8,3,5" Width="205" Height="42" materialDesign:ButtonAssist.CornerRadius="20,5,5,20"></Button>
+                                            <Button FontSize="18" materialDesign:ElevationAssist.Elevation="Dp6" Command="{Binding DeleteBookedCommand}" Content="Hủy đặt vé" Margin="3,8,5,5" Width="205" Height="42" materialDesign:ButtonAssist.CornerRadius="5,20,20,5"></Button>
                                         </WrapPanel>
                                     </materialDesign:Card>
 
