@@ -87,6 +87,7 @@ namespace QLBVMB.ViewModel
             });
 
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights); });
+            TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoadedTicketVM) { TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets); IsLoadedTicketVM = true; } });
         }
         private Ticket _TicketSelectedItem;
         public Ticket TicketSelectedItem
@@ -135,7 +136,7 @@ namespace QLBVMB.ViewModel
         public ICommand AddTicketCommand { get; set; }
         public ICommand EditTicketCommand { get; set; }
         public ICommand DeleteTicketCommand { get; set; }
-
         public ICommand ComboBoxClick {  get; set; }
+        public ICommand TabItemClick { get; set; }
     }
 }
