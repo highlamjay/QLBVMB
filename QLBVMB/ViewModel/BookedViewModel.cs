@@ -60,7 +60,7 @@ namespace QLBVMB.ViewModel
                 if (SelectedCustomer == null || SelectedCustomer.Id_Customer == null)
                 {
                     if (Name == null || Sex == null || Age == null || Name_Locate == null || Email == null || Tel == null 
-                    || Name == "" || Sex == "" || Name_Locate == "" || Email == "" || Tel == "" || Age.ToString() == "")
+                    || Name == "" || Sex == "" || Name_Locate == "" || Email == "" || Tel == "" )
                         return false;
                     else return true;
                 }
@@ -69,6 +69,32 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
+                //if (SelectedCustomer == null || SelectedCustomer.Id_Customer == null)
+                //{
+                //    Customer customer = new Customer();
+                //    var customerList = DataProvider.Ins.DB.Customers;
+                //    while (true)
+                //    {
+                //        bool test = true;
+                //        customer.Id_Customer = random.Next(0, 1000000).ToString();
+                //        foreach (var item in customerList)
+                //        {
+                //            if (item.Id_Customer == customer.Id_Customer)
+                //            {
+                //                test = false;
+                //                break;
+                //            }
+                //        }
+                //        if (test)
+                //            break;
+                //    }
+                //    customer.Name = Name;
+                //    customer.Sex = Sex;
+                //    customer.Age = Age;
+                //    customer.Email = Email;
+                //    customer.Tel = Tel;
+                //    customerList.Add(customer);
+                //}
                 var book = DataProvider.Ins.DB.Bookeds;
                 while (true)
                 {
