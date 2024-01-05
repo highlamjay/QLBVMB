@@ -32,6 +32,9 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Customer> _CustomerList;
         public ObservableCollection<Customer> CustomerList { get { return _CustomerList; } set { _CustomerList = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<Airport> _AirportList;
+        public ObservableCollection<Airport> AirportList { get { return _AirportList; } set { _AirportList = value; OnPropertyChanged(); } }
+
         public BookedViewModel()
         {
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
@@ -39,6 +42,7 @@ namespace QLBVMB.ViewModel
             Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
             AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
             CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
+            AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
             var displayListBooked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == Id_Booked);
             var displayListTicket = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket);
 
@@ -149,6 +153,28 @@ namespace QLBVMB.ViewModel
                 Tel = customer.Tel;
                 Email = customer.Email;
                 Name_Locate = customer.Locate1.Name_Locate;
+            }
+        }
+
+        private Airport _SelectedAirport;
+        public Airport SelectedAirport
+        {
+            get => _SelectedAirport;
+            set
+            {
+                _SelectedAirport = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Airport _SelectedAirport1;
+        public Airport SelectedAirport1
+        {
+            get => _SelectedAirport1;
+            set
+            {
+                _SelectedAirport1 = value;
+                OnPropertyChanged();
             }
         }
 
