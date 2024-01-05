@@ -21,8 +21,9 @@ namespace QLBVMB.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         static public Account AccountLogin = new Account();
-        static public bool IsLoaded = true;
+        static public bool IsLoadedBooked = true;
         static public bool IsLoadedTicketVM = true;
+        static public bool IsLoadedCustomerVM = true;
         public void SetPrimaryColor(Color color)
         {
             PaletteHelper paletteHelper = new PaletteHelper();

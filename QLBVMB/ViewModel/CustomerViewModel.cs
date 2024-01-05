@@ -79,12 +79,14 @@ namespace QLBVMB.ViewModel
                     var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == book.Id_Ticket).SingleOrDefault();
                     ticket.Status = "Remained";
                     DataProvider.Ins.DB.Bookeds.Remove(book);
-                    IsLoaded = false;
                 }
+                IsLoadedBooked = false;
                 DataProvider.Ins.DB.Customers.Remove(CustomerSelectedItem);
                 DataProvider.Ins.DB.SaveChanges();
                 CustomerList.Remove(CustomerSelectedItem);
             });
+            TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoadedCustomerVM) { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); IsLoadedCustomerVM = true; } });
+
         }
         private Customer _CustomerSelectedItem;
         public Customer CustomerSelectedItem
@@ -139,5 +141,7 @@ namespace QLBVMB.ViewModel
         public ICommand AddCustomerCommand { get; set; }
         public ICommand EditCustomerCommand { get; set; }
         public ICommand DeleteCustomerCommand { get; set; }
+        public ICommand TabItemClick { get; set; }
+
     }
 }

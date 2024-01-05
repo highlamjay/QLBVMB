@@ -18,6 +18,7 @@ namespace QLBVMB.ViewModel
 
         private string _Id_Customer;
         public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
+        public ICommand CreateNewCommand { get; set; }
         public ICommand SelectCustomerCommand { get; set; }
         public ICommand ExitCommand { get; set; }
 
@@ -55,6 +56,22 @@ namespace QLBVMB.ViewModel
                 customeritem.Locate1 = item.Locate1;
                 CustomerListFull.Add(customeritem);
             }
+
+            CreateNewCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                CustomerSelectedItem = new Customer();
+                CustomerSelectedItem.Id_Customer = null;
+                CustomerSelectedItem.Name = null;
+                CustomerSelectedItem.Sex = null;
+                CustomerSelectedItem.Age = 0;
+                CustomerSelectedItem.Email = null;
+                CustomerSelectedItem.Tel = null;
+                CustomerSelectedItem.Locate1 = null;
+                TextToFilter = string.Empty;
+                IsSelect = true;
+                p.Close();
+            }
+            );
 
             SelectCustomerCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {

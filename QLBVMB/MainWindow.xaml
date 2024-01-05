@@ -345,7 +345,12 @@
                             </materialDesign:Card>
                         </Grid>
                     </TabItem>
-                    <TabItem Height="62" DataContext="{StaticResource CustomerVM}" >
+                    <TabItem Height="62" DataContext="{StaticResource CustomerVM}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <i:InvokeCommandAction Command="{Binding TabItemClick}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                         <TabItem.Header >
                             <StackPanel Width="auto" Height="auto">
                                 <materialDesign:PackIcon Width="24" Height="24" HorizontalAlignment="Center" Kind="CardAccountDetailsOutline" />

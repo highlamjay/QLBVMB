@@ -25,6 +25,7 @@
         Name="selectCustomer"
         DataContext="{StaticResource SelectCustomerVM}"
         Title="Chọn khách hàng" Height="535" Width="900">
+    
     <materialDesign:Card UniformCornerRadius="50">
         <materialDesign:Card.Background>
             <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
@@ -96,14 +97,15 @@
                     </ListView>
                 </ScrollViewer>
             </materialDesign:Card>
-            <materialDesign:Card Width="300" Height="60"
+            <materialDesign:Card Width="425" Height="60"
                      Grid.Row="3"
                      Margin="10,0,10,20"
                      materialDesign:ElevationAssist.Elevation="Dp8"
                      UniformCornerRadius="25"
                      HorizontalContentAlignment="Center">
                 <WrapPanel>
-                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectCustomerCommand}" CommandParameter= "{Binding ElementName=selectCustomer}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding CreateNewCommand}" CommandParameter="{Binding ElementName=selectCustomer}" Content="Tạo Mới" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectCustomerCommand}" CommandParameter= "{Binding ElementName=selectCustomer}" Content="Chọn" Margin="8,8,8,5" Width="120" Height="40" FontSize="18"></Button>
                     <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectCustomer}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
                 </WrapPanel>
             </materialDesign:Card>

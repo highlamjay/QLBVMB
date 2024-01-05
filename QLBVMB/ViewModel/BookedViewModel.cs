@@ -100,6 +100,7 @@ namespace QLBVMB.ViewModel
                     customer.Email = Email;
                     customer.Tel = Tel;
                     customerList.Add(customer);
+                    IsLoadedCustomerVM = false;
                 }
                 var book = DataProvider.Ins.DB.Bookeds;
                 while (true)
@@ -158,7 +159,7 @@ namespace QLBVMB.ViewModel
             });
 
             ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); CustomerList.Add(new Customer()); });
-            TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoaded) { BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds); IsLoaded = true; } });
+            TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoadedBooked) { BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds); IsLoadedBooked = true; } });
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports); });
 
             TextBoxIDFlight_Click = new RelayCommand<TextBox>((p) => 
@@ -398,7 +399,7 @@ namespace QLBVMB.ViewModel
         public ICommand AddBookedCommand { get; set; }
         public ICommand DeleteBookedCommand { get; set; }
         public ICommand ComboBoxIDKhackHang_Click {  get; set; }
-        public ICommand TabItemClick {  get; set; }
+        public ICommand TabItemClick { get; set; }
         public ICommand ComboBoxClick { get; set; }
         public ICommand TextBoxIDFlight_Click { get; set; }
         public ICommand TextBoxIDSeat_Click { get; set; }

@@ -25,12 +25,14 @@
         Name="selectFlight"
         DataContext="{StaticResource SelectFlightVM}"
         Title="Chọn chuyến bay" Height="535" Width="686">
+    
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedSelectCommand}" 
                                CommandParameter="{Binding ElementName=selectFlight}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <materialDesign:Card UniformCornerRadius="50">
         <materialDesign:Card.Background>
             <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
