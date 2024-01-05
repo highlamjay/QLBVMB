@@ -105,8 +105,16 @@ namespace QLBVMB.ViewModel
                         MessageBox.Show("Chưa chọn nơi khởi hành, nơi cất cách hoặc ngày bay");
                         return;
                     }
-                    MessageBox.Show("OK");
-                    OpenSelect(p); 
+
+                    if (p == null)
+                    {
+                        return;
+                    }
+
+                    SelectFlight selectWindow = new SelectFlight();
+                    selectWindow.ShowDialog();
+
+                    var selectFlightVM = selectWindow.DataContext as SelectFlightViewModel;
                 }
             );
 

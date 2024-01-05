@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLBVMB"
         mc:Ignorable="d"
-         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
- xmlns:uc ="clr-namespace:QLBVMB.User_control"
- xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+         xmlns:uc ="clr-namespace:QLBVMB.User_control"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
  
- TextElement.Foreground="{DynamicResource MaterialDesignBody}"
- TextElement.FontWeight="Regular"
- TextElement.FontSize="13"
- TextOptions.TextFormattingMode="Ideal"
- TextOptions.TextRenderingMode="Auto"
- Background="{DynamicResource MaterialDesignPaper}"
- FontFamily="{DynamicResource MaterialDesignFont}"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
  
- ResizeMode="NoResize"
- WindowStyle="None"
- WindowStartupLocation="CenterScreen"
+         ResizeMode="NoResize"
+         WindowStyle="None"
+         WindowStartupLocation="CenterScreen"
  
- Name="selectFlight"
- DataContext="{StaticResource SelectFlightVM}"
- Title="Chọn chuyến bay" Height="650" Width="1132">
+         Name="selectFlight"
+         DataContext="{StaticResource SelectFlightVM}"
+        Title="Chọn chuyến bay" Height="650" Width="1132">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedSelectCommand}" 
