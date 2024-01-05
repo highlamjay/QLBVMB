@@ -40,6 +40,9 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Airport> _AirportList;
         public ObservableCollection<Airport> AirportList { get { return _AirportList; } set { _AirportList = value; OnPropertyChanged(); } }
 
+        private ObservableCollection<Locate> _LocateList;
+        public ObservableCollection<Locate> LocateList { get { return _LocateList; } set { _LocateList = value; OnPropertyChanged(); } }
+
 
         public BookedViewModel()
         {
@@ -48,6 +51,7 @@ namespace QLBVMB.ViewModel
             Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
             CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
             AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
+            LocateList = new ObservableCollection<Locate>(DataProvider.Ins.DB.Locates);
 
             var displayListTicket = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Ticket == Id_Ticket);
 
@@ -59,8 +63,8 @@ namespace QLBVMB.ViewModel
                     return false;
                 if (SelectedCustomer == null || SelectedCustomer.Id_Customer == null)
                 {
-                    if (Name == null || Sex == null || Age == null || Name_Locate == null || Email == null || Tel == null 
-                    || Name == "" || Sex == "" || Name_Locate == "" || Email == "" || Tel == "" )
+                    if (Name == null || Sex == null || Age == null || SelectedLocate == null || Email == null || Tel == null 
+                    || Name == "" || Sex == "" || SelectedLocate.ToString() == "" || Email == "" || Tel == "" || Age.ToString() == "")
                         return false;
                     else return true;
                 }
@@ -180,7 +184,8 @@ namespace QLBVMB.ViewModel
                     selectWindow.ShowDialog();
 
                     if (selectFlightVM.IsSelect == true)
-                    {                       
+                    {              
+                        selectFlightVM.IsSelect = false;
                         Id_Flight = selectFlightVM.FlightSelectedItem.Id_Flight;
                     }
 
@@ -209,8 +214,36 @@ namespace QLBVMB.ViewModel
 
                 if (selectSeatVM.IsSelect == true)
                 {
+                    selectSeatVM.IsSelect = false;
                     Id_Seat = selectSeatVM.SeatSelectedItem.Id_Seat;
                     Id_Ticket = selectSeatVM.SeatSelectedItem.Id_Ticket;
+                }
+            }
+            );
+
+            TextBoxIDCustomer_Click = new RelayCommand<TextBox>((p) => { return true; }, (p) =>
+            {
+                if (p == null)
+                {
+                    return;
+                }
+
+                SelectCustomer selectWindow = new SelectCustomer();
+                var selectCustomerVM = selectWindow.DataContext as SelectCustomerViewModel;
+                selectCustomerVM.Id_Customer = Id_Customer;
+
+                selectWindow.ShowDialog();
+
+                if (selectCustomerVM.IsSelect == true)
+                {
+                    selectCustomerVM.IsSelect = false;
+                    Id_Customer = selectCustomerVM.CustomerSelectedItem.Id_Customer;
+                    Name = selectCustomerVM.CustomerSelectedItem.Name;
+                    Sex = selectCustomerVM.CustomerSelectedItem.Sex;
+                    Age = selectCustomerVM.CustomerSelectedItem.Age;
+                    Email = selectCustomerVM.CustomerSelectedItem.Email;
+                    Tel = selectCustomerVM.CustomerSelectedItem.Tel;
+                    SelectedLocate = selectCustomerVM.CustomerSelectedItem.Locate1;
                 }
             }
             );
@@ -243,7 +276,7 @@ namespace QLBVMB.ViewModel
                     Sex = BookedSelectedItem.Customer.Sex;
                     Tel = BookedSelectedItem.Customer.Tel;
                     Email = BookedSelectedItem.Customer.Email;
-                    Name_Locate = BookedSelectedItem.Customer.Locate1.Name_Locate;              
+                    SelectedLocate = BookedSelectedItem.Customer.Locate1;              
                 }
             }
         }
@@ -267,6 +300,17 @@ namespace QLBVMB.ViewModel
             set
             {
                 _SelectedCB = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Locate _SelectedLocate;
+        public Locate SelectedLocate
+        {
+            get => _SelectedLocate;
+            set
+            {
+                _SelectedLocate = value;
                 OnPropertyChanged();
             }
         }
@@ -317,6 +361,9 @@ namespace QLBVMB.ViewModel
         private DateTime _DateFlight;
         public DateTime DateFlight { get => _DateFlight; set { _DateFlight = value; OnPropertyChanged(); } }
 
+        private DateTime _Date;
+        public DateTime Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
+
         private string _Id_Flight;
         public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
 
@@ -325,6 +372,9 @@ namespace QLBVMB.ViewModel
 
         private string _Id_Seat;
         public string Id_Seat { get => _Id_Seat; set { _Id_Seat = value; OnPropertyChanged(); } }
+
+        private string _Id_Customer;
+        public string Id_Customer { get => _Id_Customer; set { _Id_Customer = value; OnPropertyChanged(); } }
 
         private string _Name;
         public string Name { get => _Name; set { _Name = value; OnPropertyChanged(); } }
@@ -350,5 +400,6 @@ namespace QLBVMB.ViewModel
         public ICommand ComboBoxClick { get; set; }
         public ICommand TextBoxIDFlight_Click { get; set; }
         public ICommand TextBoxIDSeat_Click { get; set; }
+        public ICommand TextBoxIDCustomer_Click { get; set; }
     }
 }

@@ -28,6 +28,7 @@ namespace QLBVMB.ViewModel
         {
             LoadedSelectCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
+                IsSelect = false;
                 SeatListFull = new ObservableCollection<Ticket>();
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Flight == Id_Flight && x.Status == "Remained");
                 foreach (var item in ticket)
@@ -44,8 +45,15 @@ namespace QLBVMB.ViewModel
             );
             SelectSeatCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                IsSelect = true;
-                p.Close();
+                if (SeatSelectedItem != null)
+                {
+                    IsSelect = true;
+                    p.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa chọn vé chuyến bay!", "Warning");
+                }
             }
             );
             ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>

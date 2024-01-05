@@ -14,4 +14,5 @@
     <viewmodel:StatisticalViewModel x:Key="StatisticalVM"></viewmodel:StatisticalViewModel>
     <viewmodel:SelectFlightViewModel x:Key="SelectFlightVM"></viewmodel:SelectFlightViewModel>
     <viewmodel:SelectSeatViewModel x:Key="SelectSeatVM"></viewmodel:SelectSeatViewModel>
+    <viewmodel:SelectCustomerViewModel x:Key="SelectCustomerVM"></viewmodel:SelectCustomerViewModel>
 </ResourceDictionary>

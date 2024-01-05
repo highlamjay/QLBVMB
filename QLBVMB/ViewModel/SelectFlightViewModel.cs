@@ -38,6 +38,7 @@ namespace QLBVMB.ViewModel
         {
             LoadedSelectCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
+                IsSelect = false;
                 FlightListFull = new ObservableCollection<Flight>();
                 var flight = DataProvider.Ins.DB.Flights.Where(x=> x.Airport_Take_Off == SelectedAirport.Id_Airport && x.Airport_Landing == SelectedAirport1.Id_Airport && x.Time_Start.Day == DateFlight.Day && x.Time_Start.Month == DateFlight.Month && x.Time_Start.Year == DateFlight.Year);
                 foreach (var item in flight)
@@ -54,8 +55,15 @@ namespace QLBVMB.ViewModel
             );
             SelectFlightCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                IsSelect = true;
-                p.Close();
+                if (FlightSelectedItem != null)
+                {
+                    IsSelect = true;
+                    p.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa chọn chuyến bay!","Warning");
+                }
             }
             );
             ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
