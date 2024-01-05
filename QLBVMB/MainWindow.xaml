@@ -673,9 +673,25 @@
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBox Grid.Column="0" Text="{Binding Id_Booked, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã đặt vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <ComboBox Grid.Column="0" FontSize="15" Margin="10 10 5 10" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi khởi hành" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="DropDownOpened" >
+                                                                    <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </ComboBox>
+                                                        <ComboBox Grid.Column="1" FontSize="15" Margin="5 10 5 10" DisplayMemberPath="Name_Airport" ItemsSource="{Binding AirportList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAirport1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Nơi kết thúc" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="DropDownOpened" >
+                                                                    <i:InvokeCommandAction Command="{Binding ComboBoxClick}" />
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </ComboBox>
+                                                        <DatePicker Grid.Column="2" FontSize="15" SelectedDate="{Binding DateFlight}" Margin="5 10 10 8" materialDesign:HintAssist.Hint="Ngày Đi" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+
+                                                        <!--<TextBox Grid.Column="0" Text="{Binding Id_Booked, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã đặt vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                         <ComboBox Grid.Column="1" Margin="5 10 5 10" DisplayMemberPath="Id_Ticket" ItemsSource="{Binding TicketList}" SelectedItem="{Binding SelectedTicket, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã vé" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
-                                                        <TextBox Grid.Column="2" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 10 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <TextBox Grid.Column="2" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 10 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
                                                     </Grid>
                                                     <Grid Grid.Row="1">
                                                         <Grid.ColumnDefinitions>
@@ -683,9 +699,13 @@
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBox Grid.Column="0" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                        <DatePicker Grid.Column="1" FontSize="15" SelectedDate="{Binding Date}" Margin="5 5 5 8" materialDesign:HintAssist.Hint="Thời gian đặt vé" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                        <TextBox Grid.Column="0" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <TextBox Grid.Column="1" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 5 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                         <ComboBox Grid.Column="2" Margin="5 10 10 10" DisplayMemberPath="Type_CB" ItemsSource="{Binding Checked_BaggageList}" SelectedItem="{Binding SelectedCB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Loại hành lý" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
+
+                                                        <!--<TextBox Grid.Column="0" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <DatePicker Grid.Column="1" FontSize="15" SelectedDate="{Binding Date}" Margin="5 5 5 8" materialDesign:HintAssist.Hint="Thời gian đặt vé" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                        <ComboBox Grid.Column="2" Margin="5 10 10 10" DisplayMemberPath="Type_CB" ItemsSource="{Binding Checked_BaggageList}" SelectedItem="{Binding SelectedCB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Loại hành lý" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>-->
                                                     </Grid>
                                                 </Grid>
                                             </StackPanel>
