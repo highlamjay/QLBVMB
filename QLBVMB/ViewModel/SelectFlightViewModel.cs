@@ -14,8 +14,7 @@ namespace QLBVMB.ViewModel
 {
     public class SelectFlightViewModel : BaseViewModel
     {
-        private string _Id_Airport;
-        public string Id_Airport { get => _Id_Airport; set { _Id_Airport = value; OnPropertyChanged(); } }
+        public bool IsSelect { get; set; }
 
         private string _Airport_Take_Off;
         public string Airport_Take_Off { get => _Airport_Take_Off; set { _Airport_Take_Off = value; OnPropertyChanged(); } }
@@ -26,8 +25,8 @@ namespace QLBVMB.ViewModel
         private DateTime _Time_Start;
         public DateTime Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
 
-        private Nullable<System.DateTime> _DateFlight;
-        public Nullable<System.DateTime> DateFlight { get => _DateFlight; set { _DateFlight = value; OnPropertyChanged(); } }
+        private DateTime _DateFlight;
+        public DateTime DateFlight { get => _DateFlight; set { _DateFlight = value; OnPropertyChanged(); } }
         public ICommand LoadedSelectCommand { get; set; }
         public ICommand SelectFlightCommand { get; set; }
         public ICommand ExitCommand { get; set; }
@@ -40,17 +39,28 @@ namespace QLBVMB.ViewModel
             LoadedSelectCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 FlightListFull = new ObservableCollection<Flight>();
-                var flight = DataProvider.Ins.DB.Flights.Where(x=> x.Airport_Take_Off == SelectedAirport.Id_Airport);
+                var flight = DataProvider.Ins.DB.Flights.Where(x=> x.Airport_Take_Off == SelectedAirport.Id_Airport && x.Airport_Landing == SelectedAirport1.Id_Airport);
                 foreach (var item in flight)
-                {
-                  
+                {                 
                     Flight itemFlight = new Flight();
+                    itemFlight.Id_Flight = item.Id_Flight;
                     itemFlight.Plane = item.Plane;
                     itemFlight.Id_Flight = item.Id_Flight;
                     itemFlight.Time_Start = item.Time_Start;
                     itemFlight.Time_End = item.Time_End;
                     FlightListFull.Add(itemFlight);
                 }
+            }
+            );
+            SelectFlightCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                IsSelect = true;
+                p.Close();
+            }
+            );
+            ExitCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                p.Close();
             }
             );
         }
@@ -74,6 +84,18 @@ namespace QLBVMB.ViewModel
             {
                 _SelectedAirport1 = value;
                 OnPropertyChanged();
+            }
+        }
+
+        private Flight _FlightSelectedItem;
+        public Flight FlightSelectedItem
+        {
+            get => _FlightSelectedItem;
+            set
+            {
+                _FlightSelectedItem = value;
+                OnPropertyChanged();
+                
             }
         }
 

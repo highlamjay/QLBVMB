@@ -69,8 +69,8 @@
                      materialDesign:ElevationAssist.Elevation="Dp8"
                      UniformCornerRadius="25">
             <WrapPanel>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding SelectFlightCommand}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding ExitCommand}" Content="Thoát" Margin="8,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding SelectFlightCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Thoát" Margin="8,8,8,5" Width="120" Height="40" FontSize="18"></Button>
             </WrapPanel>
         </materialDesign:Card>
     </Grid>

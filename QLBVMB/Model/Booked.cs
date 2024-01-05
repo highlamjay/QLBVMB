@@ -18,8 +18,8 @@ namespace QLBVMB.Model
         private string _Id_Booked;
         public string Id_Booked { get => _Id_Booked; set { _Id_Booked = value; OnPropertyChanged(); } }
 
-        private Nullable<System.DateTime> _Date;
-        public Nullable<System.DateTime> Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
+        private DateTime _Date;
+        public DateTime Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
 
         private string _Id_Flight;
         public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }

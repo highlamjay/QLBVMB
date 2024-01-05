@@ -116,7 +116,13 @@ namespace QLBVMB.ViewModel
                     selectFlightVM.SelectedAirport = SelectedAirport;
                     selectFlightVM.SelectedAirport1 = SelectedAirport1;
                     selectFlightVM.DateFlight = DateFlight;
+                    
                     selectWindow.ShowDialog();
+
+                    if (selectFlightVM.IsSelect == true)
+                    {                       
+                        Id_Flight = selectFlightVM.FlightSelectedItem.Id_Flight;
+                    }
 
                     
                 }
@@ -247,8 +253,8 @@ namespace QLBVMB.ViewModel
         private string _Id_Booked;
         public string Id_Booked { get => _Id_Booked; set { _Id_Booked = value; OnPropertyChanged(); } }
 
-        private Nullable<System.DateTime> _DateFlight;
-        public Nullable<System.DateTime> DateFlight { get => _DateFlight; set { _DateFlight = value; OnPropertyChanged(); } }
+        private DateTime _DateFlight;
+        public DateTime DateFlight { get => _DateFlight; set { _DateFlight = value; OnPropertyChanged(); } }
 
         private string _Id_Flight;
         public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
