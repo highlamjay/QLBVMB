@@ -27,22 +27,7 @@ namespace QLBVMB.ViewModel
         {
             LoadedSelectCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                Isloaded = true;
-                if (p == null)
-                {
-                    return;
-                }
-
-                p.Hide();
-
-                MainWindow selectWindow = new MainWindow();
-
-                var openVM = selectWindow.DataContext as BookedViewModel;
-
-                if (openVM.IsSelectLoaded == true)
-                {
-                    p.Show();
-                }
+                FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
             }
             );
         }
