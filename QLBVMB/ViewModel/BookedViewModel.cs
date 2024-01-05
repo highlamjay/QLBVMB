@@ -17,6 +17,8 @@ namespace QLBVMB.ViewModel
 {
     public class BookedViewModel : BaseViewModel
     {
+        public bool IsSelectLoaded = false;
+
         private ObservableCollection<Booked> _BookedList;
         public ObservableCollection<Booked> BookedList { get { return _BookedList; } set { _BookedList = value; OnPropertyChanged(); } }
 
@@ -92,36 +94,7 @@ namespace QLBVMB.ViewModel
             TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoaded) { BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds); IsLoaded = true; } });
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports); });
 
-            TextBoxIDPlane_Click = new RelayCommand<Window>((p) => { return true; }, (p) =>
-            {
-                if (p == null)
-                {
-                    return;
-                }
-
-                p.Hide();
-
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
-
-                if (loginWindow.DataContext == null)
-                {
-                    return;
-                }
-
-                var loginVM = loginWindow.DataContext as LoginViewModel;
-
-                if (loginVM.IsLogin == true)
-                {
-                    p.Show();
-                }
-                else
-                {
-                    p.Close();
-                }
-
-            }
-            );
+            TextBoxIDFlight_Click = new RelayCommand<Window>((p) => { return true; }, (p) => { OpenSelect(p); });
 
             TextBoxIDSeat_Click = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -153,6 +126,11 @@ namespace QLBVMB.ViewModel
 
             }
             );
+        }
+
+        void OpenSelect(Window p)
+        {
+            IsSelectLoaded = true;
         }
 
         private Booked _BookedSelectedItem;
@@ -284,7 +262,7 @@ namespace QLBVMB.ViewModel
         public ICommand ComboBoxIDKhackHang_Click {  get; set; }
         public ICommand TabItemClick {  get; set; }
         public ICommand ComboBoxClick { get; set; }
-        public ICommand TextBoxIDPlane_Click { get; set; }
+        public ICommand TextBoxIDFlight_Click { get; set; }
         public ICommand TextBoxIDSeat_Click { get; set; }
     }
 }

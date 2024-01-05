@@ -705,8 +705,8 @@
                                                         </Grid.ColumnDefinitions>
                                                         <TextBox Grid.Column="0" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                                                             <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="MouseDown" >
-                                                                    <i:InvokeCommandAction Command="{Binding TextBoxIDPlane_Click}" />
+                                                                <i:EventTrigger EventName="MouseLeftButtonDown" >
+                                                                    <i:InvokeCommandAction Command="{Binding TextBoxIDFlight_Click}" />
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </TextBox>
