@@ -43,20 +43,20 @@
                      materialDesign:ElevationAssist.Elevation="Dp16"
                      UniformCornerRadius="20">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
-                <ListView Margin="10,10,10,10" ItemsSource="{Binding FlightList}" SelectedItem="{Binding FlightSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                <ListView Margin="10,10,10,10" ItemsSource="{Binding FlightListFull}" SelectedItem="{Binding FlightSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
                   FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Plane.Brand}">
                                 <GridViewColumnHeader Padding="8" Width="auto" Content="Hãng máy bay"></GridViewColumnHeader>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Flight.Id_Flight}">
+                            <GridViewColumn DisplayMemberBinding="{Binding Id_Flight}">
                                 <GridViewColumnHeader Padding="8" Width="auto" Content="Mã chuyến bay"></GridViewColumnHeader>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Airport.Name_Airport}">
+                            <GridViewColumn DisplayMemberBinding="{Binding Time_Start, StringFormat='hh:mm:ss'}">
                                 <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian khởi hành"></GridViewColumnHeader>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Airport1.Name_Airport}">
+                            <GridViewColumn DisplayMemberBinding="{Binding Time_End, StringFormat='hh:mm:ss'}">
                                 <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian hạ cánh"></GridViewColumnHeader>
                             </GridViewColumn>
                         </GridView>
