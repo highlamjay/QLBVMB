@@ -46,38 +46,56 @@ namespace QLBVMB.ViewModel
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
             TicketList = new ObservableCollection<Ticket>(DataProvider.Ins.DB.Tickets);
             Checked_BaggageList = new ObservableCollection<Checked_Baggage>(DataProvider.Ins.DB.Checked_Baggage);
-            AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
             CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
             AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
 
-            var displayListBooked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == Id_Booked);
-            var displayListTicket = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket);
+            var displayListTicket = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Ticket == Id_Ticket);
 
             DateFlight = DateTime.Now;
 
             AddBookedCommand = new RelayCommand<object>((p) =>
             {
-                if (Id_Seat == null || DateFlight == null || Id_Flight == null)
+                if (Id_Seat == null || DateFlight == null || Id_Flight == null || SelectedCB == null)
                     return false;
-                if (displayListBooked == null || displayListBooked.Count() != 0)
-                    return false;
+                if (SelectedCustomer == null || SelectedCustomer.Id_Customer == null)
+                {
+                    if (Name == null || Sex == null || Age == null || Name_Locate == null || Email == null || Tel == null 
+                    || Name == "" || Sex == "" || Name_Locate == "" || Email == "" || Tel == "" || Age.ToString() == "")
+                        return false;
+                    else return true;
+                }
                 if (displayListTicket == null || displayListTicket.Count() != 0)
                     return false;
                 return true;
             }, (p) =>
             {
-                Id_Booked = random.Next(0,1000000).ToString();
                 var book = DataProvider.Ins.DB.Bookeds;
-                foreach (var item in book)
+                while (true)
                 {
-                    if (item.Id_Booked == Id_Booked)
+                    Id_Booked = random.Next(0, 1000000).ToString();
+                    bool test = true;
+                    foreach (var item in book)
                     {
-                        Id_Booked = random.Next(0, 1000000).ToString();
-                        return;
+                        if (item.Id_Booked == Id_Booked)
+                        {
+                            test = false; 
+                            break;
+                        }
                     }
+                    if (test)
+                        break;
                 }
-                var Booked = new Booked() { Id_Booked = Id_Booked, Date = DateFlight, Id_Ticket = Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Account = AccountLogin, Id_Flight = Id_Flight };
-                var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket).SingleOrDefault();
+                var Booked = new Booked() 
+                { 
+                    Id_Booked = Id_Booked, 
+                    Id_Customer = SelectedCustomer.Id_Customer,
+                    Id_Ticket = Id_Ticket,
+                    Id_CB = SelectedCB.Id_CB,
+                    Date = DateTime.Now,
+                    Id_Flight = Id_Flight,
+                    Account = AccountLogin
+                };
+                var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == Id_Ticket).SingleOrDefault();
                 ticket.Status = "Booked";
 
                 DataProvider.Ins.DB.Bookeds.Add(Booked);
@@ -86,10 +104,11 @@ namespace QLBVMB.ViewModel
             });
             DeleteBookedCommand = new RelayCommand<object>((p) =>
             {
-                if (AccountLogin.Position != "Quản lý") return false;
-                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || DateFlight == null || SelectedCustomer == null)
+                if (AccountLogin.Position != "Quản lý") 
                     return false;
-                if (BookedSelectedItem == null || Id_Booked != BookedSelectedItem.Id_Booked)
+                if (DateFlight == null || SelectedCustomer == null)
+                    return false;
+                if (BookedSelectedItem == null)
                     return false;
                 var displayListBook = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == BookedSelectedItem.Id_Booked);
                 if (displayListBook != null && displayListBook.Count() != 0)
@@ -98,14 +117,15 @@ namespace QLBVMB.ViewModel
             }, (p) =>
             {
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == BookedSelectedItem.Id_Ticket).SingleOrDefault();
-                DataProvider.Ins.DB.Bookeds.Remove(BookedSelectedItem);
                 ticket.Status = "Remained";
+
+                DataProvider.Ins.DB.Bookeds.Remove(BookedSelectedItem);
                 DataProvider.Ins.DB.SaveChanges();
 
                 BookedList.Remove(BookedSelectedItem);
             });
 
-            ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); });
+            ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); CustomerList.Add(new Customer()); });
             TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoaded) { BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds); IsLoaded = true; } });
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports); });
 
@@ -159,15 +179,13 @@ namespace QLBVMB.ViewModel
                 var selectSeatVM = selectWindow.DataContext as SelectSeatViewModel;
                 selectSeatVM.Id_Flight = Id_Flight;
      
-
                 selectWindow.ShowDialog();
 
                 if (selectSeatVM.IsSelect == true)
                 {
                     Id_Seat = selectSeatVM.SeatSelectedItem.Id_Seat;
+                    Id_Ticket = selectSeatVM.SeatSelectedItem.Id_Ticket;
                 }
-
-
             }
             );
         }
@@ -183,12 +201,16 @@ namespace QLBVMB.ViewModel
                 OnPropertyChanged();
                 if (BookedSelectedItem != null)
                 {
+                    Id_Booked = BookedSelectedItem.Id_Booked;
+                    Id_Ticket = BookedSelectedItem.Id_Ticket;
+
                     SelectedAirport = BookedSelectedItem.Flight.Airport;
-                    SelectedAirport1 = BookedSelectedItem.Flight.Airport;
+                    SelectedAirport1 = BookedSelectedItem.Flight.Airport1;
+                    DateFlight = BookedSelectedItem.Flight.Time_Start.Date;
                     Id_Flight = BookedSelectedItem.Id_Flight;
                     SelectedCB = BookedSelectedItem.Checked_Baggage;
                     Id_Seat = BookedSelectedItem.Ticket.Id_Seat;
-                    DateFlight = BookedSelectedItem.Date;
+                    
                     SelectedCustomer = BookedSelectedItem.Customer;
                     Name = BookedSelectedItem.Customer.Name;
                     Age = BookedSelectedItem.Customer.Age;
@@ -277,9 +299,6 @@ namespace QLBVMB.ViewModel
 
         private string _Id_Seat;
         public string Id_Seat { get => _Id_Seat; set { _Id_Seat = value; OnPropertyChanged(); } }
-
-        private string _Status;
-        public string Status { get => _Status; set { _Status = value; OnPropertyChanged(); } }
 
         private string _Name;
         public string Name { get => _Name; set { _Name = value; OnPropertyChanged(); } }
