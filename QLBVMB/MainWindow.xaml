@@ -289,9 +289,7 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <DatePicker Grid.Column="0" FontSize="15" SelectedDateFormat="Short" VerticalAlignment="Center" SelectedDate="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=d/M/yyyy}" Margin="20 8 10 15" materialDesign:HintAssist.Hint="Ngày cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
-                                                    
-                                                </DatePicker>
+                                                <DatePicker Grid.Column="0" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=d/M/yyyy}" Margin="20 8 10 15" materialDesign:HintAssist.Hint="Ngày cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
                                                 <materialDesign:TimePicker FontSize="15" Grid.Column="1" SelectedTime="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=hh:mm:ss}" materialDesign:HintAssist.Hint="Giờ cất cánh" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
                                                 <DatePicker Grid.Column="2" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_End, UpdateSourceTrigger=PropertyChanged, StringFormat=d/M/yyyy}" Margin="10 8 10 15" materialDesign:HintAssist.Hint="Ngày hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                                 <materialDesign:TimePicker FontSize="15" Grid.Column="3" SelectedTime="{Binding Time_End, UpdateSourceTrigger=PropertyChanged, StringFormat=hh:mm:ss}" materialDesign:HintAssist.Hint="Giờ hạ cách" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
@@ -693,7 +691,7 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </ComboBox>
-                                                        <DatePicker Grid.Column="2" FontSize="15" SelectedDate="{Binding DateFlight, StringFormat='dd/MM/yyyy'}" Margin="5 10 10 8" materialDesign:HintAssist.Hint="Ngày Đi" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                        <DatePicker Grid.Column="2" FontSize="15" SelectedDate="{Binding DateFlight, StringFormat=d/M/yyyy}" Margin="5 10 10 8" materialDesign:HintAssist.Hint="Ngày Đi" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
                                                         <!--<TextBox Grid.Column="0" Text="{Binding Id_Booked, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã đặt vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                         <ComboBox Grid.Column="1" Margin="5 10 5 10" DisplayMemberPath="Id_Ticket" ItemsSource="{Binding TicketList}" SelectedItem="{Binding SelectedTicket, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã vé" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>

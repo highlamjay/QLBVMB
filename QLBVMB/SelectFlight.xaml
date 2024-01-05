@@ -23,7 +23,7 @@
  
          Name="selectFlight"
          DataContext="{StaticResource SelectFlightVM}"
-        Title="Chọn chuyến bay" Height="650" Width="1132">
+        Title="Chọn chuyến bay" Height="535" Width="686">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedSelectCommand}" 
@@ -32,14 +32,11 @@
     </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
-        </Grid>
-        <materialDesign:Card Grid.Row="1" Margin="20,10,20,20" VerticalAlignment="Stretch"
+        
+        <materialDesign:Card Grid.Row="0" Margin="20,10,20,20" VerticalAlignment="Stretch"
                      materialDesign:ElevationAssist.Elevation="Dp16"
                      UniformCornerRadius="20">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
@@ -53,10 +50,10 @@
                             <GridViewColumn DisplayMemberBinding="{Binding Id_Flight}">
                                 <GridViewColumnHeader Padding="8" Width="auto" Content="Mã chuyến bay"></GridViewColumnHeader>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Time_Start, StringFormat='hh:mm:ss'}">
+                            <GridViewColumn DisplayMemberBinding="{Binding Time_Start, Mode=OneWay, StringFormat='hh:mm:ss'}">
                                 <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian khởi hành"></GridViewColumnHeader>
                             </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Time_End, StringFormat='hh:mm:ss'}">
+                            <GridViewColumn DisplayMemberBinding="{Binding Time_End, Mode=OneWay, StringFormat='hh:mm:ss'}">
                                 <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian hạ cánh"></GridViewColumnHeader>
                             </GridViewColumn>
                         </GridView>
@@ -64,13 +61,15 @@
                 </ListView>
             </ScrollViewer>
         </materialDesign:Card>
-        <materialDesign:Card Width="430" Height="60"
-                     Grid.Row="2"
+        <materialDesign:Card Width="300" Height="60"
+                     Grid.Row="1"
+                     Margin="10,0,10,20"
                      materialDesign:ElevationAssist.Elevation="Dp8"
-                     UniformCornerRadius="25">
+                     UniformCornerRadius="25"
+                     HorizontalContentAlignment="Center">
             <WrapPanel>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding SelectFlightCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Thoát" Margin="8,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectFlightCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
             </WrapPanel>
         </materialDesign:Card>
     </Grid>

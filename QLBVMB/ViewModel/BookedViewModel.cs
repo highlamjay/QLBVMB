@@ -51,6 +51,8 @@ namespace QLBVMB.ViewModel
             var displayListBooked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == Id_Booked);
             var displayListTicket = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket);
 
+            DateFlight = DateTime.Now;
+
             AddBookedCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || DateFlight == null || SelectedCustomer == null)
