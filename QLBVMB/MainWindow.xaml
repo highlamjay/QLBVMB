@@ -691,7 +691,7 @@
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </ComboBox>
-                                                        <DatePicker Grid.Column="2" FontSize="15" SelectedDate="{Binding DateFlight}" Margin="5 10 10 8" materialDesign:HintAssist.Hint="Ngày Đi" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                        <DatePicker Grid.Column="2" FontSize="15" SelectedDate="{Binding DateFlight, StringFormat='dd/MM/yyyy'}" Margin="5 10 10 8" materialDesign:HintAssist.Hint="Ngày Đi" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
                                                         <!--<TextBox Grid.Column="0" Text="{Binding Id_Booked, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã đặt vé" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                                         <ComboBox Grid.Column="1" Margin="5 10 5 10" DisplayMemberPath="Id_Ticket" ItemsSource="{Binding TicketList}" SelectedItem="{Binding SelectedTicket, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mã vé" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>

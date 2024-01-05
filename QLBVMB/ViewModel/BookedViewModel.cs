@@ -150,10 +150,6 @@ namespace QLBVMB.ViewModel
             );
         }
 
-        void OpenSelect(TextBox p)
-        {
-            IsSelectLoaded = true;
-        }
 
         private Booked _BookedSelectedItem;
         public Booked BookedSelectedItem
