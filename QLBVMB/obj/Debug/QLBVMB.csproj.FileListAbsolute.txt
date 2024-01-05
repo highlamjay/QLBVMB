@@ -74,3 +74,5 @@ D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectFlight.g.cs
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectFlight.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\SelectFlight.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\SelectFlight.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectSeat.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectSeat.baml

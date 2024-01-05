@@ -1,0 +1,73 @@
+﻿<Window x:Class="QLBVMB.SelectSeat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLBVMB"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+         xmlns:uc ="clr-namespace:QLBVMB.User_control"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+ 
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         Background="{DynamicResource MaterialDesignPaper}"
+         FontFamily="{DynamicResource MaterialDesignFont}"
+ 
+         ResizeMode="NoResize"
+         WindowStyle="None"
+         WindowStartupLocation="CenterScreen"
+ 
+         Name="selectSeat"
+         DataContext="{StaticResource SelectSeatVM}"
+        Title="Chọn chuyến bay" Height="535" Width="686">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedSelectCommand}" 
+                               CommandParameter="{Binding ElementName=selectSeat}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Grid.Row="0" Margin="20,10,20,20" VerticalAlignment="Stretch"
+                     materialDesign:ElevationAssist.Elevation="Dp16"
+                     UniformCornerRadius="20">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
+                <ListView Margin="10,10,10,10" ItemsSource="{Binding SeatListFull}" SelectedItem="{Binding SeatSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                  FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Id_Seat}">
+                                <GridViewColumnHeader Padding="8" Width="auto" Content="Ghế ngồi"></GridViewColumnHeader>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Type_Ticket}">
+                                <GridViewColumnHeader Padding="8" Width="auto" Content="Loại vé"></GridViewColumnHeader>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Price}">
+                                <GridViewColumnHeader Padding="8" Width="auto" Content="Giá tiền"></GridViewColumnHeader>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+        <materialDesign:Card Width="300" Height="60"
+                     Grid.Row="1"
+                     Margin="10,0,10,20"
+                     materialDesign:ElevationAssist.Elevation="Dp8"
+                     UniformCornerRadius="25"
+                     HorizontalContentAlignment="Center">
+            <WrapPanel>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectSeatCommand}" CommandParameter= "{Binding ElementName=selectSeat}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectSeat}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
+    </Grid>
+</Window>

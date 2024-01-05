@@ -130,33 +130,31 @@ namespace QLBVMB.ViewModel
                 }
             );
 
-            TextBoxIDSeat_Click = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            TextBoxIDSeat_Click = new RelayCommand<TextBox>((p) => { return true; }, (p) =>           
             {
+                if (Id_Flight == null)
+                {
+                    MessageBox.Show("Chưa chọn mã chuyến bay");
+                    return;
+                }
+
                 if (p == null)
                 {
                     return;
                 }
 
-                p.Hide();
+                SelectSeat selectWindow = new SelectSeat();
+                var selectSeatVM = selectWindow.DataContext as SelectSeatViewModel;
+                selectSeatVM.Id_Flight = Id_Flight;
+     
 
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.ShowDialog();
+                selectWindow.ShowDialog();
 
-                if (loginWindow.DataContext == null)
+                if (selectSeatVM.IsSelect == true)
                 {
-                    return;
+                    Id_Seat = selectSeatVM.SeatSelectedItem.Id_Seat;
                 }
 
-                var loginVM = loginWindow.DataContext as LoginViewModel;
-
-                if (loginVM.IsLogin == true)
-                {
-                    p.Show();
-                }
-                else
-                {
-                    p.Close();
-                }
 
             }
             );
