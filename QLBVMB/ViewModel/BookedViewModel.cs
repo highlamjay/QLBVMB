@@ -112,9 +112,13 @@ namespace QLBVMB.ViewModel
                     }
 
                     SelectFlight selectWindow = new SelectFlight();
+                    var selectFlightVM = selectWindow.DataContext as SelectFlightViewModel;
+                    selectFlightVM.SelectedAirport = SelectedAirport;
+                    selectFlightVM.SelectedAirport1 = SelectedAirport1;
+                    selectFlightVM.DateFlight = DateFlight;
                     selectWindow.ShowDialog();
 
-                    var selectFlightVM = selectWindow.DataContext as SelectFlightViewModel;
+                    
                 }
             );
 
