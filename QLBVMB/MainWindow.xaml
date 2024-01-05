@@ -86,7 +86,7 @@
                                         <RowDefinition Height="auto"></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập sân bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập thông tin sân bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
                                     <Grid Grid.Row="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition></ColumnDefinition>
@@ -158,7 +158,7 @@
                                         <RowDefinition Height="auto"></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập máy bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập thông tin máy bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                     <Grid Grid.Row="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition></ColumnDefinition>
@@ -240,7 +240,7 @@
                                     <materialDesign:Card Grid.Row="0" Width="400" Height="50" Margin="5"
                                                          materialDesign:ElevationAssist.Elevation="Dp8"
                                                          UniformCornerRadius="20">
-                                        <TextBlock Margin="10" Text="Thiết lập chuyến bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                        <TextBlock Margin="10" Text="Thiết lập thông tin chuyến bay" FontSize="22" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
                                     </materialDesign:Card>
 
                                     <materialDesign:Card Grid.Row="1" Width="auto" Margin="25,5,25,5"
@@ -289,10 +289,10 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <DatePicker Grid.Column="0" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Margin="20 8 10 15" materialDesign:HintAssist.Hint="Ngày cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                                <materialDesign:TimePicker FontSize="15" Grid.Column="1" materialDesign:HintAssist.Hint="Giờ cất cánh" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
-                                                <DatePicker Grid.Column="2" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Margin="10 8 10 15" materialDesign:HintAssist.Hint="Ngày hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                                <materialDesign:TimePicker FontSize="15" Grid.Column="3" materialDesign:HintAssist.Hint="Giờ hạ cách" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
+                                                <DatePicker Grid.Column="0" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=dd-mm-yyyy}" Margin="20 8 10 15" materialDesign:HintAssist.Hint="Ngày cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <materialDesign:TimePicker FontSize="15" Grid.Column="1" SelectedTime="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=hh:mm:ss}" materialDesign:HintAssist.Hint="Giờ cất cánh" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
+                                                <DatePicker Grid.Column="2" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_End, UpdateSourceTrigger=PropertyChanged, StringFormat=dd-mm-yyyy}" Margin="10 8 10 15" materialDesign:HintAssist.Hint="Ngày hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <materialDesign:TimePicker FontSize="15" Grid.Column="3" SelectedTime="{Binding Time_End, UpdateSourceTrigger=PropertyChanged, StringFormat=hh:mm:ss}" materialDesign:HintAssist.Hint="Giờ hạ cách" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
                                                 <TextBox Grid.Column="4" FontSize="15" Text="{Binding Total_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 20 15" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                             </Grid>
                                         </Grid>
@@ -328,10 +328,10 @@
                                                 <GridViewColumn DisplayMemberBinding="{Binding Airport1.Name_Airport}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Nơi kết thúc"></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Time_Start, StringFormat='dd/MM/yyyy'}">
+                                                <GridViewColumn DisplayMemberBinding="{Binding Time_Start}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian cất cánh"></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Time_End, StringFormat='dd/MM/yyyy'}">
+                                                <GridViewColumn DisplayMemberBinding="{Binding Time_End}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian hạ cánh"></GridViewColumnHeader>
                                                 </GridViewColumn>
                                                 <GridViewColumn DisplayMemberBinding="{Binding Total_Seat}">
@@ -973,7 +973,7 @@
                                         <RowDefinition></RowDefinition>
                                         <RowDefinition></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập tài khoản" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Row="0" Margin="10,10,10,0" Text="Thiết lập thông tin tài khoản" FontSize="20" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
                                     <Grid Grid.Row="1">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition></ColumnDefinition>

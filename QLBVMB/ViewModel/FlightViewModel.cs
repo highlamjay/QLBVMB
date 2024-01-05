@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace QLBVMB.ViewModel
@@ -159,8 +160,10 @@ namespace QLBVMB.ViewModel
                     SelectedPlane = FlightSelectedItem.Plane;
                     SelectedAirport = FlightSelectedItem.Airport;
                     SelectedAirport1 = FlightSelectedItem.Airport1;
+
                     Time_Start = FlightSelectedItem.Time_Start;
                     Time_End = FlightSelectedItem.Time_End;
+
                     Total_Seat = FlightSelectedItem.Total_Seat;
                 }
             }
@@ -169,11 +172,11 @@ namespace QLBVMB.ViewModel
         private string _Id_Flight;
         public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
 
-        private DateTime? _Time_Start;
-        public DateTime? Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
+        private DateTime _Time_Start;
+        public DateTime Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
 
-        private DateTime? _Time_End;
-        public DateTime? Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
+        private DateTime _Time_End;
+        public DateTime Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
 
         private string _Id_Plane;
         public string Id_Plane { get => _Id_Plane; set { _Id_Plane = value; OnPropertyChanged(); } }

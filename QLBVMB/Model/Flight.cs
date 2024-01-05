@@ -25,11 +25,11 @@ namespace QLBVMB.Model
         private string _Id_Flight;
         public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
 
-        private Nullable<System.DateTime> _Time_Start;
-        public Nullable<System.DateTime> Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
+        private DateTime _Time_Start;
+        public DateTime Time_Start { get => _Time_Start; set { _Time_Start = value; OnPropertyChanged(); } }
 
-        private Nullable<System.DateTime> _Time_End;
-        public Nullable<System.DateTime> Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
+        private DateTime _Time_End;
+        public DateTime Time_End { get => _Time_End; set { _Time_End = value; OnPropertyChanged(); } }
 
         private string _Id_Plane;
         public string Id_Plane { get => _Id_Plane; set { _Id_Plane = value; OnPropertyChanged(); } }
