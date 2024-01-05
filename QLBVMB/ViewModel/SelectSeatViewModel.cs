@@ -33,6 +33,7 @@ namespace QLBVMB.ViewModel
                 foreach (var item in ticket)
                 {
                     Ticket ticketitem = new Ticket();
+                    ticketitem.Id_Ticket = item.Id_Ticket;
                     ticketitem.Id_Seat = item.Id_Seat;
                     ticketitem.Type_Ticket = item.Type_Ticket;
                     ticketitem.Price = item.Price;
