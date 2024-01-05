@@ -286,10 +286,14 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <DatePicker Grid.Column="0" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Margin="20 5 10 8" materialDesign:HintAssist.Hint="Thời gian cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                                <DatePicker Grid.Column="1" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Margin="10 5 10 8" materialDesign:HintAssist.Hint="Thời gian hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-                                                <TextBox Grid.Column="2" FontSize="15" Text="{Binding Total_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 20 10" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                <DatePicker Grid.Column="0" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_Start}" Margin="20 8 10 15" materialDesign:HintAssist.Hint="Ngày cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <materialDesign:TimePicker FontSize="15" Grid.Column="1" materialDesign:HintAssist.Hint="Giờ cất cánh" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
+                                                <DatePicker Grid.Column="2" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_End}" Margin="10 8 10 15" materialDesign:HintAssist.Hint="Ngày hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <materialDesign:TimePicker FontSize="15" Grid.Column="3" materialDesign:HintAssist.Hint="Giờ hạ cách" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
+                                                <TextBox Grid.Column="4" FontSize="15" Text="{Binding Total_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 20 15" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                             </Grid>
                                         </Grid>
                                     </materialDesign:Card>
@@ -699,8 +703,20 @@
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBox Grid.Column="0" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-                                                        <TextBox Grid.Column="1" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 5 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                                                        <TextBox Grid.Column="0" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseDown" >
+                                                                    <i:InvokeCommandAction Command="{Binding TextBoxIDPlane_Click}" />
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </TextBox>
+                                                        <TextBox Grid.Column="1" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="5 10 5 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                                                            <i:Interaction.Triggers>
+                                                                <i:EventTrigger EventName="MouseDown" >
+                                                                    <i:InvokeCommandAction Command="{Binding TextBoxIDSeat_Click}" />
+                                                                </i:EventTrigger>
+                                                            </i:Interaction.Triggers>
+                                                        </TextBox>
                                                         <ComboBox Grid.Column="2" Margin="5 10 10 10" DisplayMemberPath="Type_CB" ItemsSource="{Binding Checked_BaggageList}" SelectedItem="{Binding SelectedCB, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Loại hành lý" IsEditable="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}"></ComboBox>
 
                                                         <!--<TextBox Grid.Column="0" Text="{Binding Id_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Ghế ngồi" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />

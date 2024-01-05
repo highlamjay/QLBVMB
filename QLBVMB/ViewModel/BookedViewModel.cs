@@ -35,6 +35,7 @@ namespace QLBVMB.ViewModel
         private ObservableCollection<Airport> _AirportList;
         public ObservableCollection<Airport> AirportList { get { return _AirportList; } set { _AirportList = value; OnPropertyChanged(); } }
 
+
         public BookedViewModel()
         {
             BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds);
@@ -43,6 +44,7 @@ namespace QLBVMB.ViewModel
             AccountList = new ObservableCollection<Account>(DataProvider.Ins.DB.Accounts);
             CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers);
             AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports);
+
             var displayListBooked = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Booked == Id_Booked);
             var displayListTicket = DataProvider.Ins.DB.Bookeds.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket);
 
@@ -85,8 +87,72 @@ namespace QLBVMB.ViewModel
 
                 BookedList.Remove(BookedSelectedItem);
             });
+
             ComboBoxIDKhackHang_Click = new RelayCommand<object>((p) => { return true; }, (p) => { CustomerList = new ObservableCollection<Customer>(DataProvider.Ins.DB.Customers); });
             TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoaded) { BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds); IsLoaded = true; } });
+            ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports); });
+
+            TextBoxIDPlane_Click = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                if (p == null)
+                {
+                    return;
+                }
+
+                p.Hide();
+
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+
+                if (loginWindow.DataContext == null)
+                {
+                    return;
+                }
+
+                var loginVM = loginWindow.DataContext as LoginViewModel;
+
+                if (loginVM.IsLogin == true)
+                {
+                    p.Show();
+                }
+                else
+                {
+                    p.Close();
+                }
+
+            }
+            );
+
+            TextBoxIDSeat_Click = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                if (p == null)
+                {
+                    return;
+                }
+
+                p.Hide();
+
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+
+                if (loginWindow.DataContext == null)
+                {
+                    return;
+                }
+
+                var loginVM = loginWindow.DataContext as LoginViewModel;
+
+                if (loginVM.IsLogin == true)
+                {
+                    p.Show();
+                }
+                else
+                {
+                    p.Close();
+                }
+
+            }
+            );
         }
 
         private Booked _BookedSelectedItem;
@@ -217,5 +283,8 @@ namespace QLBVMB.ViewModel
         public ICommand DeleteBookedCommand { get; set; }
         public ICommand ComboBoxIDKhackHang_Click {  get; set; }
         public ICommand TabItemClick {  get; set; }
+        public ICommand ComboBoxClick { get; set; }
+        public ICommand TextBoxIDPlane_Click { get; set; }
+        public ICommand TextBoxIDSeat_Click { get; set; }
     }
 }
