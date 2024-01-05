@@ -12,4 +12,5 @@
     <viewmodel:BookedViewModel x:Key="BookedVM"></viewmodel:BookedViewModel>
     <viewmodel:BillViewModel x:Key="BillVM"></viewmodel:BillViewModel>
     <viewmodel:StatisticalViewModel x:Key="StatisticalVM"></viewmodel:StatisticalViewModel>
+    <viewmodel:SelectFlightViewModel x:Key="SelectFlightVM"></viewmodel:SelectFlightViewModel>
 </ResourceDictionary>

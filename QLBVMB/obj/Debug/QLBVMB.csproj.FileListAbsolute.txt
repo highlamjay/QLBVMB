@@ -70,3 +70,5 @@ C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CoreCompileInp
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.csproj.CopyComplete
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.exe
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\QLBVMB.pdb
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectFlight.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectFlight.baml

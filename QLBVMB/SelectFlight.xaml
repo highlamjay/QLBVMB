@@ -5,8 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLBVMB"
         mc:Ignorable="d"
-        Title="SelectFlight" Height="450" Width="800">
+         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+ xmlns:uc ="clr-namespace:QLBVMB.User_control"
+ xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+ 
+ TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+ TextElement.FontWeight="Regular"
+ TextElement.FontSize="13"
+ TextOptions.TextFormattingMode="Ideal"
+ TextOptions.TextRenderingMode="Auto"
+ Background="{DynamicResource MaterialDesignPaper}"
+ FontFamily="{DynamicResource MaterialDesignFont}"
+ 
+ ResizeMode="NoResize"
+ WindowStyle="None"
+ WindowStartupLocation="CenterScreen"
+ 
+ Name="selectFlight"
+ DataContext="{StaticResource SelectFlightVM}"
+ Title="Chọn chuyến bay" Height="650" Width="1132">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedSelectCommand}" 
+                               CommandParameter="{Binding ElementName=selectFlight}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
+        </Grid>
+        <materialDesign:Card Grid.Row="1" Margin="20,10,20,20" VerticalAlignment="Stretch"
+                     materialDesign:ElevationAssist.Elevation="Dp16"
+                     UniformCornerRadius="20">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
+                <ListView Margin="10,10,10,10" ItemsSource="{Binding FlightList}" SelectedItem="{Binding FlightSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                  FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Plane.Brand}">
+                                <GridViewColumnHeader Padding="8" Width="auto" Content="Hãng máy bay"></GridViewColumnHeader>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Flight.Id_Flight}">
+                                <GridViewColumnHeader Padding="8" Width="auto" Content="Mã chuyến bay"></GridViewColumnHeader>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Airport.Name_Airport}">
+                                <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian khởi hành"></GridViewColumnHeader>
+                            </GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Airport1.Name_Airport}">
+                                <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian hạ cánh"></GridViewColumnHeader>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </materialDesign:Card>
+        <materialDesign:Card Width="430" Height="60"
+                     Grid.Row="2"
+                     materialDesign:ElevationAssist.Elevation="Dp8"
+                     UniformCornerRadius="25">
+            <WrapPanel>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding SelectFlightCommand}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15,0,15,15" Command="{Binding ExitCommand}" Content="Thoát" Margin="8,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+            </WrapPanel>
+        </materialDesign:Card>
     </Grid>
 </Window>
