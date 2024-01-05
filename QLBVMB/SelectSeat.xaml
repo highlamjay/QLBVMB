@@ -6,68 +6,79 @@
         xmlns:local="clr-namespace:QLBVMB"
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-         xmlns:uc ="clr-namespace:QLBVMB.User_control"
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:uc ="clr-namespace:QLBVMB.User_control"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
  
-         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-         TextElement.FontWeight="Regular"
-         TextElement.FontSize="13"
-         TextOptions.TextFormattingMode="Ideal"
-         TextOptions.TextRenderingMode="Auto"
-         Background="{DynamicResource MaterialDesignPaper}"
-         FontFamily="{DynamicResource MaterialDesignFont}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
  
-         ResizeMode="NoResize"
-         WindowStyle="None"
-         WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
  
-         Name="selectSeat"
-         DataContext="{StaticResource SelectSeatVM}"
-        Title="Chọn chuyến bay" Height="535" Width="686">
+        Name="selectSeat"
+        DataContext="{StaticResource SelectSeatVM}"
+        Title="Chọn chuyến bay" Height="535" Width="524">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedSelectCommand}" 
                                CommandParameter="{Binding ElementName=selectSeat}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-        </Grid.RowDefinitions>
-
-        <materialDesign:Card Grid.Row="0" Margin="20,10,20,20" VerticalAlignment="Stretch"
+    <materialDesign:Card UniformCornerRadius="50">
+        <materialDesign:Card.Background>
+            <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
+                <GradientStop Color="#FFFFF3DE" Offset="0" />
+                <GradientStop Color="Orange" Offset="1" />
+            </LinearGradientBrush>
+        </materialDesign:Card.Background>
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Foreground="Black" Margin="10,10,10,0" Text="Chọn vé chuyến bay" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+            <materialDesign:Card Grid.Row="1" Margin="20,10,20,20" VerticalAlignment="Stretch"
                      materialDesign:ElevationAssist.Elevation="Dp16"
                      UniformCornerRadius="20">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
-                <ListView Margin="10,10,10,10" ItemsSource="{Binding SeatListFull}" SelectedItem="{Binding SeatSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
+                    <ListView Margin="10,10,10,10" ItemsSource="{Binding SeatListFull}" SelectedItem="{Binding SeatSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
                   FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn DisplayMemberBinding="{Binding Id_Seat}">
-                                <GridViewColumnHeader Padding="8" Width="auto" Content="Ghế ngồi"></GridViewColumnHeader>
-                            </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Type_Ticket}">
-                                <GridViewColumnHeader Padding="8" Width="auto" Content="Loại vé"></GridViewColumnHeader>
-                            </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Price}">
-                                <GridViewColumnHeader Padding="8" Width="auto" Content="Giá tiền"></GridViewColumnHeader>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </ScrollViewer>
-        </materialDesign:Card>
-        <materialDesign:Card Width="300" Height="60"
-                     Grid.Row="1"
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Id_Seat}">
+                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Ghế ngồi"></GridViewColumnHeader>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Type_Ticket}">
+                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Loại vé"></GridViewColumnHeader>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Price}">
+                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Giá tiền"></GridViewColumnHeader>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+            <materialDesign:Card Width="300" Height="60"
+                     Grid.Row="2"
                      Margin="10,0,10,20"
                      materialDesign:ElevationAssist.Elevation="Dp8"
                      UniformCornerRadius="25"
                      HorizontalContentAlignment="Center">
-            <WrapPanel>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectSeatCommand}" CommandParameter= "{Binding ElementName=selectSeat}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectSeat}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
-            </WrapPanel>
-        </materialDesign:Card>
-    </Grid>
+                <WrapPanel>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectSeatCommand}" CommandParameter= "{Binding ElementName=selectSeat}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectSeat}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+        </Grid>
+    </materialDesign:Card>
 </Window>

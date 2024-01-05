@@ -31,54 +31,62 @@
                                CommandParameter="{Binding ElementName=selectFlight}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <Grid.Background>
+    <materialDesign:Card UniformCornerRadius="50">
+        <materialDesign:Card.Background>
             <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
                 <GradientStop Color="#FFFFF3DE" Offset="0" />
                 <GradientStop Color="Orange" Offset="1" />
             </LinearGradientBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <TextBlock Foreground="Black" Margin="10,10,10,0" Text="Chọn chuyến bay" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
-        <materialDesign:Card Grid.Row="1" Margin="20,10,20,10" VerticalAlignment="Stretch"
-                     materialDesign:ElevationAssist.Elevation="Dp16"
-                     UniformCornerRadius="20">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
-                <ListView Margin="10,10,10,10" ItemsSource="{Binding FlightListFull}" SelectedItem="{Binding FlightSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
-                  FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn DisplayMemberBinding="{Binding Plane.Brand}">
-                                <GridViewColumnHeader Padding="8" Width="auto" Content="Hãng máy bay"></GridViewColumnHeader>
-                            </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Id_Flight}">
-                                <GridViewColumnHeader Padding="8" Width="auto" Content="Mã chuyến bay"></GridViewColumnHeader>
-                            </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Time_Start, Mode=OneWay, StringFormat='hh:mm:ss'}">
-                                <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian khởi hành"></GridViewColumnHeader>
-                            </GridViewColumn>
-                            <GridViewColumn DisplayMemberBinding="{Binding Time_End, Mode=OneWay, StringFormat='hh:mm:ss'}">
-                                <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian hạ cánh"></GridViewColumnHeader>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </ScrollViewer>
-        </materialDesign:Card>
-        <materialDesign:Card Width="300" Height="60"
-                     Grid.Row="2"
-                     Margin="10,0,10,10"
-                     materialDesign:ElevationAssist.Elevation="Dp8"
-                     UniformCornerRadius="25"
-                     HorizontalContentAlignment="Center">
-            <WrapPanel>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectFlightCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
-                <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
-            </WrapPanel>
-        </materialDesign:Card>
-    </Grid>
+        </materialDesign:Card.Background>
+        <Grid>
+            <!--<Grid.Background>
+                <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
+                    <GradientStop Color="#FFFFF3DE" Offset="0" />
+                    <GradientStop Color="Orange" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Foreground="Black" Margin="10,10,10,0" Text="Chọn chuyến bay" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+            <materialDesign:Card Grid.Row="1" Margin="20,10,20,10" VerticalAlignment="Stretch"
+                         materialDesign:ElevationAssist.Elevation="Dp16"
+                         UniformCornerRadius="20">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
+                    <ListView Margin="10,10,10,10" ItemsSource="{Binding FlightListFull}" SelectedItem="{Binding FlightSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                      FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Plane.Brand}">
+                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Hãng máy bay"></GridViewColumnHeader>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Id_Flight}">
+                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Mã chuyến bay"></GridViewColumnHeader>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Time_Start, Mode=OneWay, StringFormat='hh:mm:ss'}">
+                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian khởi hành"></GridViewColumnHeader>
+                                </GridViewColumn>
+                                <GridViewColumn DisplayMemberBinding="{Binding Time_End, Mode=OneWay, StringFormat='hh:mm:ss'}">
+                                    <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian hạ cánh"></GridViewColumnHeader>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+            <materialDesign:Card Width="300" Height="60"
+                         Grid.Row="2"
+                         Margin="10,0,10,10"
+                         materialDesign:ElevationAssist.Elevation="Dp8"
+                         UniformCornerRadius="25"
+                         HorizontalContentAlignment="Center">
+                <WrapPanel>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectFlightCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectFlight}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+        </Grid>
+    </materialDesign:Card>
 </Window>
