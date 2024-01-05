@@ -127,6 +127,9 @@
     <Compile Include="Model\Ticket.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SelectCustomer.xaml.cs">
+      <DependentUpon>SelectCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectFlight.xaml.cs">
       <DependentUpon>SelectFlight.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\AirportViewModel.cs" />
+    <Compile Include="ViewModel\SelectCustomerViewModel.cs" />
     <Compile Include="ViewModel\SelectFlightViewModel.cs" />
     <Compile Include="ViewModel\SelectSeatViewModel.cs" />
     <Compile Include="ViewModel\StatisticalViewModel.cs" />
@@ -168,6 +172,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

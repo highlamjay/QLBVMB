@@ -1,0 +1,118 @@
+﻿<Window x:Class="QLBVMB.SelectCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLBVMB"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:uc ="clr-namespace:QLBVMB.User_control"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+ 
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+ 
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+ 
+        Name="selectCustomer"
+        DataContext="{StaticResource SelectCustomerVM}"
+        Title="Chọn khách hàng" Height="535" Width="900">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedSelectCommand}" 
+                               CommandParameter="{Binding ElementName=selectCustomer}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <materialDesign:Card UniformCornerRadius="50">
+        <materialDesign:Card.Background>
+            <LinearGradientBrush EndPoint="0.8,0.7" StartPoint="0,0.5">
+                <GradientStop Color="#FFFFF3DE" Offset="0" />
+                <GradientStop Color="Orange" Offset="1" />
+            </LinearGradientBrush>
+        </materialDesign:Card.Background>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Foreground="Black" Margin="10,10,10,0" Text="Chọn khách hàng" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" />
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+                <materialDesign:Card Margin="15,5,15,5"
+                          materialDesign:ElevationAssist.Elevation="Dp16"
+                          UniformCornerRadius="25"
+                          Width="500">
+                    <WrapPanel>
+                        <TextBox x:Name="FindCustomerBox"
+                      Text="{Binding TextToFilter}"
+                      Margin="5" Width="490"
+                      materialDesign:HintAssist.Hint="Tìm kiếm số điện thoại"
+                      materialDesign:HintAssist.FloatingScale="0.9"
+                      materialDesign:TextFieldAssist.TextFieldCornerRadius="20"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
+                      materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                      materialDesign:TextFieldAssist.LeadingIcon="Search"
+                      Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="15"
+                      TextChanged="txtFilter_TextChanged">
+                        </TextBox>
+                    </WrapPanel>
+                </materialDesign:Card>
+            </StackPanel>
+            <materialDesign:Card Grid.Row="2" Margin="20,10,20,20" VerticalAlignment="Stretch"
+                     materialDesign:ElevationAssist.Elevation="Dp16"
+                     UniformCornerRadius="20">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Width="auto">
+                    <ListView x:Name="LvCustomer" Margin="10,10,10,10" ItemsSource="{Binding CustomerListFull}" SelectedItem="{Binding CustomerSelectedItem, Mode=OneWayToSource}" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                  FontSize="16" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="150" DisplayMemberBinding="{Binding Id_Customer}">
+                                    <GridViewColumnHeader Padding="0" Width="auto" Content="Mã khách hàng" HorizontalContentAlignment="Center"/>
+                                </GridViewColumn>
+                                <GridViewColumn Width="150" DisplayMemberBinding="{Binding Name}">
+                                    <GridViewColumnHeader Padding="0" Width="auto" Content="Tên khách hàng" HorizontalContentAlignment="Center"/>
+                                </GridViewColumn>
+                                <GridViewColumn Width="70" DisplayMemberBinding="{Binding Age}">
+                                    <GridViewColumnHeader Padding="0" Width="auto" Content="Tuổi" HorizontalContentAlignment="Center"/>
+                                </GridViewColumn>
+                                <GridViewColumn Width="80" DisplayMemberBinding="{Binding Sex}">
+                                    <GridViewColumnHeader Padding="0" Width="auto" Content="Giới tính" HorizontalContentAlignment="Center"/>
+                                </GridViewColumn>
+                                <GridViewColumn Width="150" DisplayMemberBinding="{Binding Email}">
+                                    <GridViewColumnHeader Padding="0" Width="auto" Content="Email" HorizontalContentAlignment="Center"/>
+                                </GridViewColumn>
+                                <GridViewColumn Width="150" DisplayMemberBinding="{Binding Tel}">
+                                    <GridViewColumnHeader Padding="0" Width="auto" Content="Số điện thoại" HorizontalContentAlignment="Center"/>
+                                </GridViewColumn>
+                                <GridViewColumn Width="150" DisplayMemberBinding="{Binding Locate1.Name_Locate}">
+                                    <GridViewColumnHeader Padding="0" Width="auto" Content="Địa chỉ" HorizontalContentAlignment="Center"/>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+            <materialDesign:Card Width="300" Height="60"
+                     Grid.Row="3"
+                     Margin="10,0,10,20"
+                     materialDesign:ElevationAssist.Elevation="Dp8"
+                     UniformCornerRadius="25"
+                     HorizontalContentAlignment="Center">
+                <WrapPanel>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding SelectCustomerCommand}" CommandParameter= "{Binding ElementName=selectCustomer}" Content="Chọn" Margin="16,8,8,5" Width="120" Height="40" FontSize="18"></Button>
+                    <Button materialDesign:ElevationAssist.Elevation="Dp6" materialDesign:ButtonAssist.CornerRadius="15" Command="{Binding ExitCommand}" CommandParameter= "{Binding ElementName=selectCustomer}" Content="Thoát" Margin="8,8,16,5" Width="120" Height="40" FontSize="18"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+        </Grid>
+    </materialDesign:Card>
+</Window>

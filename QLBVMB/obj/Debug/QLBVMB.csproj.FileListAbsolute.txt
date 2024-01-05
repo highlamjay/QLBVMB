@@ -78,3 +78,5 @@ D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectSeat.g.cs
 D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectSeat.baml
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\SelectSeat.g.cs
 C:\Users\PC\Documents\Do an\QLBVMB\QLBVMB\obj\Debug\SelectSeat.baml
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectCustomer.g.cs
+D:\QLBVMB\QLBVMB\QLBVMB\obj\Debug\SelectCustomer.baml
