@@ -703,10 +703,11 @@
                                                             <ColumnDefinition></ColumnDefinition>
                                                             <ColumnDefinition></ColumnDefinition>
                                                         </Grid.ColumnDefinitions>
-                                                        <TextBox Grid.Column="0" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                                                        <TextBox x:Name="tbIDFlight" Grid.Column="0" Text="{Binding Id_Flight, UpdateSourceTrigger=PropertyChanged}" Margin="10 10 5 10" materialDesign:HintAssist.Hint="Mã chuyến bay" Style="{StaticResource MaterialDesignFloatingHintTextBox}" IsReadOnly="True">
                                                             <i:Interaction.Triggers>
-                                                                <i:EventTrigger EventName="MouseLeftButtonDown" >
-                                                                    <i:InvokeCommandAction Command="{Binding TextBoxIDFlight_Click}" />
+                                                                <i:EventTrigger EventName="PreviewMouseDown" >
+                                                                    <i:InvokeCommandAction Command="{Binding TextBoxIDFlight_Click}"
+                                                                                           CommandParameter="{Binding ElementName=tbIDFlight}"/>
                                                                 </i:EventTrigger>
                                                             </i:Interaction.Triggers>
                                                         </TextBox>

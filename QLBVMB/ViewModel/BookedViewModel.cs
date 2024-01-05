@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -52,7 +53,7 @@ namespace QLBVMB.ViewModel
 
             AddBookedCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedCustomer == null)
+                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || DateFlight == null || SelectedCustomer == null)
                     return false;
                 if (displayListBooked == null || displayListBooked.Count() != 0)
                     return false;
@@ -61,7 +62,7 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                var Booked = new Booked() { Id_Booked = Id_Booked, Date = Date, Id_Ticket = SelectedTicket.Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Account = AccountLogin, Id_Flight = Id_Flight };
+                var Booked = new Booked() { Id_Booked = Id_Booked, Date = DateFlight, Id_Ticket = SelectedTicket.Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Account = AccountLogin, Id_Flight = Id_Flight };
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket).SingleOrDefault();
                 ticket.Status = "Booked";
 
@@ -72,7 +73,7 @@ namespace QLBVMB.ViewModel
             DeleteBookedCommand = new RelayCommand<object>((p) =>
             {
                 if (AccountLogin.Position != "Quản lý") return false;
-                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || Date == null || SelectedCustomer == null)
+                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || DateFlight == null || SelectedCustomer == null)
                     return false;
                 if (BookedSelectedItem == null || Id_Booked != BookedSelectedItem.Id_Booked)
                     return false;
@@ -94,7 +95,20 @@ namespace QLBVMB.ViewModel
             TabItemClick = new RelayCommand<object>((p) => { return true; }, (p) => { if (!IsLoaded) { BookedList = new ObservableCollection<Booked>(DataProvider.Ins.DB.Bookeds); IsLoaded = true; } });
             ComboBoxClick = new RelayCommand<object>((p) => { return true; }, (p) => { AirportList = new ObservableCollection<Airport>(DataProvider.Ins.DB.Airports); });
 
-            TextBoxIDFlight_Click = new RelayCommand<Window>((p) => { return true; }, (p) => { OpenSelect(p); });
+            TextBoxIDFlight_Click = new RelayCommand<TextBox>((p) => 
+                {
+                    return true;
+                }, (p) => 
+                {
+                    if (SelectedAirport == null || SelectedAirport1 == null || DateFlight == null)
+                    {
+                        MessageBox.Show("Chưa chọn nơi khởi hành, nơi cất cách hoặc ngày bay");
+                        return;
+                    }
+                    MessageBox.Show("OK");
+                    OpenSelect(p); 
+                }
+            );
 
             TextBoxIDSeat_Click = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
@@ -128,7 +142,7 @@ namespace QLBVMB.ViewModel
             );
         }
 
-        void OpenSelect(Window p)
+        void OpenSelect(TextBox p)
         {
             IsSelectLoaded = true;
         }
@@ -147,7 +161,7 @@ namespace QLBVMB.ViewModel
                     SelectedTicket = BookedSelectedItem.Ticket;
                     SelectedCB = BookedSelectedItem.Checked_Baggage;
                     Id_Seat = BookedSelectedItem.Ticket.Id_Seat;
-                    Date = BookedSelectedItem.Date;
+                    DateFlight = BookedSelectedItem.Date;
                     SelectedCustomer = BookedSelectedItem.Customer;
                     Name = BookedSelectedItem.Customer.Name;
                     Age = BookedSelectedItem.Customer.Age;
@@ -225,8 +239,8 @@ namespace QLBVMB.ViewModel
         private string _Id_Booked;
         public string Id_Booked { get => _Id_Booked; set { _Id_Booked = value; OnPropertyChanged(); } }
 
-        private Nullable<System.DateTime> _Date;
-        public Nullable<System.DateTime> Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
+        private Nullable<System.DateTime> _DateFlight;
+        public Nullable<System.DateTime> DateFlight { get => _DateFlight; set { _DateFlight = value; OnPropertyChanged(); } }
 
         private string _Id_Flight;
         public string Id_Flight { get => _Id_Flight; set { _Id_Flight = value; OnPropertyChanged(); } }
