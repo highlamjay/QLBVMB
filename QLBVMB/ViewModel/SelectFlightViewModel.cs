@@ -27,7 +27,7 @@ namespace QLBVMB.ViewModel
         {
             LoadedSelectCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
-                FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
+                
             }
             );
         }
