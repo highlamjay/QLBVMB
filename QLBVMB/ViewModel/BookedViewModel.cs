@@ -18,6 +18,8 @@ namespace QLBVMB.ViewModel
 {
     public class BookedViewModel : BaseViewModel
     {
+        Random random = new Random();
+
         public bool IsSelectLoaded = false;
 
         private ObservableCollection<Booked> _BookedList;
@@ -55,7 +57,7 @@ namespace QLBVMB.ViewModel
 
             AddBookedCommand = new RelayCommand<object>((p) =>
             {
-                if (string.IsNullOrEmpty(Id_Booked) || SelectedTicket == null || DateFlight == null || SelectedCustomer == null)
+                if (Id_Seat == null || DateFlight == null || Id_Flight == null)
                     return false;
                 if (displayListBooked == null || displayListBooked.Count() != 0)
                     return false;
@@ -64,7 +66,17 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                var Booked = new Booked() { Id_Booked = Id_Booked, Date = DateFlight, Id_Ticket = SelectedTicket.Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Account = AccountLogin, Id_Flight = Id_Flight };
+                Id_Booked = random.Next(0,1000000).ToString();
+                var book = DataProvider.Ins.DB.Bookeds;
+                foreach (var item in book)
+                {
+                    if (item.Id_Booked == Id_Booked)
+                    {
+                        Id_Booked = random.Next(0, 1000000).ToString();
+                        return;
+                    }
+                }
+                var Booked = new Booked() { Id_Booked = Id_Booked, Date = DateFlight, Id_Ticket = Id_Ticket, Id_Customer = SelectedCustomer.Id_Customer, Id_CB = SelectedCB.Id_CB, Account = AccountLogin, Id_Flight = Id_Flight };
                 var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Ticket == SelectedTicket.Id_Ticket).SingleOrDefault();
                 ticket.Status = "Booked";
 
@@ -171,8 +183,9 @@ namespace QLBVMB.ViewModel
                 OnPropertyChanged();
                 if (BookedSelectedItem != null)
                 {
-                    Id_Booked = BookedSelectedItem.Id_Booked;
-                    SelectedTicket = BookedSelectedItem.Ticket;
+                    SelectedAirport = BookedSelectedItem.Flight.Airport;
+                    SelectedAirport1 = BookedSelectedItem.Flight.Airport;
+                    Id_Flight = BookedSelectedItem.Id_Flight;
                     SelectedCB = BookedSelectedItem.Checked_Baggage;
                     Id_Seat = BookedSelectedItem.Ticket.Id_Seat;
                     DateFlight = BookedSelectedItem.Date;

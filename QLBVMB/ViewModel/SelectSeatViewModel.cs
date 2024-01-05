@@ -29,7 +29,7 @@ namespace QLBVMB.ViewModel
             LoadedSelectCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 SeatListFull = new ObservableCollection<Ticket>();
-                var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Flight == Id_Flight);
+                var ticket = DataProvider.Ins.DB.Tickets.Where(x => x.Id_Flight == Id_Flight && x.Status == "Remained");
                 foreach (var item in ticket)
                 {
                     Ticket ticketitem = new Ticket();
