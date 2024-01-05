@@ -28,6 +28,8 @@ namespace QLBVMB.ViewModel
             PlaneList = new ObservableCollection<Plane>(DataProvider.Ins.DB.Planes);
 
             var displayListFlight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == Id_Flight);
+            Time_Start = DateTime.Now;
+            Time_End = DateTime.Now;
 
             AddFlightCommand = new RelayCommand<object>((p) =>
             {

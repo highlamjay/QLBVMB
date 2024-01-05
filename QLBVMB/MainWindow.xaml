@@ -289,9 +289,11 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
-                                                <DatePicker Grid.Column="0" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=dd-mm-yyyy}" Margin="20 8 10 15" materialDesign:HintAssist.Hint="Ngày cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <DatePicker Grid.Column="0" FontSize="15" SelectedDateFormat="Short" VerticalAlignment="Center" SelectedDate="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=d/M/yyyy}" Margin="20 8 10 15" materialDesign:HintAssist.Hint="Ngày cất cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}">
+                                                    
+                                                </DatePicker>
                                                 <materialDesign:TimePicker FontSize="15" Grid.Column="1" SelectedTime="{Binding Time_Start, UpdateSourceTrigger=PropertyChanged, StringFormat=hh:mm:ss}" materialDesign:HintAssist.Hint="Giờ cất cánh" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
-                                                <DatePicker Grid.Column="2" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_End, UpdateSourceTrigger=PropertyChanged, StringFormat=dd-mm-yyyy}" Margin="10 8 10 15" materialDesign:HintAssist.Hint="Ngày hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                                <DatePicker Grid.Column="2" FontSize="15" VerticalAlignment="Center" SelectedDate="{Binding Time_End, UpdateSourceTrigger=PropertyChanged, StringFormat=d/M/yyyy}" Margin="10 8 10 15" materialDesign:HintAssist.Hint="Ngày hạ cánh" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                                                 <materialDesign:TimePicker FontSize="15" Grid.Column="3" SelectedTime="{Binding Time_End, UpdateSourceTrigger=PropertyChanged, StringFormat=hh:mm:ss}" materialDesign:HintAssist.Hint="Giờ hạ cách" Margin="10 0 10 0" HorizontalContentAlignment="Left" />
                                                 <TextBox Grid.Column="4" FontSize="15" Text="{Binding Total_Seat, UpdateSourceTrigger=PropertyChanged}" Margin="10 5 20 15" materialDesign:HintAssist.Hint="Số lượng ghế" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                                             </Grid>
@@ -328,10 +330,10 @@
                                                 <GridViewColumn DisplayMemberBinding="{Binding Airport1.Name_Airport}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Nơi kết thúc"></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Time_Start}">
+                                                <GridViewColumn DisplayMemberBinding="{Binding Time_Start, StringFormat='d/M/yyyy hh:mm:ss'}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian cất cánh"></GridViewColumnHeader>
                                                 </GridViewColumn>
-                                                <GridViewColumn DisplayMemberBinding="{Binding Time_End}">
+                                                <GridViewColumn DisplayMemberBinding="{Binding Time_End, StringFormat='d/M/yyyy hh:mm:ss'}">
                                                     <GridViewColumnHeader Padding="8" Width="auto" Content="Thời gian hạ cánh"></GridViewColumnHeader>
                                                 </GridViewColumn>
                                                 <GridViewColumn DisplayMemberBinding="{Binding Total_Seat}">
