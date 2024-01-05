@@ -64,7 +64,7 @@ namespace QLBVMB.ViewModel
                 if (SelectedCustomer == null || SelectedCustomer.Id_Customer == null)
                 {
                     if (Name == null || Sex == null || Age == null || SelectedLocate == null || Email == null || Tel == null 
-                    || Name == "" || Sex == "" || SelectedLocate.ToString() == "" || Email == "" || Tel == "" || Age.ToString() == "")
+                    || Name == "" || Sex == "" || Email == "" || Tel == "" || Age.ToString() == "")
                         return false;
                     else return true;
                 }
@@ -73,32 +73,34 @@ namespace QLBVMB.ViewModel
                 return true;
             }, (p) =>
             {
-                //if (SelectedCustomer == null || SelectedCustomer.Id_Customer == null)
-                //{
-                //    Customer customer = new Customer();
-                //    var customerList = DataProvider.Ins.DB.Customers;
-                //    while (true)
-                //    {
-                //        bool test = true;
-                //        customer.Id_Customer = random.Next(0, 1000000).ToString();
-                //        foreach (var item in customerList)
-                //        {
-                //            if (item.Id_Customer == customer.Id_Customer)
-                //            {
-                //                test = false;
-                //                break;
-                //            }
-                //        }
-                //        if (test)
-                //            break;
-                //    }
-                //    customer.Name = Name;
-                //    customer.Sex = Sex;
-                //    customer.Age = Age;
-                //    customer.Email = Email;
-                //    customer.Tel = Tel;
-                //    customerList.Add(customer);
-                //}
+                if (Id_Customer == null)
+                {
+                    Customer customer = new Customer();
+                    var customerList = DataProvider.Ins.DB.Customers;
+                    while (true)
+                    {
+                        bool test = true;
+                        customer.Id_Customer = random.Next(0, 1000000).ToString();
+                        foreach (var item in customerList)
+                        {
+                            if (item.Id_Customer == customer.Id_Customer)
+                            {
+                                test = false;
+                                break;
+                            }
+                        }
+                        if (test)
+                            break;
+                    }
+                    Id_Customer = customer.Id_Customer;
+                    customer.Name = Name;
+                    customer.Sex = Sex;
+                    customer.Age = Age;
+                    customer.Locate = SelectedLocate.Id_Locate;
+                    customer.Email = Email;
+                    customer.Tel = Tel;
+                    customerList.Add(customer);
+                }
                 var book = DataProvider.Ins.DB.Bookeds;
                 while (true)
                 {
@@ -118,7 +120,7 @@ namespace QLBVMB.ViewModel
                 var Booked = new Booked() 
                 { 
                     Id_Booked = Id_Booked, 
-                    Id_Customer = SelectedCustomer.Id_Customer,
+                    Id_Customer = Id_Customer,
                     Id_Ticket = Id_Ticket,
                     Id_CB = SelectedCB.Id_CB,
                     Date = DateTime.Now,
