@@ -14,6 +14,9 @@ namespace QLBVMB.ViewModel
 {
     public class SelectFlightViewModel : BaseViewModel
     {
+        private string _Id_Airport;
+        public string Id_Airport { get => _Id_Airport; set { _Id_Airport = value; OnPropertyChanged(); } }
+
         private string _Airport_Take_Off;
         public string Airport_Take_Off { get => _Airport_Take_Off; set { _Airport_Take_Off = value; OnPropertyChanged(); } }
 
