@@ -42,7 +42,7 @@ namespace QLBVMB.ViewModel
                 var Flight = new Flight()
                 {
                     Id_Flight = Id_Flight,
-                    Id_Plane = Id_Plane,
+                    Id_Plane = SelectedPlane.Id_Plane,
                     Airport_Take_Off = SelectedAirport.Id_Airport,
                     Airport_Landing = SelectedAirport1.Id_Airport,
                     Time_Start = Time_Start,
@@ -71,13 +71,14 @@ namespace QLBVMB.ViewModel
             {
                 var Flight = DataProvider.Ins.DB.Flights.Where(x => x.Id_Flight == FlightSelectedItem.Id_Flight).SingleOrDefault();
                 Flight.Id_Flight = Id_Flight;
-                Flight.Id_Plane = Id_Plane;
+                Flight.Id_Plane = SelectedPlane.Id_Plane;
                 Flight.Airport_Take_Off = SelectedAirport.Id_Airport;
                 Flight.Airport_Landing = SelectedAirport1.Id_Airport;
                 Flight.Time_Start = Time_Start;
                 Flight.Time_End = Time_End;
                 Flight.Total_Seat = Total_Seat;
-                DataProvider.Ins.DB.SaveChanges();              
+                DataProvider.Ins.DB.SaveChanges();
+                FlightList = new ObservableCollection<Flight>(DataProvider.Ins.DB.Flights);
             });
 
             DeleteFlightCommand = new RelayCommand<object>((p) =>
@@ -160,10 +161,8 @@ namespace QLBVMB.ViewModel
                     SelectedPlane = FlightSelectedItem.Plane;
                     SelectedAirport = FlightSelectedItem.Airport;
                     SelectedAirport1 = FlightSelectedItem.Airport1;
-
                     Time_Start = FlightSelectedItem.Time_Start;
                     Time_End = FlightSelectedItem.Time_End;
-
                     Total_Seat = FlightSelectedItem.Total_Seat;
                 }
             }
